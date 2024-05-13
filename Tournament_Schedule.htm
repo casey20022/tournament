@@ -9,6 +9,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <meta name=ProgId content=Excel.Sheet>
 <meta name=Generator content="Microsoft Excel 15">
 <link rel=File-List href="Tournament_Schedule_files/filelist.xml">
+<title>Jr High Tournament</title>
 <![if !supportTabStrip]>
 <link id="shLink" href="Tournament_Schedule_files/sheet001.htm">
 <link id="shLink" href="Tournament_Schedule_files/sheet002.htm">
@@ -24,10 +25,10 @@ xmlns="http://www.w3.org/TR/REC-html40">
 
  var c_rgszSh=new Array(c_lTabs);
  c_rgszSh[0] = "Menu";
- c_rgszSh[1] = "7thÂ Boys";
- c_rgszSh[2] = "8thÂ Boys";
- c_rgszSh[3] = "7thÂ Girls";
- c_rgszSh[4] = "8thÂ Girls";
+ c_rgszSh[1] = "7th Boys";
+ c_rgszSh[2] = "8th Boys";
+ c_rgszSh[3] = "7th Girls";
+ c_rgszSh[4] = "8th Girls";
 
 
 
@@ -57,7 +58,7 @@ function fnGetIEVer()
 function fnBuildFrameset()
 {
  var szHTML="<frameset rows=\"*,18\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\""+document.all.item("shLink")[0].href+"\" name=\"frSheet\" noresize>"+
+  "<frame src=\""+document.all.item("shLink")[1].href+"\" name=\"frSheet\" noresize>"+
   "<frameset cols=\"54,*\" border=0 width=0 frameborder=no framespacing=0>"+
   "<frame src=\"\" name=\"frScroll\" marginwidth=0 marginheight=0 scrolling=no>"+
   "<frame src=\"\" name=\"frTabs\" marginwidth=0 marginheight=0 scrolling=no>"+
@@ -330,6 +331,7 @@ function fnSetActiveSheet(iSh)
   <x:WindowWidth>23256</x:WindowWidth>
   <x:WindowTopX>32767</x:WindowTopX>
   <x:WindowTopY>32767</x:WindowTopY>
+  <x:ActiveSheet>1</x:ActiveSheet>
   <x:ProtectStructure>False</x:ProtectStructure>
   <x:ProtectWindows>False</x:ProtectWindows>
  </x:ExcelWorkbook>
@@ -337,7 +339,7 @@ function fnSetActiveSheet(iSh)
 </head>
 
 <frameset rows="*,39" border=0 width=0 frameborder=no framespacing=0>
- <frame src="Tournament_Schedule_files/sheet001.htm" name="frSheet">
+ <frame src="Tournament_Schedule_files/sheet002.htm" name="frSheet">
  <frame src="Tournament_Schedule_files/tabstrip.htm" name="frTabs" marginwidth=0 marginheight=0>
  <noframes>
   <body>
