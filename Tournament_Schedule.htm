@@ -12,16 +12,22 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <![if !supportTabStrip]>
 <link id="shLink" href="Tournament_Schedule_files/sheet001.htm">
 <link id="shLink" href="Tournament_Schedule_files/sheet002.htm">
+<link id="shLink" href="Tournament_Schedule_files/sheet003.htm">
+<link id="shLink" href="Tournament_Schedule_files/sheet004.htm">
+<link id="shLink" href="Tournament_Schedule_files/sheet005.htm">
 
 <link id="shLink">
 
 <script language="JavaScript">
 <!--
- var c_lTabs=2;
+ var c_lTabs=5;
 
  var c_rgszSh=new Array(c_lTabs);
- c_rgszSh[0] = "Sheet1";
- c_rgszSh[1] = "Sheet2";
+ c_rgszSh[0] = "Menu";
+ c_rgszSh[1] = "7th Boys";
+ c_rgszSh[2] = "8th Boys";
+ c_rgszSh[3] = "7th Girls";
+ c_rgszSh[4] = "8th Girls";
 
 
 
@@ -299,12 +305,24 @@ function fnSetActiveSheet(iSh)
  <x:ExcelWorkbook>
   <x:ExcelWorksheets>
    <x:ExcelWorksheet>
-    <x:Name>Sheet1</x:Name>
+    <x:Name>Menu</x:Name>
     <x:WorksheetSource HRef="Tournament_Schedule_files/sheet001.htm"/>
    </x:ExcelWorksheet>
    <x:ExcelWorksheet>
-    <x:Name>Sheet2</x:Name>
+    <x:Name>7th Boys</x:Name>
     <x:WorksheetSource HRef="Tournament_Schedule_files/sheet002.htm"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>8th Boys</x:Name>
+    <x:WorksheetSource HRef="Tournament_Schedule_files/sheet003.htm"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>7th Girls</x:Name>
+    <x:WorksheetSource HRef="Tournament_Schedule_files/sheet004.htm"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>8th Girls</x:Name>
+    <x:WorksheetSource HRef="Tournament_Schedule_files/sheet005.htm"/>
    </x:ExcelWorksheet>
   </x:ExcelWorksheets>
   <x:Stylesheet HRef="Tournament_Schedule_files/stylesheet.css"/>
