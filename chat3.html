@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Priest Camp 2025 Packing List</title>
-  <style>
-    body {
+	<meta charset="UTF-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<title>Priest Camp 2025 Packing List</title>
+	<style type="text/css">body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding-top: 0;
@@ -108,58 +107,31 @@
         margin: 0;
       }
     }
-  </style>
+	</style>
 </head>
 <body>
+<div class="navbar">
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-  <div class="navbar">
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-    <div class="logo">Priest Camp 2025</div>
-  </div>
+<div class="logo" style="text-align: right;">Priest Camp 2025</div>
 
-  <div id="dropdownMenu" class="dropdown">
-    <a href="https://templatelab.com/permission-slip/" target="_blank" rel="noopener noreferrer">Permission Slip</a>
-    <a href="https://utah.gov" target="_blank" rel="noopener noreferrer">Utah.gov</a>
-  </div>
+<p>&nbsp;</p>
+</div>
 
-  <div class="container">
-    <h1>Packing List</h1>
+<div class="dropdown" id="dropdownMenu"><a href="https://templatelab.com/permission-slip/" rel="noopener noreferrer" target="_blank">Permission Slip</a> <a href="https://utah.gov" rel="noopener noreferrer" target="_blank">Utah.gov</a></div>
 
-    <div class="section-title">Shelter</div>
-    <label><input type="checkbox" id="tent" /> Tent</label>
-    <label><input type="checkbox" id="tarp" /> Ground cloth/tarp</label>
-    <label><input type="checkbox" id="stakes" /> Extra stakes</label>
-    <label><input type="checkbox" id="shade" /> Shade tarp/poles/rope/stakes</label>
-    <label><input type="checkbox" id="axe" /> Axe or hammer</label>
-    <label><input type="checkbox" id="mat" /> Mat for tent entrance</label>
-    <label><input type="checkbox" id="dustpan" /> Dust pan/brush</label>
+<div class="container">
+<h1>Packing List</h1>
 
-    <div class="section-title">Bedding</div>
-    <label><input type="checkbox" id="sleepingbag" /> Sleeping bag</label>
-    <label><input type="checkbox" id="blankets" /> Sheets/blankets</label>
-    <label><input type="checkbox" id="pillow" /> Pillow</label>
-    <label><input type="checkbox" id="mattress" /> Air mattress/sleeping pad/cot/tarp</label>
-    <label><input type="checkbox" id="pump" /> Air pump</label>
-    <label><input type="checkbox" id="repairkit" /> Repair kit for air mattress</label>
-    <label><input type="checkbox" id="bags" /> Utility bags for storage</label>
+<div class="section-title">Shelter</div>
+<label><input id="tent" type="checkbox" /> Tent</label> <label><input id="tarp" type="checkbox" /> Ground cloth/tarp</label> <label><input id="stakes" type="checkbox" /> Extra stakes</label> <label><input id="shade" type="checkbox" /> Shade tarp/poles/rope/stakes</label> <label><input id="axe" type="checkbox" /> Axe or hammer</label> <label><input id="mat" type="checkbox" /> Mat for tent entrance</label> <label><input id="dustpan" type="checkbox" /> Dust pan/brush</label>
 
-    <div class="section-title">Clothes</div>
-    <label><input type="checkbox" id="shoes" /> Shoes/boots</label>
-    <label><input type="checkbox" id="jeans" /> Jeans/pants/belt</label>
-    <label><input type="checkbox" id="shorts" /> Shorts</label>
-    <label><input type="checkbox" id="tshirts" /> T-shirts</label>
-    <label><input type="checkbox" id="socks" /> Socks/extra socks</label>
-    <label><input type="checkbox" id="hat" /> Hat</label>
-    <label><input type="checkbox" id="bandana" /> Bandana</label>
-    <label><input type="checkbox" id="jacket" /> Sweatshirt/jacket</label>
-    <label><input type="checkbox" id="underwear" /> Underwear</label>
-    <label><input type="checkbox" id="sleepclothes" /> Sleep clothes</label>
-    <label><input type="checkbox" id="raingear" /> Rain gear</label>
-    <label><input type="checkbox" id="swimsuit" /> Swim suit/towel</label>
-    <label><input type="checkbox" id="laundry" /> Laundry bag</label>
-  </div>
+<div class="section-title">Bedding</div>
+<label><input id="sleepingbag" type="checkbox" /> Sleeping bag</label> <label><input id="blankets" type="checkbox" /> Sheets/blankets</label> <label><input id="pillow" type="checkbox" /> Pillow</label> <label><input id="mattress" type="checkbox" /> Air mattress/sleeping pad/cot/tarp</label> <label><input id="pump" type="checkbox" /> Air pump</label> <label><input id="repairkit" type="checkbox" /> Repair kit for air mattress</label> <label><input id="bags" type="checkbox" /> Utility bags for storage</label>
 
-  <script>
+<div class="section-title">Clothes</div>
+<label><input id="shoes" type="checkbox" /> Shoes/boots</label> <label><input id="jeans" type="checkbox" /> Jeans/pants/belt</label> <label><input id="shorts" type="checkbox" /> Shorts</label> <label><input id="tshirts" type="checkbox" /> T-shirts</label> <label><input id="socks" type="checkbox" /> Socks/extra socks</label> <label><input id="hat" type="checkbox" /> Hat</label> <label><input id="bandana" type="checkbox" /> Bandana</label> <label><input id="jacket" type="checkbox" /> Sweatshirt/jacket</label> <label><input id="underwear" type="checkbox" /> Underwear</label> <label><input id="sleepclothes" type="checkbox" /> Sleep clothes</label> <label><input id="raingear" type="checkbox" /> Rain gear</label> <label><input id="swimsuit" type="checkbox" /> Swim suit/towel</label> <label><input id="laundry" type="checkbox" /> Laundry bag</label></div>
+<script>
     function toggleMenu() {
       const menu = document.getElementById("dropdownMenu");
       menu.style.display = menu.style.display === "block" ? "none" : "block";
@@ -183,7 +155,5 @@
         });
       }
     });
-  </script>
-
-</body>
+  </script></body>
 </html>
