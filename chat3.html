@@ -28,15 +28,6 @@
       padding-bottom: 0.3rem;
     }
 
-    ul {
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
     .container {
       max-width: 800px;
       margin: auto;
@@ -45,6 +36,18 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+
+    label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.3);
+    }
   </style>
 </head>
 <body>
@@ -52,104 +55,94 @@
     <h1>Priest Camp 2025 Packing List</h1>
 
     <h2>Shelter</h2>
-    <ul>
-      <li>Tent</li>
-      <li>Ground cloth/tarp</li>
-      <li>Extra stakes</li>
-      <li>Shade tarp/poles/rope/stakes</li>
-      <li>Axe or hammer</li>
-      <li>Mat for tent entrance</li>
-      <li>Dust pan/brush</li>
-    </ul>
+    <label><input type="checkbox" /> Tent</label>
+    <label><input type="checkbox" /> Ground cloth/tarp</label>
+    <label><input type="checkbox" /> Extra stakes</label>
+    <label><input type="checkbox" /> Shade tarp/poles/rope/stakes</label>
+    <label><input type="checkbox" /> Axe or hammer</label>
+    <label><input type="checkbox" /> Mat for tent entrance</label>
+    <label><input type="checkbox" /> Dust pan/brush</label>
 
     <h2>Bedding</h2>
-    <ul>
-      <li>Sleeping bag</li>
-      <li>Sheets/blankets</li>
-      <li>Pillow</li>
-      <li>Air mattress/sleeping pad/cot/tarp</li>
-      <li>Air pump</li>
-      <li>Repair kit for air mattress</li>
-      <li>Utility bags for storage</li>
-    </ul>
+    <label><input type="checkbox" /> Sleeping bag</label>
+    <label><input type="checkbox" /> Sheets/blankets</label>
+    <label><input type="checkbox" /> Pillow</label>
+    <label><input type="checkbox" /> Air mattress/sleeping pad/cot/tarp</label>
+    <label><input type="checkbox" /> Air pump</label>
+    <label><input type="checkbox" /> Repair kit for air mattress</label>
+    <label><input type="checkbox" /> Utility bags for storage</label>
 
     <h2>Cooking</h2>
-    <ul>
-      <li>Large water jug & water bucket</li>
-      <li>Coolers/ice</li>
-      <li>Thermos</li>
-      <li>Stove with fuel/propane</li>
-      <li>Matches/lighter</li>
-      <li>Charcoal/firewood/buddy burner</li>
-      <li>Dutch oven/tin can stove/box oven/etc</li>
-      <li>Campfire grill/BBQ grill</li>
-      <li>Fire starters/newspaper</li>
-      <li>Tablecloth/thumb tacks/clips</li>
-      <li>Plates & bowls/paper plates & bowls</li>
-      <li>Silverware/plastic silverware</li>
-      <li>Measuring cups</li>
-      <li>Heavy-duty aluminum foil</li>
-      <li>Paper towels</li>
-      <li>Trash bags</li>
-      <li>Dish soap</li>
-      <li>Clothes pins</li>
-      <li>Cooking oil/Pam spray</li>
-      <li>Containers for food storage</li>
-      <li>Potholders/oven mitts</li>
-      <li>Pots and frying pans with lids</li>
-      <li>Soap for outside of pots and pans</li>
-      <li>Cook utensils: spatula, knife, spoon</li>
-      <li>Tongs</li>
-      <li>Skewers/grill forks</li>
-      <li>Can opener/bottle opener</li>
-      <li>Folding table</li>
-      <li>Dutch oven</li>
-      <li>Pie irons</li>
-      <li>Mugs/paper cups</li>
-      <li>Mixing bowl</li>
-      <li>Cutting board</li>
-      <li>Ziplock bags</li>
-      <li>Napkins</li>
-      <li>Dish pan</li>
-      <li>Dish rags/towels</li>
-      <li>Scrub pad/brillo</li>
-      <li>Seasonings/sugar/condiments</li>
-      <li>Potato peeler</li>
-    </ul>
+    <label><input type="checkbox" /> Large water jug & water bucket</label>
+    <label><input type="checkbox" /> Coolers/ice</label>
+    <label><input type="checkbox" /> Thermos</label>
+    <label><input type="checkbox" /> Stove with fuel/propane</label>
+    <label><input type="checkbox" /> Matches/lighter</label>
+    <label><input type="checkbox" /> Charcoal/firewood/buddy burner</label>
+    <label><input type="checkbox" /> Dutch oven/tin can stove/box oven/etc</label>
+    <label><input type="checkbox" /> Campfire grill/BBQ grill</label>
+    <label><input type="checkbox" /> Fire starters/newspaper</label>
+    <label><input type="checkbox" /> Tablecloth/thumb tacks/clips</label>
+    <label><input type="checkbox" /> Plates & bowls/paper plates & bowls</label>
+    <label><input type="checkbox" /> Silverware/plastic silverware</label>
+    <label><input type="checkbox" /> Measuring cups</label>
+    <label><input type="checkbox" /> Heavy-duty aluminum foil</label>
+    <label><input type="checkbox" /> Paper towels</label>
+    <label><input type="checkbox" /> Trash bags</label>
+    <label><input type="checkbox" /> Dish soap</label>
+    <label><input type="checkbox" /> Clothes pins</label>
+    <label><input type="checkbox" /> Cooking oil/Pam spray</label>
+    <label><input type="checkbox" /> Containers for food storage</label>
+    <label><input type="checkbox" /> Potholders/oven mitts</label>
+    <label><input type="checkbox" /> Pots and frying pans with lids</label>
+    <label><input type="checkbox" /> Soap for outside of pots and pans</label>
+    <label><input type="checkbox" /> Cook utensils: spatula, knife, spoon</label>
+    <label><input type="checkbox" /> Tongs</label>
+    <label><input type="checkbox" /> Skewers/grill forks</label>
+    <label><input type="checkbox" /> Can opener/bottle opener</label>
+    <label><input type="checkbox" /> Folding table</label>
+    <label><input type="checkbox" /> Dutch oven</label>
+    <label><input type="checkbox" /> Pie irons</label>
+    <label><input type="checkbox" /> Mugs/paper cups</label>
+    <label><input type="checkbox" /> Mixing bowl</label>
+    <label><input type="checkbox" /> Cutting board</label>
+    <label><input type="checkbox" /> Ziplock bags</label>
+    <label><input type="checkbox" /> Napkins</label>
+    <label><input type="checkbox" /> Dish pan</label>
+    <label><input type="checkbox" /> Dish rags/towels</label>
+    <label><input type="checkbox" /> Scrub pad/brillo</label>
+    <label><input type="checkbox" /> Seasonings/sugar/condiments</label>
+    <label><input type="checkbox" /> Potato peeler</label>
 
     <h2>Clothes</h2>
-    <ul>
-      <li>Shoes/boots</li>
-      <li>Jeans/pants/belt</li>
-      <li>Shorts</li>
-      <li>T-shirts</li>
-      <li>Socks/extra socks</li>
-      <li>Hat</li>
-      <li>Bandana</li>
-      <li>Sweatshirt/jacket</li>
-      <li>Underwear</li>
-      <li>Sleep clothes</li>
-      <li>Rain gear</li>
-      <li>Swim suit/towel</li>
-      <li>Laundry bag</li>
-    </ul>
+    <label><input type="checkbox" /> Shoes/boots</label>
+    <label><input type="checkbox" /> Jeans/pants/belt</label>
+    <label><input type="checkbox" /> Shorts</label>
+    <label><input type="checkbox" /> T-shirts</label>
+    <label><input type="checkbox" /> Socks/extra socks</label>
+    <label><input type="checkbox" /> Hat</label>
+    <label><input type="checkbox" /> Bandana</label>
+    <label><input type="checkbox" /> Sweatshirt/jacket</label>
+    <label><input type="checkbox" /> Underwear</label>
+    <label><input type="checkbox" /> Sleep clothes</label>
+    <label><input type="checkbox" /> Rain gear</label>
+    <label><input type="checkbox" /> Swim suit/towel</label>
+    <label><input type="checkbox" /> Laundry bag</label>
 
     <h2>Personal</h2>
-    <ul>
-      <li>Shower shoes/flip flops</li>
-      <li>Towels/washcloth</li>
-      <li>Soap in plastic case/shampoo</li>
-      <li>Toothbrush/toothpaste</li>
-      <li>Deodorant</li>
-      <li>Comb/brush</li>
-      <li>Razor</li>
-      <li>Feminine products</li>
-      <li>Toilet paper</li>
-      <li>Shower bag or 5 gallon bucket</li>
-      <li>Camping shower/shower pump</li>
-      <li>Other personal items</li>
-      <li>Personal medications – take extra</li>
-    </ul>
+    <label><input type="checkbox" /> Shower shoes/flip flops</label>
+    <label><input type="checkbox" /> Towels/washcloth</label>
+    <label><input type="checkbox" /> Soap in plastic case/shampoo</label>
+    <label><input type="checkbox" /> Toothbrush/toothpaste</label>
+    <label><input type="checkbox" /> Deodorant</label>
+    <label><input type="checkbox" /> Comb/brush</label>
+    <label><input type="checkbox" /> Razor</label>
+    <label><input type="checkbox" /> Feminine products</label>
+    <label><input type="checkbox" /> Toilet paper</label>
+    <label><input type="checkbox" /> Shower bag or 5 gallon bucket</label>
+    <label><input type="checkbox" /> Camping shower/shower pump</label>
+    <label><input type="checkbox" /> Other personal items</label>
+    <label><input type="checkbox" /> Personal medications – take extra</label>
   </div>
 </body>
 </html>
