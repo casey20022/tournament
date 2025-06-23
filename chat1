@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utah Housing Investor Trends</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      font-size: clamp(1.2rem, 2vw, 2rem); /* Responsive font size */
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SALT LAKE CITY — Utah housing prices are apparently appealing to investors.</h1>
+
+    <p>A new ranking by Realtor.com puts Utah at No. 4 for states with the highest percentage of homes purchased by investors in 2024. Only Missouri, Oklahoma and Kansas beat Utah's 18% share of investor buyers.</p>
+
+    <p>Missouri topped the list with a 21.2% share, a 0.3% increase from 2023, followed by Oklahoma at 18.7%, up 0.2%, and Kansas at 18.4%, up 1%. Utah's 18% share is a 0.3% increase from 2023.</p>
+
+    <p>Rounding out the Top 10 were Georgia, Montana, Mississippi, Wyoming, Indiana and Alabama.</p>
+
+    <p>"The thing that almost all of these states have in common is relatively low prices," Martin Orefice, CEO of Rent To Own Labs, told Realtor.com in a Monday posting about where investors are "snapping up" properties.</p>
+
+    <p>"That means that investors can get good deals on existing properties, especially residential ones," Orefice said. "With homeownership being harder and harder to achieve, more people are being forced to rent to make ends meet, and these investors are cashing in."</p>
+  </div>
+</body>
+</html>
