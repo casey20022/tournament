@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding-top: 80px;
+      padding-top: 0;
       font-size: clamp(1.1rem, 2.2vw, 1.6rem);
       background-color: #f4f4f4;
       color: #222;
@@ -69,7 +69,7 @@
 
     .container {
       max-width: 800px;
-      margin: auto;
+      margin: 80px auto 0 auto; /* Push content down so heading is visible */
       background: white;
       padding: 20px;
       border-radius: 10px;
@@ -105,6 +105,7 @@
       .container {
         box-shadow: none;
         border: none;
+        margin: 0;
       }
     }
   </style>
@@ -117,8 +118,8 @@
   </div>
 
   <div id="dropdownMenu" class="dropdown">
-    <a href="https://templatelab.com/permission-slip/" target="_blank">Permission Slip</a>
-    <a href="https://utah.gov" target="_blank">Utah.gov</a>
+    <a href="https://templatelab.com/permission-slip/" target="_blank" rel="noopener noreferrer">Permission Slip</a>
+    <a href="https://utah.gov" target="_blank" rel="noopener noreferrer">Utah.gov</a>
   </div>
 
   <div class="container">
@@ -164,7 +165,7 @@
       menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
-    document.addEventListener("click", function (event) {
+    document.addEventListener("click", function(event) {
       const menu = document.getElementById("dropdownMenu");
       const icon = document.querySelector(".menu-icon");
       if (!menu.contains(event.target) && !icon.contains(event.target)) {
@@ -172,13 +173,15 @@
       }
     });
 
-    // Save/load checkbox state
+    // Save and load checkbox states with localStorage
     document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
       const id = checkbox.id;
-      checkbox.checked = localStorage.getItem(id) === "true";
-      checkbox.addEventListener("change", () => {
-        localStorage.setItem(id, checkbox.checked);
-      });
+      if (id) {
+        checkbox.checked = localStorage.getItem(id) === "true";
+        checkbox.addEventListener("change", () => {
+          localStorage.setItem(id, checkbox.checked);
+        });
+      }
     });
   </script>
 
