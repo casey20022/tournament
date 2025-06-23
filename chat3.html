@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,13 +8,12 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding-top: 60px;
+      padding-top: 80px;
       font-size: clamp(1.1rem, 2.2vw, 1.6rem);
       background-color: #f4f4f4;
       color: #222;
     }
 
-    /* Header and Menu */
     .navbar {
       position: fixed;
       top: 0;
@@ -65,7 +64,7 @@
     h1 {
       text-align: center;
       font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 2rem;
+      margin: 0 0 2rem;
     }
 
     .container {
@@ -77,19 +76,10 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    details {
-      margin-bottom: 1.5rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 0.5rem 1rem;
-      background-color: #fefefe;
-    }
-
-    summary {
+    .section-title {
       font-weight: bold;
-      font-size: 1.3rem;
-      cursor: pointer;
-      outline: none;
+      margin-top: 1.5rem;
+      font-size: 1.5rem;
     }
 
     label {
@@ -102,125 +92,70 @@
       margin-right: 10px;
       transform: scale(1.3);
     }
+
+    @media print {
+      .navbar, .menu-icon, .dropdown {
+        display: none !important;
+      }
+
+      body {
+        padding-top: 0;
+      }
+
+      .container {
+        box-shadow: none;
+        border: none;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navbar with Hamburger Menu -->
   <div class="navbar">
     <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     <div class="logo">Priest Camp 2025</div>
   </div>
 
-  <!-- Dropdown Menu -->
   <div id="dropdownMenu" class="dropdown">
     <a href="https://templatelab.com/permission-slip/" target="_blank">Permission Slip</a>
     <a href="https://utah.gov" target="_blank">Utah.gov</a>
   </div>
 
-  <!-- Main Content -->
   <div class="container">
     <h1>Packing List</h1>
 
-    <details open>
-      <summary>Shelter</summary>
-      <label><input type="checkbox" /> Tent</label>
-      <label><input type="checkbox" /> Ground cloth/tarp</label>
-      <label><input type="checkbox" /> Extra stakes</label>
-      <label><input type="checkbox" /> Shade tarp/poles/rope/stakes</label>
-      <label><input type="checkbox" /> Axe or hammer</label>
-      <label><input type="checkbox" /> Mat for tent entrance</label>
-      <label><input type="checkbox" /> Dust pan/brush</label>
-    </details>
+    <div class="section-title">Shelter</div>
+    <label><input type="checkbox" id="tent" /> Tent</label>
+    <label><input type="checkbox" id="tarp" /> Ground cloth/tarp</label>
+    <label><input type="checkbox" id="stakes" /> Extra stakes</label>
+    <label><input type="checkbox" id="shade" /> Shade tarp/poles/rope/stakes</label>
+    <label><input type="checkbox" id="axe" /> Axe or hammer</label>
+    <label><input type="checkbox" id="mat" /> Mat for tent entrance</label>
+    <label><input type="checkbox" id="dustpan" /> Dust pan/brush</label>
 
-    <details>
-      <summary>Bedding</summary>
-      <label><input type="checkbox" /> Sleeping bag</label>
-      <label><input type="checkbox" /> Sheets/blankets</label>
-      <label><input type="checkbox" /> Pillow</label>
-      <label><input type="checkbox" /> Air mattress/sleeping pad/cot/tarp</label>
-      <label><input type="checkbox" /> Air pump</label>
-      <label><input type="checkbox" /> Repair kit for air mattress</label>
-      <label><input type="checkbox" /> Utility bags for storage</label>
-    </details>
+    <div class="section-title">Bedding</div>
+    <label><input type="checkbox" id="sleepingbag" /> Sleeping bag</label>
+    <label><input type="checkbox" id="blankets" /> Sheets/blankets</label>
+    <label><input type="checkbox" id="pillow" /> Pillow</label>
+    <label><input type="checkbox" id="mattress" /> Air mattress/sleeping pad/cot/tarp</label>
+    <label><input type="checkbox" id="pump" /> Air pump</label>
+    <label><input type="checkbox" id="repairkit" /> Repair kit for air mattress</label>
+    <label><input type="checkbox" id="bags" /> Utility bags for storage</label>
 
-    <details>
-      <summary>Cooking</summary>
-      <label><input type="checkbox" /> Large water jug & water bucket</label>
-      <label><input type="checkbox" /> Coolers/ice</label>
-      <label><input type="checkbox" /> Thermos</label>
-      <label><input type="checkbox" /> Stove with fuel/propane</label>
-      <label><input type="checkbox" /> Matches/lighter</label>
-      <label><input type="checkbox" /> Charcoal/firewood/buddy burner</label>
-      <label><input type="checkbox" /> Dutch oven/tin can stove/box oven/etc</label>
-      <label><input type="checkbox" /> Campfire grill/BBQ grill</label>
-      <label><input type="checkbox" /> Fire starters/newspaper</label>
-      <label><input type="checkbox" /> Tablecloth/thumb tacks/clips</label>
-      <label><input type="checkbox" /> Plates & bowls/paper plates & bowls</label>
-      <label><input type="checkbox" /> Silverware/plastic silverware</label>
-      <label><input type="checkbox" /> Measuring cups</label>
-      <label><input type="checkbox" /> Heavy-duty aluminum foil</label>
-      <label><input type="checkbox" /> Paper towels</label>
-      <label><input type="checkbox" /> Trash bags</label>
-      <label><input type="checkbox" /> Dish soap</label>
-      <label><input type="checkbox" /> Clothes pins</label>
-      <label><input type="checkbox" /> Cooking oil/Pam spray</label>
-      <label><input type="checkbox" /> Containers for food storage</label>
-      <label><input type="checkbox" /> Potholders/oven mitts</label>
-      <label><input type="checkbox" /> Pots and frying pans with lids</label>
-      <label><input type="checkbox" /> Soap for outside of pots and pans</label>
-      <label><input type="checkbox" /> Cook utensils: spatula, knife, spoon</label>
-      <label><input type="checkbox" /> Tongs</label>
-      <label><input type="checkbox" /> Skewers/grill forks</label>
-      <label><input type="checkbox" /> Can opener/bottle opener</label>
-      <label><input type="checkbox" /> Folding table</label>
-      <label><input type="checkbox" /> Dutch oven</label>
-      <label><input type="checkbox" /> Pie irons</label>
-      <label><input type="checkbox" /> Mugs/paper cups</label>
-      <label><input type="checkbox" /> Mixing bowl</label>
-      <label><input type="checkbox" /> Cutting board</label>
-      <label><input type="checkbox" /> Ziplock bags</label>
-      <label><input type="checkbox" /> Napkins</label>
-      <label><input type="checkbox" /> Dish pan</label>
-      <label><input type="checkbox" /> Dish rags/towels</label>
-      <label><input type="checkbox" /> Scrub pad/brillo</label>
-      <label><input type="checkbox" /> Seasonings/sugar/condiments</label>
-      <label><input type="checkbox" /> Potato peeler</label>
-    </details>
-
-    <details>
-      <summary>Clothes</summary>
-      <label><input type="checkbox" /> Shoes/boots</label>
-      <label><input type="checkbox" /> Jeans/pants/belt</label>
-      <label><input type="checkbox" /> Shorts</label>
-      <label><input type="checkbox" /> T-shirts</label>
-      <label><input type="checkbox" /> Socks/extra socks</label>
-      <label><input type="checkbox" /> Hat</label>
-      <label><input type="checkbox" /> Bandana</label>
-      <label><input type="checkbox" /> Sweatshirt/jacket</label>
-      <label><input type="checkbox" /> Underwear</label>
-      <label><input type="checkbox" /> Sleep clothes</label>
-      <label><input type="checkbox" /> Rain gear</label>
-      <label><input type="checkbox" /> Swim suit/towel</label>
-      <label><input type="checkbox" /> Laundry bag</label>
-    </details>
-
-    <details>
-      <summary>Personal</summary>
-      <label><input type="checkbox" /> Shower shoes/flip flops</label>
-      <label><input type="checkbox" /> Towels/washcloth</label>
-      <label><input type="checkbox" /> Soap in plastic case/shampoo</label>
-      <label><input type="checkbox" /> Toothbrush/toothpaste</label>
-      <label><input type="checkbox" /> Deodorant</label>
-      <label><input type="checkbox" /> Comb/brush</label>
-      <label><input type="checkbox" /> Razor</label>
-      <label><input type="checkbox" /> Feminine products</label>
-      <label><input type="checkbox" /> Toilet paper</label>
-      <label><input type="checkbox" /> Shower bag or 5 gallon bucket</label>
-      <label><input type="checkbox" /> Camping shower/shower pump</label>
-      <label><input type="checkbox" /> Other personal items</label>
-      <label><input type="checkbox" /> Personal medications – take extra</label>
-    </details>
+    <div class="section-title">Clothes</div>
+    <label><input type="checkbox" id="shoes" /> Shoes/boots</label>
+    <label><input type="checkbox" id="jeans" /> Jeans/pants/belt</label>
+    <label><input type="checkbox" id="shorts" /> Shorts</label>
+    <label><input type="checkbox" id="tshirts" /> T-shirts</label>
+    <label><input type="checkbox" id="socks" /> Socks/extra socks</label>
+    <label><input type="checkbox" id="hat" /> Hat</label>
+    <label><input type="checkbox" id="bandana" /> Bandana</label>
+    <label><input type="checkbox" id="jacket" /> Sweatshirt/jacket</label>
+    <label><input type="checkbox" id="underwear" /> Underwear</label>
+    <label><input type="checkbox" id="sleepclothes" /> Sleep clothes</label>
+    <label><input type="checkbox" id="raingear" /> Rain gear</label>
+    <label><input type="checkbox" id="swimsuit" /> Swim suit/towel</label>
+    <label><input type="checkbox" id="laundry" /> Laundry bag</label>
   </div>
 
   <script>
@@ -229,13 +164,21 @@
       menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
-    // Optional: Close menu if clicked outside
     document.addEventListener("click", function (event) {
       const menu = document.getElementById("dropdownMenu");
       const icon = document.querySelector(".menu-icon");
       if (!menu.contains(event.target) && !icon.contains(event.target)) {
         menu.style.display = "none";
       }
+    });
+
+    // Save/load checkbox state
+    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+      const id = checkbox.id;
+      checkbox.checked = localStorage.getItem(id) === "true";
+      checkbox.addEventListener("change", () => {
+        localStorage.setItem(id, checkbox.checked);
+      });
     });
   </script>
 
