@@ -8,34 +8,24 @@
 <style>
     body { font-family: Arial, sans-serif; margin: 10px; }
     table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 8px; text-align: center; border: 1px solid #ddd; }
-    th { background-color: #333; color: white; position: sticky; top: 0; }
-    tr:nth-child(even) { background-color: #f2f2f2; }
-    tr:nth-child(odd) { background-color: #ffffff; }
-    .legend { margin-bottom: 15px; font-size: 14px; }
-    .legend span { display: block; }
+    th { position: sticky; top: 0; background-color: #f2f2f2; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    @media (max-width: 600px) {
+        table, th, td { font-size: 12px; }
+    }
+    .legend { margin-top: 10px; font-size: 12px; text-align: center; }
 </style>
 </head>
 <body>
-<h2>Basketball Standings</h2>
-<div class="legend">
-    <strong>Legend:</strong>
-    <span># = Rank</span>
-    <span>Team = Team Name</span>
-    <span>Wins = Number of Wins</span>
-    <span>Losses = Number of Losses</span>
-    <span>WP = Winning Percentage</span>
-    <span>OWP = Opponents' Winning Percentage</span>
-    <span>OOWP = Opponents' Opponents' Winning Percentage</span>
-    <span>RPI = Rating Percentage Index (45% WP, 45% OWP, 10% OOWP)</span>
-</div>
+<h1>Basketball Standings</h1>
 <table>
 <thead>
 <tr>
 <th>#</th>
 <th>Team</th>
-<th>W</th>
-<th>L</th>
+<th>Wins</th>
+<th>Losses</th>
 <th>WP</th>
 <th>OWP</th>
 <th>OOWP</th>
@@ -46,5 +36,6 @@
 <tr><td>1</td><td>Farmington</td><td>3</td><td>0</td><td>1.000</td><td>0.444</td><td>0.741</td><td>0.724</td></tr><tr><td>2</td><td>Fairfield</td><td>2</td><td>1</td><td>0.667</td><td>0.667</td><td>0.407</td><td>0.641</td></tr><tr><td>3</td><td>Centennial</td><td>2</td><td>1</td><td>0.667</td><td>0.556</td><td>0.593</td><td>0.609</td></tr><tr><td>4</td><td>Mueller Park</td><td>3</td><td>0</td><td>1.000</td><td>0.111</td><td>0.852</td><td>0.585</td></tr><tr><td>5</td><td>Kaysville</td><td>3</td><td>0</td><td>1.000</td><td>0.111</td><td>0.778</td><td>0.578</td></tr><tr><td>6</td><td>Horizon</td><td>3</td><td>0</td><td>1.000</td><td>0.111</td><td>0.741</td><td>0.574</td></tr><tr><td>7</td><td>Sunset</td><td>2</td><td>1</td><td>0.667</td><td>0.444</td><td>0.519</td><td>0.552</td></tr><tr><td>8</td><td>Central Davis</td><td>3</td><td>0</td><td>1.000</td><td>0.000</td><td>0.815</td><td>0.531</td></tr><tr><td>9</td><td>Legacy</td><td>1</td><td>2</td><td>0.333</td><td>0.667</td><td>0.296</td><td>0.480</td></tr><tr><td>10</td><td>West Point</td><td>2</td><td>1</td><td>0.667</td><td>0.222</td><td>0.741</td><td>0.474</td></tr><tr><td>11</td><td>North Layton</td><td>0</td><td>3</td><td>0.000</td><td>1.000</td><td>0.185</td><td>0.469</td></tr><tr><td>12</td><td>Shoreline</td><td>2</td><td>1</td><td>0.667</td><td>0.222</td><td>0.630</td><td>0.463</td></tr><tr><td>13</td><td>Syracuse</td><td>1</td><td>2</td><td>0.333</td><td>0.556</td><td>0.481</td><td>0.448</td></tr><tr><td>14</td><td>North Davis</td><td>0</td><td>3</td><td>0.000</td><td>0.889</td><td>0.259</td><td>0.426</td></tr><tr><td>15</td><td>South Davis</td><td>0</td><td>3</td><td>0.000</td><td>0.889</td><td>0.148</td><td>0.415</td></tr><tr><td>16</td><td>Millcreek</td><td>0</td><td>3</td><td>0.000</td><td>0.778</td><td>0.222</td><td>0.372</td></tr><tr><td>17</td><td>Bountiful</td><td>0</td><td>3</td><td>0.000</td><td>0.667</td><td>0.296</td><td>0.330</td></tr><tr><td>18</td><td>Centerville</td><td>0</td><td>3</td><td>0.000</td><td>0.667</td><td>0.296</td><td>0.330</td></tr>
 </tbody>
 </table>
+<div class="legend">File created on: 2025-10-16</div>
 </body>
 </html>
