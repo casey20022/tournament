@@ -1,33 +1,112 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-    <meta charset='UTF-8'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opponents</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; }
-        .header { display: flex; justify-content: flex-end; align-items: center; padding: 16px 8px 8px 8px; background: #fafafa; position: sticky; top: 0; z-index: 2; border-bottom: 1px solid #ddd; }
-        .header a { text-decoration: none; color: #555; font-weight: bold; font-size: 1.1em; }
-        .container { padding: 8px; }
-        table { width: 100%; border-collapse: collapse; background: #fafafa; font-size: 0.95em; }
-        th, td { border: 1px solid #ccc; padding: 8px 4px; text-align: left; vertical-align: top; }
-        th { background: #555; color: #fafafa; position: sticky; top: 48px; z-index: 1; }
-        tr:nth-child(even) { background: #f0f0f0; }
-        tr:nth-child(odd) { background: #fafafa; }
-        ul { margin: 0; padding-left: 18px; }
-        .updated { font-size: 0.8em; color: #888; text-align: center; margin-top: 12px; }
-        @media (max-width: 600px) { th, td { font-size: 0.95em; padding: 6px 2px; } .header { padding: 12px 4px 4px 4px; } }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 0 5px;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+        .standings-link {
+            font-size: 1em;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .standings-link:hover {
+            text-decoration: underline;
+        }
+        .table-container {
+            overflow-x: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 100%;
+            background: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        th {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            color: white;
+            padding: 12px 8px;
+            font-weight: 600;
+            z-index: 10;
+            border: 1px solid #ddd;
+        }
+        td {
+            padding: 10px 8px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        .opponents-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .opponents-list li {
+            margin: 2px 0;
+            font-size: 0.9em;
+            line-height: 1.3;
+        }
+        .rank-superscript {
+            font-size: 0.7em;
+            vertical-align: super;
+            color: #666;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.8em;
+            color: #666;
+            padding: 5px;
+        }
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 1.3em;
+            }
+            th, td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+            .opponents-list li {
+                font-size: 0.8em;
+            }
+        }
     </style>
 </head>
 <body>
-    
-<div class='header' style='display: flex; justify-content: space-between; align-items: center; padding: 16px 8px 8px 8px; background: #fafafa; border-bottom: 1px solid #ddd;'>
-    <div style='font-size: 1.5em; font-weight: bold;'>Opponents</div>
-    <a href='https://casey20022.github.io/tournament/basketball_standings.html' style='text-decoration: underline; color: #555; font-weight: bold; font-size: 1.1em;'>Standings</a>
-</div>
+    <div class="header-row">
+        <div class="header-title">Opponents</div>
+        <a href="https://casey20022.github.io/tournament/basketball_standings.html" class="standings-link">Standings</a>
+    </div>
 
-    
-<div class='container'>
+    <div class="table-container">
         <table>
             <thead>
                 <tr>
@@ -37,28 +116,301 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td style='vertical-align: middle; text-align: center;'>1</td><td style='vertical-align: middle; text-align: center;'>Farmington</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;35-62</li><li>10/09&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;73-54</li><li>10/14&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;47-56</li><li>10/21&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup></li><li>10/23&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup></li><li>11/04&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>2</td><td style='vertical-align: middle; text-align: center;'>Fairfield</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;40-55</li><li>10/09&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;66-47</li><li>10/14&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;47-56</li><li>10/21&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup></li><li>10/28&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>3</td><td style='vertical-align: middle; text-align: center;'>Centennial</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;56-42</li><li>10/09&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;73-54</li><li>10/14&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;18-48</li><li>10/21&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup></li><li>10/21&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup></li><li>10/23&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>4</td><td style='vertical-align: middle; text-align: center;'>Mueller Park</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;31-65</li><li>10/09&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;59-52</li><li>10/14&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;40-42</li><li>10/21&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup></li><li>10/30&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>5</td><td style='vertical-align: middle; text-align: center;'>Kaysville</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;57-39</li><li>10/09&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;56-18</li><li>10/14&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;45-47</li><li>10/21&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>6</td><td style='vertical-align: middle; text-align: center;'>Horizon</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;42-38</li><li>10/09&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;25-66</li><li>10/14&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;63-68</li><li>10/21&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup></li><li>11/03&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup></li><li>11/04&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup></li><li>11/11&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>7</td><td style='vertical-align: middle; text-align: center;'>Sunset</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;56-42</li><li>10/09&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;51-46</li><li>10/14&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;37-50</li><li>10/21&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup></li><li>10/28&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup></li><li>11/03&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup></li><li>11/04&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>8</td><td style='vertical-align: middle; text-align: center;'>Central Davis</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;51-81</li><li>10/09&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;50-33</li><li>10/14&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;55-20</li><li>10/21&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>9</td><td style='vertical-align: middle; text-align: center;'>North Layton</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;35-62</li><li>10/09&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;59-52</li><li>10/14&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;55-20</li><li>10/21&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup></li><li>11/11&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>10</td><td style='vertical-align: middle; text-align: center;'>Legacy</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;42-38</li><li>10/09&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;75-50</li><li>10/14&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;40-42</li><li>10/23&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup></li><li>10/28&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>11</td><td style='vertical-align: middle; text-align: center;'>West Point</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;40-55</li><li>10/09&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;58-46</li><li>10/14&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;53-57</li><li>10/21&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup></li><li>10/30&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup></li><li>11/06&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>12</td><td style='vertical-align: middle; text-align: center;'>Shoreline</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;38-66</li><li>10/09&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;51-46</li><li>10/14&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;100-9</li><li>10/21&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>13</td><td style='vertical-align: middle; text-align: center;'>Syracuse</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;65-18</li><li>10/09&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;66-47</li><li>10/14&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;45-47</li><li>10/21&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup></li><li>10/30&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup></li><li>11/03&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup></li><li>11/04&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup></li><li>11/06&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>14</td><td style='vertical-align: middle; text-align: center;'>North Davis</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;31-65</li><li>10/09&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;56-18</li><li>10/14&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;18-48</li><li>10/21&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup></li><li>10/30&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup></li><li>11/06&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup></li><li>11/11&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>15</td><td style='vertical-align: middle; text-align: center;'>South Davis</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;57-39</li><li>10/09&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;58-46</li><li>10/14&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;63-68</li><li>10/21&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>16</td><td style='vertical-align: middle; text-align: center;'>Millcreek</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;38-66</li><li>10/09&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;50-33</li><li>10/14&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;37-50</li><li>10/21&nbsp;&nbsp;&nbsp;North Davis<sup style='font-size:0.7em'>14</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Fairfield<sup style='font-size:0.7em'>2</sup></li><li>10/28&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup></li><li>11/03&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>17</td><td style='vertical-align: middle; text-align: center;'>Bountiful</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;65-18</li><li>10/09&nbsp;&nbsp;&nbsp;Horizon<sup style='font-size:0.7em'>6</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;25-66</li><li>10/14&nbsp;&nbsp;&nbsp;Shoreline<sup style='font-size:0.7em'>12</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;100-9</li><li>10/21&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup></li><li>10/23&nbsp;&nbsp;&nbsp;North Layton<sup style='font-size:0.7em'>9</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Kaysville<sup style='font-size:0.7em'>5</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Centerville<sup style='font-size:0.7em'>18</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup></li><li>11/06&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup></li><li>11/11&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup></li></ul></td></tr>
-<tr><td style='vertical-align: middle; text-align: center;'>18</td><td style='vertical-align: middle; text-align: center;'>Centerville</td><td><ul><li>10/07&nbsp;&nbsp;&nbsp;Central Davis<sup style='font-size:0.7em'>8</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;51-81</li><li>10/09&nbsp;&nbsp;&nbsp;Legacy<sup style='font-size:0.7em'>10</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;75-50</li><li>10/14&nbsp;&nbsp;&nbsp;West Point<sup style='font-size:0.7em'>11</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;53-57</li><li>10/21&nbsp;&nbsp;&nbsp;Sunset<sup style='font-size:0.7em'>7</sup></li><li>10/23&nbsp;&nbsp;&nbsp;Syracuse<sup style='font-size:0.7em'>13</sup></li><li>10/28&nbsp;&nbsp;&nbsp;Centennial<sup style='font-size:0.7em'>3</sup></li><li>10/30&nbsp;&nbsp;&nbsp;Bountiful<sup style='font-size:0.7em'>17</sup></li><li>11/03&nbsp;&nbsp;&nbsp;Farmington<sup style='font-size:0.7em'>1</sup></li><li>11/04&nbsp;&nbsp;&nbsp;Mueller Park<sup style='font-size:0.7em'>4</sup></li><li>11/06&nbsp;&nbsp;&nbsp;Millcreek<sup style='font-size:0.7em'>16</sup></li><li>11/11&nbsp;&nbsp;&nbsp;South Davis<sup style='font-size:0.7em'>15</sup></li></ul></td></tr>
-
+                <tr>
+                    <td>1</td>
+                    <td>Farmington</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/07&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;45-28</li>
+                            <li>10/09&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;55-42</li>
+                            <li>10/11&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;38-25</li>
+                            <li>10/14&nbsp;&nbsp;&nbsp;North Layton<sup class="rank-superscript">11</sup></li>
+                            <li>10/18&nbsp;&nbsp;&nbsp;Sunset<sup class="rank-superscript">7</sup></li>
+                            <li>10/22&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>10/25&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;North Layton<sup class="rank-superscript">11</sup></li>
+                            <li>10/30&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Fairfield</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/08&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;41-39</li>
+                            <li>10/11&nbsp;&nbsp;&nbsp;North Layton<sup class="rank-superscript">11</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;33-50</li>
+                            <li>10/15&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>10/18&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;49-36</li>
+                            <li>10/22&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>10/25&nbsp;&nbsp;&nbsp;Sunset<sup class="rank-superscript">7</sup></li>
+                            <li>10/29&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                            <li>11/01&nbsp;&nbsp;&nbsp;Horizon<sup class="rank-superscript">6</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Centennial</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/07&nbsp;&nbsp;&nbsp;North Layton<sup class="rank-superscript">11</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;62-35</li>
+                            <li>10/10&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;28-45</li>
+                            <li>10/14&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;52-48</li>
+                            <li>10/21&nbsp;&nbsp;&nbsp;Sunset<sup class="rank-superscript">7</sup></li>
+                            <li>10/24&nbsp;&nbsp;&nbsp;Fairfield<sup class="rank-superscript">2</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Horizon<sup class="rank-superscript">6</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Mueller Park</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/07&nbsp;&nbsp;&nbsp;Sunset<sup class="rank-superscript">7</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;47-30</li>
+                            <li>10/12&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;58-44</li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup></li>
+                            <li>10/20&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;52-49</li>
+                            <li>10/21&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>10/25&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;North Layton<sup class="rank-superscript">11</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Kaysville</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/08&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;41-39</li>
+                            <li>10/11&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;25-38</li>
+                            <li>10/15&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>10/18&nbsp;&nbsp;&nbsp;Horizon<sup class="rank-superscript">6</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;53-51</li>
+                            <li>10/22&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>10/25&nbsp;&nbsp;&nbsp;Mueller Park<sup class="rank-superscript">4</sup></li>
+                            <li>10/29&nbsp;&nbsp;&nbsp;Fairfield<sup class="rank-superscript">2</sup></li>
+                            <li>11/01&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Horizon</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/09&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;55-42</li>
+                            <li>10/12&nbsp;&nbsp;&nbsp;Sunset<sup class="rank-superscript">7</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;58-44</li>
+                            <li>10/16&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>10/19&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;49-36</li>
+                            <li>10/23&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup></li>
+                            <li>10/26&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup></li>
+                            <li>10/30&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>11/02&nbsp;&nbsp;&nbsp;North Layton<sup class="rank-superscript">11</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Sunset</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/07&nbsp;&nbsp;&nbsp;Mueller Park<sup class="rank-superscript">4</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;30-47</li>
+                            <li>10/10&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup></li>
+                            <li>10/14&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;27-60</li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>10/21&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;53-51</li>
+                            <li>10/24&nbsp;&nbsp;&nbsp;Fairfield<sup class="rank-superscript">2</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup></li>
+                            <li>11/03&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Central Davis</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/08&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;39-41</li>
+                            <li>10/12&nbsp;&nbsp;&nbsp;North Layton<sup class="rank-superscript">11</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;48-35</li>
+                            <li>10/16&nbsp;&nbsp;&nbsp;Sunset<sup class="rank-superscript">7</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;55-42</li>
+                            <li>10/19&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup></li>
+                            <li>10/23&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup></li>
+                            <li>10/26&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>10/29&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>11/02&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Legacy</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/09&nbsp;&nbsp;&nbsp;Horizon<sup class="rank-superscript">6</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;42-55</li>
+                            <li>10/13&nbsp;&nbsp;&nbsp;North Layton<sup class="rank-superscript">11</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;53-46</li>
+                            <li>10/15&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup></li>
+                            <li>10/18&nbsp;&nbsp;&nbsp;Sunset<sup class="rank-superscript">7</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;46-53</li>
+                            <li>10/22&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;Mueller Park<sup class="rank-superscript">4</sup></li>
+                            <li>11/02&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>West Point</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/10&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;47-30</li>
+                            <li>10/13&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;44-58</li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup></li>
+                            <li>10/20&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;52-49</li>
+                            <li>10/24&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>11/01&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>North Layton</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/07&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;35-62</li>
+                            <li>10/11&nbsp;&nbsp;&nbsp;Fairfield<sup class="rank-superscript">2</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;50-33</li>
+                            <li>10/15&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup></li>
+                            <li>10/18&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;46-53</li>
+                            <li>10/22&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;Mueller Park<sup class="rank-superscript">4</sup></li>
+                            <li>11/02&nbsp;&nbsp;&nbsp;Horizon<sup class="rank-superscript">6</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Shoreline</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/10&nbsp;&nbsp;&nbsp;North Davis<sup class="rank-superscript">14</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;47-30</li>
+                            <li>10/13&nbsp;&nbsp;&nbsp;South Davis<sup class="rank-superscript">15</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;44-58</li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;Millcreek<sup class="rank-superscript">16</sup></li>
+                            <li>10/20&nbsp;&nbsp;&nbsp;Centerville<sup class="rank-superscript">17</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;52-49</li>
+                            <li>10/24&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>11/01&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Syracuse</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/07&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;28-45</li>
+                            <li>10/10&nbsp;&nbsp;&nbsp;West Point<sup class="rank-superscript">10</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;30-47</li>
+                            <li>10/14&nbsp;&nbsp;&nbsp;Bountiful<sup class="rank-superscript">18</sup></li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;52-48</li>
+                            <li>10/21&nbsp;&nbsp;&nbsp;Mueller Park<sup class="rank-superscript">4</sup></li>
+                            <li>10/24&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Horizon<sup class="rank-superscript">6</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;West Point<sup class="rank-superscript">10</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>North Davis</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/10&nbsp;&nbsp;&nbsp;Shoreline<sup class="rank-superscript">12</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;30-47</li>
+                            <li>10/13&nbsp;&nbsp;&nbsp;Millcreek<sup class="rank-superscript">16</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;44-58</li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;Centerville<sup class="rank-superscript">17</sup></li>
+                            <li>10/20&nbsp;&nbsp;&nbsp;South Davis<sup class="rank-superscript">15</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;49-52</li>
+                            <li>10/24&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>11/01&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>South Davis</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/10&nbsp;&nbsp;&nbsp;Centerville<sup class="rank-superscript">17</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;30-47</li>
+                            <li>10/13&nbsp;&nbsp;&nbsp;Shoreline<sup class="rank-superscript">12</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;44-58</li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;Millcreek<sup class="rank-superscript">16</sup></li>
+                            <li>10/20&nbsp;&nbsp;&nbsp;North Davis<sup class="rank-superscript">14</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;52-49</li>
+                            <li>10/24&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>11/01&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Millcreek</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/10&nbsp;&nbsp;&nbsp;South Davis<sup class="rank-superscript">15</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;30-47</li>
+                            <li>10/13&nbsp;&nbsp;&nbsp;North Davis<sup class="rank-superscript">14</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;44-58</li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;Shoreline<sup class="rank-superscript">12</sup></li>
+                            <li>10/20&nbsp;&nbsp;&nbsp;Centerville<sup class="rank-superscript">17</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;49-52</li>
+                            <li>10/24&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>11/01&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Centerville</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/10&nbsp;&nbsp;&nbsp;South Davis<sup class="rank-superscript">15</sup>&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;47-30</li>
+                            <li>10/13&nbsp;&nbsp;&nbsp;Millcreek<sup class="rank-superscript">16</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;44-58</li>
+                            <li>10/17&nbsp;&nbsp;&nbsp;North Davis<sup class="rank-superscript">14</sup></li>
+                            <li>10/20&nbsp;&nbsp;&nbsp;Shoreline<sup class="rank-superscript">12</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;49-52</li>
+                            <li>10/24&nbsp;&nbsp;&nbsp;Centennial<sup class="rank-superscript">3</sup></li>
+                            <li>10/28&nbsp;&nbsp;&nbsp;Legacy<sup class="rank-superscript">9</sup></li>
+                            <li>10/31&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup></li>
+                            <li>11/01&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Bountiful</td>
+                    <td>
+                        <ul class="opponents-list">
+                            <li>10/09&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;42-55</li>
+                            <li>10/12&nbsp;&nbsp;&nbsp;Mueller Park<sup class="rank-superscript">4</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;44-58</li>
+                            <li>10/15&nbsp;&nbsp;&nbsp;Kaysville<sup class="rank-superscript">5</sup></li>
+                            <li>10/19&nbsp;&nbsp;&nbsp;Syracuse<sup class="rank-superscript">13</sup>&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;36-49</li>
+                            <li>10/22&nbsp;&nbsp;&nbsp;Farmington<sup class="rank-superscript">1</sup></li>
+                            <li>10/26&nbsp;&nbsp;&nbsp;Central Davis<sup class="rank-superscript">8</sup></li>
+                            <li>10/29&nbsp;&nbsp;&nbsp;Horizon<sup class="rank-superscript">6</sup></li>
+                            <li>11/02&nbsp;&nbsp;&nbsp;North Layton<sup class="rank-superscript">11</sup></li>
+                        </ul>
+                    </td>
+                </tr>
             </tbody>
         </table>
-        <div class='updated'>Updated on: October 16, 2025</div>
+    </div>
+
+    <div class="footer">
+        Updated on: October, 19 2025
     </div>
 </body>
 </html>
