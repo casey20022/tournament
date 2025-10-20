@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Basketball Standings + Opponents</title>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; font-size: small; margin: 0; padding: 12px; }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; table-layout: auto; }
+        th, td { padding: 7px; text-align: left; border: 1px solid #ddd; vertical-align: middle; }
+        th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
+        tr:nth-child(even) td { background-color: #f9f9f9; }
+        .legend { font-size: smaller; padding: 8px 0; }
+        .header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .header h1 { margin: 0; font-size: 1.25rem; }
+        th:nth-child(n+3), td:nth-child(n+3) { text-align: center; }
+        .team-name { cursor: pointer; color: inherit; text-decoration: none; display: inline-block; }
+        .team-name:hover { text-decoration: underline; }
+        .opponents-row { display: none; background-color: #fafafa; }
+        .opponents-cell { padding: 10px 20px; border-top: none; }
+        ul { margin: 0; padding-left: 20px; }
+        sup.rank { font-size: 0.7em; }
+        /* small screen improvements */
+        @media (max-width: 600px) {
+            th, td { padding: 6px 5px; font-size: 0.9rem; }
+            .opponents-cell { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Basketball Standings</h1>
+        <div><a href="#legend">Legend</a></div>
+    </div>
+
+    <div class="table-container" role="region" aria-label="Basketball standings and opponents">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Team</th>
+                    <th>W</th>
+                    <th>L</th>
+                    <th>WP</th>
+                    <th>OWP</th>
+                    <th>OOWP</th>
+                    <th>RPI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 1 Farmington -->
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Farmington')">Farmington</a>
+                    </td>
+                    <td>3</td><td>0</td><td>1.000</td><td>0.444</td><td>0.741</td><td>0.724</td>
+                </tr>
+                <tr id="opp-Farmington" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;North Layton<sup class="rank">11</sup>&nbsp;&nbsp;W&nbsp;35-62</li>
+                            <li>10/09&nbsp;&nbsp;Centennial<sup class="rank">3</sup>&nbsp;&nbsp;W&nbsp;73-54</li>
+                            <li>10/14&nbsp;&nbsp;Fairfield<sup class="rank">2</sup>&nbsp;&nbsp;W&nbsp;47-56</li>
+                            <li>10/21&nbsp;&nbsp;Horizon<sup class="rank">6</sup></li>
+                            <li>10/23&nbsp;&nbsp;North Davis<sup class="rank">14</sup></li>
+                            <li>10/28&nbsp;&nbsp;Shoreline<sup class="rank">12</sup></li>
+                            <li>10/30&nbsp;&nbsp;Millcreek<sup class="rank">16</sup></li>
+                            <li>11/03&nbsp;&nbsp;Centerville<sup class="rank">17</sup></li>
+                            <li>11/04&nbsp;&nbsp;South Davis<sup class="rank">15</sup></li>
+                            <li>11/06&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup></li>
+                            <li>11/11&nbsp;&nbsp;Bountiful<sup class="rank">18</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 2 Fairfield -->
+                <tr>
+                    <td>2</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Fairfield')">Fairfield</a></td>
+                    <td>2</td><td>1</td><td>0.667</td><td>0.667</td><td>0.407</td><td>0.641</td>
+                </tr>
+                <tr id="opp-Fairfield" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;West Point<sup class="rank">10</sup>&nbsp;&nbsp;W&nbsp;40-55</li>
+                            <li>10/09&nbsp;&nbsp;Syracuse<sup class="rank">13</sup>&nbsp;&nbsp;W&nbsp;66-47</li>
+                            <li>10/14&nbsp;&nbsp;Farmington<sup class="rank">1</sup>&nbsp;&nbsp;L&nbsp;47-56</li>
+                            <li>10/21&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup></li>
+                            <li>10/23&nbsp;&nbsp;Millcreek<sup class="rank">16</sup></li>
+                            <li>10/28&nbsp;&nbsp;North Layton<sup class="rank">11</sup></li>
+                            <li>10/30&nbsp;&nbsp;Shoreline<sup class="rank">12</sup></li>
+                            <li>11/03&nbsp;&nbsp;Central Davis<sup class="rank">8</sup></li>
+                            <li>11/04&nbsp;&nbsp;Kaysville<sup class="rank">5</sup></li>
+                            <li>11/06&nbsp;&nbsp;Centennial<sup class="rank">3</sup></li>
+                            <li>11/11&nbsp;&nbsp;Legacy<sup class="rank">9</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 3 Centennial -->
+                <tr>
+                    <td>3</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Centennial')">Centennial</a></td>
+                    <td>2</td><td>1</td><td>0.667</td><td>0.556</td><td>0.593</td><td>0.609</td>
+                </tr>
+                <tr id="opp-Centennial" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Sunset<sup class="rank">7</sup>&nbsp;&nbsp;W&nbsp;56-42</li>
+                            <li>10/09&nbsp;&nbsp;Farmington<sup class="rank">1</sup>&nbsp;&nbsp;L&nbsp;73-54</li>
+                            <li>10/14&nbsp;&nbsp;North Davis<sup class="rank">14</sup>&nbsp;&nbsp;W&nbsp;18-48</li>
+                            <li>10/21&nbsp;&nbsp;Syracuse<sup class="rank">13</sup></li>
+                            <li>10/23&nbsp;&nbsp;South Davis<sup class="rank">15</sup></li>
+                            <li>10/28&nbsp;&nbsp;Centerville<sup class="rank">17</sup></li>
+                            <li>10/30&nbsp;&nbsp;Central Davis<sup class="rank">8</sup></li>
+                            <li>11/03&nbsp;&nbsp;Legacy<sup class="rank">9</sup></li>
+                            <li>11/04&nbsp;&nbsp;Shoreline<sup class="rank">12</sup></li>
+                            <li>11/06&nbsp;&nbsp;Fairfield<sup class="rank">2</sup></li>
+                            <li>11/11&nbsp;&nbsp;Kaysville<sup class="rank">5</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 4 Mueller Park -->
+                <tr>
+                    <td>4</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-MuellerPark')">Mueller Park</a></td>
+                    <td>3</td><td>0</td><td>1.000</td><td>0.111</td><td>0.852</td><td>0.585</td>
+                </tr>
+                <tr id="opp-MuellerPark" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;North Davis<sup class="rank">14</sup>&nbsp;&nbsp;W&nbsp;31-65</li>
+                            <li>10/09&nbsp;&nbsp;North Layton<sup class="rank">11</sup>&nbsp;&nbsp;W&nbsp;59-52</li>
+                            <li>10/14&nbsp;&nbsp;Legacy<sup class="rank">9</sup>&nbsp;&nbsp;W&nbsp;40-42</li>
+                            <li>10/21&nbsp;&nbsp;Fairfield<sup class="rank">2</sup></li>
+                            <li>10/23&nbsp;&nbsp;Kaysville<sup class="rank">5</sup></li>
+                            <li>10/28&nbsp;&nbsp;Syracuse<sup class="rank">13</sup></li>
+                            <li>10/30&nbsp;&nbsp;South Davis<sup class="rank">15</sup></li>
+                            <li>11/03&nbsp;&nbsp;Bountiful<sup class="rank">18</sup></li>
+                            <li>11/04&nbsp;&nbsp;Centerville<sup class="rank">17</sup></li>
+                            <li>11/06&nbsp;&nbsp;Farmington<sup class="rank">1</sup></li>
+                            <li>11/11&nbsp;&nbsp;Millcreek<sup class="rank">16</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 5 Kaysville -->
+                <tr>
+                    <td>5</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Kaysville')">Kaysville</a></td>
+                    <td>3</td><td>0</td><td>1.000</td><td>0.111</td><td>0.778</td><td>0.578</td>
+                </tr>
+                <tr id="opp-Kaysville" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;South Davis<sup class="rank">15</sup>&nbsp;&nbsp;W&nbsp;57-39</li>
+                            <li>10/09&nbsp;&nbsp;North Davis<sup class="rank">14</sup>&nbsp;&nbsp;W&nbsp;56-18</li>
+                            <li>10/14&nbsp;&nbsp;Syracuse<sup class="rank">13</sup>&nbsp;&nbsp;W&nbsp;45-47</li>
+                            <li>10/21&nbsp;&nbsp;North Layton<sup class="rank">11</sup></li>
+                            <li>10/23&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup></li>
+                            <li>10/28&nbsp;&nbsp;Bountiful<sup class="rank">18</sup></li>
+                            <li>10/30&nbsp;&nbsp;Legacy<sup class="rank">9</sup></li>
+                            <li>11/03&nbsp;&nbsp;Shoreline<sup class="rank">12</sup></li>
+                            <li>11/04&nbsp;&nbsp;Fairfield<sup class="rank">2</sup></li>
+                            <li>11/06&nbsp;&nbsp;Central Davis<sup class="rank">8</sup></li>
+                            <li>11/11&nbsp;&nbsp;Centennial<sup class="rank">3</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 6 Horizon -->
+                <tr>
+                    <td>6</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Horizon')">Horizon</a></td>
+                    <td>3</td><td>0</td><td>1.000</td><td>0.111</td><td>0.741</td><td>0.574</td>
+                </tr>
+                <tr id="opp-Horizon" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Legacy<sup class="rank">9</sup>&nbsp;&nbsp;W&nbsp;42-38</li>
+                            <li>10/09&nbsp;&nbsp;Bountiful<sup class="rank">18</sup>&nbsp;&nbsp;W&nbsp;25-66</li>
+                            <li>10/14&nbsp;&nbsp;South Davis<sup class="rank">15</sup>&nbsp;&nbsp;W&nbsp;63-68</li>
+                            <li>10/21&nbsp;&nbsp;Farmington<sup class="rank">1</sup></li>
+                            <li>10/23&nbsp;&nbsp;Shoreline<sup class="rank">12</sup></li>
+                            <li>10/28&nbsp;&nbsp;Central Davis<sup class="rank">8</sup></li>
+                            <li>10/30&nbsp;&nbsp;Syracuse<sup class="rank">13</sup></li>
+                            <li>11/03&nbsp;&nbsp;North Davis<sup class="rank">14</sup></li>
+                            <li>11/04&nbsp;&nbsp;North Layton<sup class="rank">11</sup></li>
+                            <li>11/06&nbsp;&nbsp;Sunset<sup class="rank">7</sup></li>
+                            <li>11/11&nbsp;&nbsp;West Point<sup class="rank">10</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 7 Sunset -->
+                <tr>
+                    <td>7</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Sunset')">Sunset</a></td>
+                    <td>2</td><td>1</td><td>0.667</td><td>0.444</td><td>0.519</td><td>0.552</td>
+                </tr>
+                <tr id="opp-Sunset" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Centennial<sup class="rank">3</sup>&nbsp;&nbsp;L&nbsp;56-42</li>
+                            <li>10/09&nbsp;&nbsp;Shoreline<sup class="rank">12</sup>&nbsp;&nbsp;W&nbsp;51-46</li>
+                            <li>10/14&nbsp;&nbsp;Millcreek<sup class="rank">16</sup>&nbsp;&nbsp;W&nbsp;37-50</li>
+                            <li>10/21&nbsp;&nbsp;Centerville<sup class="rank">17</sup></li>
+                            <li>10/23&nbsp;&nbsp;Central Davis<sup class="rank">8</sup></li>
+                            <li>10/28&nbsp;&nbsp;South Davis<sup class="rank">15</sup></li>
+                            <li>10/30&nbsp;&nbsp;North Davis<sup class="rank">14</sup></li>
+                            <li>11/03&nbsp;&nbsp;North Layton<sup class="rank">11</sup></li>
+                            <li>11/04&nbsp;&nbsp;West Point<sup class="rank">10</sup></li>
+                            <li>11/06&nbsp;&nbsp;Horizon<sup class="rank">6</sup></li>
+                            <li>11/11&nbsp;&nbsp;Syracuse<sup class="rank">13</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 8 Central Davis -->
+                <tr>
+                    <td>8</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-CentralDavis')">Central Davis</a></td>
+                    <td>3</td><td>0</td><td>1.000</td><td>0.000</td><td>0.815</td><td>0.531</td>
+                </tr>
+                <tr id="opp-CentralDavis" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Centerville<sup class="rank">17</sup>&nbsp;&nbsp;W&nbsp;51-81</li>
+                            <li>10/09&nbsp;&nbsp;Millcreek<sup class="rank">16</sup>&nbsp;&nbsp;W&nbsp;50-33</li>
+                            <li>10/14&nbsp;&nbsp;North Layton<sup class="rank">11</sup>&nbsp;&nbsp;W&nbsp;55-20</li>
+                            <li>10/21&nbsp;&nbsp;Bountiful<sup class="rank">18</sup></li>
+                            <li>10/23&nbsp;&nbsp;Sunset<sup class="rank">7</sup></li>
+                            <li>10/28&nbsp;&nbsp;Horizon<sup class="rank">6</sup></li>
+                            <li>10/30&nbsp;&nbsp;Centennial<sup class="rank">3</sup></li>
+                            <li>11/03&nbsp;&nbsp;Fairfield<sup class="rank">2</sup></li>
+                            <li>11/04&nbsp;&nbsp;Legacy<sup class="rank">9</sup></li>
+                            <li>11/06&nbsp;&nbsp;Kaysville<sup class="rank">5</sup></li>
+                            <li>11/11&nbsp;&nbsp;Shoreline<sup class="rank">12</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 9 Legacy -->
+                <tr>
+                    <td>9</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Legacy')">Legacy</a></td>
+                    <td>1</td><td>2</td><td>0.333</td><td>0.667</td><td>0.296</td><td>0.480</td>
+                </tr>
+                <tr id="opp-Legacy" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Horizon<sup class="rank">6</sup>&nbsp;&nbsp;L&nbsp;42-38</li>
+                            <li>10/09&nbsp;&nbsp;Centerville<sup class="rank">17</sup>&nbsp;&nbsp;W&nbsp;75-50</li>
+                            <li>10/14&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup>&nbsp;&nbsp;L&nbsp;40-42</li>
+                            <li>10/21&nbsp;&nbsp;South Davis<sup class="rank">15</sup></li>
+                            <li>10/23&nbsp;&nbsp;West Point<sup class="rank">10</sup></li>
+                            <li>10/28&nbsp;&nbsp;North Davis<sup class="rank">14</sup></li>
+                            <li>10/30&nbsp;&nbsp;Kaysville<sup class="rank">5</sup></li>
+                            <li>11/03&nbsp;&nbsp;Centennial<sup class="rank">3</sup></li>
+                            <li>11/04&nbsp;&nbsp;Central Davis<sup class="rank">8</sup></li>
+                            <li>11/06&nbsp;&nbsp;Shoreline<sup class="rank">12</sup></li>
+                            <li>11/11&nbsp;&nbsp;Fairfield<sup class="rank">2</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 10 West Point -->
+                <tr>
+                    <td>10</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-WestPoint')">West Point</a></td>
+                    <td>2</td><td>1</td><td>0.667</td><td>0.222</td><td>0.741</td><td>0.474</td>
+                </tr>
+                <tr id="opp-WestPoint" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Fairfield<sup class="rank">2</sup>&nbsp;&nbsp;L&nbsp;40-55</li>
+                            <li>10/09&nbsp;&nbsp;South Davis<sup class="rank">15</sup>&nbsp;&nbsp;W&nbsp;58-46</li>
+                            <li>10/14&nbsp;&nbsp;Centerville<sup class="rank">17</sup>&nbsp;&nbsp;W&nbsp;53-57</li>
+                            <li>10/21&nbsp;&nbsp;Shoreline<sup class="rank">12</sup></li>
+                            <li>10/23&nbsp;&nbsp;Legacy<sup class="rank">9</sup></li>
+                            <li>10/28&nbsp;&nbsp;Millcreek<sup class="rank">16</sup></li>
+                            <li>10/30&nbsp;&nbsp;North Layton<sup class="rank">11</sup></li>
+                            <li>11/03&nbsp;&nbsp;Syracuse<sup class="rank">13</sup></li>
+                            <li>11/04&nbsp;&nbsp;Sunset<sup class="rank">7</sup></li>
+                            <li>11/06&nbsp;&nbsp;North Davis<sup class="rank">14</sup></li>
+                            <li>11/11&nbsp;&nbsp;Horizon<sup class="rank">6</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 11 North Layton -->
+                <tr>
+                    <td>11</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-NorthLayton')">North Layton</a></td>
+                    <td>0</td><td>3</td><td>0.000</td><td>1.000</td><td>0.185</td><td>0.469</td>
+                </tr>
+                <tr id="opp-NorthLayton" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Farmington<sup class="rank">1</sup>&nbsp;&nbsp;L&nbsp;35-62</li>
+                            <li>10/09&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup>&nbsp;&nbsp;L&nbsp;59-52</li>
+                            <li>10/14&nbsp;&nbsp;Central Davis<sup class="rank">8</sup>&nbsp;&nbsp;L&nbsp;55-20</li>
+                            <li>10/21&nbsp;&nbsp;Kaysville<sup class="rank">5</sup></li>
+                            <li>10/23&nbsp;&nbsp;Bountiful<sup class="rank">18</sup></li>
+                            <li>10/28&nbsp;&nbsp;Fairfield<sup class="rank">2</sup></li>
+                            <li>10/30&nbsp;&nbsp;West Point<sup class="rank">10</sup></li>
+                            <li>11/03&nbsp;&nbsp;Sunset<sup class="rank">7</sup></li>
+                            <li>11/04&nbsp;&nbsp;Horizon<sup class="rank">6</sup></li>
+                            <li>11/06&nbsp;&nbsp;Syracuse<sup class="rank">13</sup></li>
+                            <li>11/11&nbsp;&nbsp;North Davis<sup class="rank">14</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 12 Shoreline -->
+                <tr>
+                    <td>12</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Shoreline')">Shoreline</a></td>
+                    <td>2</td><td>1</td><td>0.667</td><td>0.222</td><td>0.630</td><td>0.463</td>
+                </tr>
+                <tr id="opp-Shoreline" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Millcreek<sup class="rank">16</sup>&nbsp;&nbsp;W&nbsp;38-66</li>
+                            <li>10/09&nbsp;&nbsp;Sunset<sup class="rank">7</sup>&nbsp;&nbsp;L&nbsp;51-46</li>
+                            <li>10/14&nbsp;&nbsp;Bountiful<sup class="rank">18</sup>&nbsp;&nbsp;W&nbsp;100-9</li>
+                            <li>10/21&nbsp;&nbsp;West Point<sup class="rank">10</sup></li>
+                            <li>10/23&nbsp;&nbsp;Horizon<sup class="rank">6</sup></li>
+                            <li>10/28&nbsp;&nbsp;Farmington<sup class="rank">1</sup></li>
+                            <li>10/30&nbsp;&nbsp;Fairfield<sup class="rank">2</sup></li>
+                            <li>11/03&nbsp;&nbsp;Kaysville<sup class="rank">5</sup></li>
+                            <li>11/04&nbsp;&nbsp;Centennial<sup class="rank">3</sup></li>
+                            <li>11/06&nbsp;&nbsp;Legacy<sup class="rank">9</sup></li>
+                            <li>11/11&nbsp;&nbsp;Central Davis<sup class="rank">8</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 13 Syracuse -->
+                <tr>
+                    <td>13</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Syracuse')">Syracuse</a></td>
+                    <td>1</td><td>2</td><td>0.333</td><td>0.556</td><td>0.481</td><td>0.448</td>
+                </tr>
+                <tr id="opp-Syracuse" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Bountiful<sup class="rank">18</sup>&nbsp;&nbsp;W&nbsp;65-18</li>
+                            <li>10/09&nbsp;&nbsp;Fairfield<sup class="rank">2</sup>&nbsp;&nbsp;L&nbsp;66-47</li>
+                            <li>10/14&nbsp;&nbsp;Kaysville<sup class="rank">5</sup>&nbsp;&nbsp;L&nbsp;45-47</li>
+                            <li>10/21&nbsp;&nbsp;Centennial<sup class="rank">3</sup></li>
+                            <li>10/23&nbsp;&nbsp;Centerville<sup class="rank">17</sup></li>
+                            <li>10/28&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup></li>
+                            <li>10/30&nbsp;&nbsp;Horizon<sup class="rank">6</sup></li>
+                            <li>11/03&nbsp;&nbsp;West Point<sup class="rank">10</sup></li>
+                            <li>11/04&nbsp;&nbsp;North Davis<sup class="rank">14</sup></li>
+                            <li>11/06&nbsp;&nbsp;North Layton<sup class="rank">11</sup></li>
+                            <li>11/11&nbsp;&nbsp;Sunset<sup class="rank">7</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 14 North Davis -->
+                <tr>
+                    <td>14</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-NorthDavis')">North Davis</a></td>
+                    <td>0</td><td>3</td><td>0.000</td><td>0.889</td><td>0.259</td><td>0.426</td>
+                </tr>
+                <tr id="opp-NorthDavis" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup>&nbsp;&nbsp;L&nbsp;31-65</li>
+                            <li>10/09&nbsp;&nbsp;Kaysville<sup class="rank">5</sup>&nbsp;&nbsp;L&nbsp;56-18</li>
+                            <li>10/14&nbsp;&nbsp;Centennial<sup class="rank">3</sup>&nbsp;&nbsp;L&nbsp;18-48</li>
+                            <li>10/21&nbsp;&nbsp;Millcreek<sup class="rank">16</sup></li>
+                            <li>10/23&nbsp;&nbsp;Farmington<sup class="rank">1</sup></li>
+                            <li>10/28&nbsp;&nbsp;Legacy<sup class="rank">9</sup></li>
+                            <li>10/30&nbsp;&nbsp;Sunset<sup class="rank">7</sup></li>
+                            <li>11/03&nbsp;&nbsp;Horizon<sup class="rank">6</sup></li>
+                            <li>11/04&nbsp;&nbsp;Syracuse<sup class="rank">13</sup></li>
+                            <li>11/06&nbsp;&nbsp;West Point<sup class="rank">10</sup></li>
+                            <li>11/11&nbsp;&nbsp;North Layton<sup class="rank">11</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 15 South Davis -->
+                <tr>
+                    <td>15</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-SouthDavis')">South Davis</a></td>
+                    <td>0</td><td>3</td><td>0.000</td><td>0.889</td><td>0.148</td><td>0.415</td>
+                </tr>
+                <tr id="opp-SouthDavis" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Kaysville<sup class="rank">5</sup>&nbsp;&nbsp;L&nbsp;57-39</li>
+                            <li>10/09&nbsp;&nbsp;West Point<sup class="rank">10</sup>&nbsp;&nbsp;L&nbsp;58-46</li>
+                            <li>10/14&nbsp;&nbsp;Horizon<sup class="rank">6</sup>&nbsp;&nbsp;L&nbsp;63-68</li>
+                            <li>10/21&nbsp;&nbsp;Legacy<sup class="rank">9</sup></li>
+                            <li>10/23&nbsp;&nbsp;Centennial<sup class="rank">3</sup></li>
+                            <li>10/28&nbsp;&nbsp;Sunset<sup class="rank">7</sup></li>
+                            <li>10/30&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup></li>
+                            <li>11/03&nbsp;&nbsp;Millcreek<sup class="rank">16</sup></li>
+                            <li>11/04&nbsp;&nbsp;Farmington<sup class="rank">1</sup></li>
+                            <li>11/06&nbsp;&nbsp;Bountiful<sup class="rank">18</sup></li>
+                            <li>11/11&nbsp;&nbsp;Centerville<sup class="rank">17</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 16 Millcreek -->
+                <tr>
+                    <td>16</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Millcreek')">Millcreek</a></td>
+                    <td>0</td><td>3</td><td>0.000</td><td>0.778</td><td>0.222</td><td>0.372</td>
+                </tr>
+                <tr id="opp-Millcreek" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Shoreline<sup class="rank">12</sup>&nbsp;&nbsp;L&nbsp;38-66</li>
+                            <li>10/09&nbsp;&nbsp;Central Davis<sup class="rank">8</sup>&nbsp;&nbsp;L&nbsp;50-33</li>
+                            <li>10/14&nbsp;&nbsp;Sunset<sup class="rank">7</sup>&nbsp;&nbsp;L&nbsp;37-50</li>
+                            <li>10/21&nbsp;&nbsp;North Davis<sup class="rank">14</sup></li>
+                            <li>10/23&nbsp;&nbsp;Fairfield<sup class="rank">2</sup></li>
+                            <li>10/28&nbsp;&nbsp;West Point<sup class="rank">10</sup></li>
+                            <li>10/30&nbsp;&nbsp;Farmington<sup class="rank">1</sup></li>
+                            <li>11/03&nbsp;&nbsp;South Davis<sup class="rank">15</sup></li>
+                            <li>11/04&nbsp;&nbsp;Bountiful<sup class="rank">18</sup></li>
+                            <li>11/06&nbsp;&nbsp;Centerville<sup class="rank">17</sup></li>
+                            <li>11/11&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 17 Centerville -->
+                <tr>
+                    <td>17</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Centerville')">Centerville</a></td>
+                    <td>0</td><td>3</td><td>0.000</td><td>0.667</td><td>0.296</td><td>0.330</td>
+                </tr>
+                <tr id="opp-Centerville" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Central Davis<sup class="rank">8</sup>&nbsp;&nbsp;L&nbsp;51-81</li>
+                            <li>10/09&nbsp;&nbsp;Legacy<sup class="rank">9</sup>&nbsp;&nbsp;L&nbsp;75-50</li>
+                            <li>10/14&nbsp;&nbsp;West Point<sup class="rank">10</sup>&nbsp;&nbsp;L&nbsp;53-57</li>
+                            <li>10/21&nbsp;&nbsp;Sunset<sup class="rank">7</sup></li>
+                            <li>10/23&nbsp;&nbsp;Syracuse<sup class="rank">13</sup></li>
+                            <li>10/28&nbsp;&nbsp;Centennial<sup class="rank">3</sup></li>
+                            <li>10/30&nbsp;&nbsp;Bountiful<sup class="rank">18</sup></li>
+                            <li>11/03&nbsp;&nbsp;Farmington<sup class="rank">1</sup></li>
+                            <li>11/04&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup></li>
+                            <li>11/06&nbsp;&nbsp;Millcreek<sup class="rank">16</sup></li>
+                            <li>11/11&nbsp;&nbsp;South Davis<sup class="rank">15</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 18 Bountiful -->
+                <tr>
+                    <td>18</td>
+                    <td><a class="team-name" role="button" aria-expanded="false" onclick="toggleOpponents('opp-Bountiful')">Bountiful</a></td>
+                    <td>0</td><td>3</td><td>0.000</td><td>0.667</td><td>0.296</td><td>0.330</td>
+                </tr>
+                <tr id="opp-Bountiful" class="opponents-row" aria-hidden="true">
+                    <td colspan="8" class="opponents-cell">
+                        <ul>
+                            <li>10/07&nbsp;&nbsp;Syracuse<sup class="rank">13</sup>&nbsp;&nbsp;L&nbsp;65-18</li>
+                            <li>10/09&nbsp;&nbsp;Horizon<sup class="rank">6</sup>&nbsp;&nbsp;L&nbsp;25-66</li>
+                            <li>10/14&nbsp;&nbsp;Shoreline<sup class="rank">12</sup>&nbsp;&nbsp;L&nbsp;100-9</li>
+                            <li>10/21&nbsp;&nbsp;Central Davis<sup class="rank">8</sup></li>
+                            <li>10/23&nbsp;&nbsp;North Layton<sup class="rank">11</sup></li>
+                            <li>10/28&nbsp;&nbsp;Kaysville<sup class="rank">5</sup></li>
+                            <li>10/30&nbsp;&nbsp;Centerville<sup class="rank">17</sup></li>
+                            <li>11/03&nbsp;&nbsp;Mueller Park<sup class="rank">4</sup></li>
+                            <li>11/04&nbsp;&nbsp;Millcreek<sup class="rank">16</sup></li>
+                            <li>11/06&nbsp;&nbsp;South Davis<sup class="rank">15</sup></li>
+                            <li>11/11&nbsp;&nbsp;Farmington<sup class="rank">1</sup></li>
+                        </ul>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="legend" class="legend">
+        WP: Winning Percentage<br>
+        OWP: Opponents' Winning Percentage<br>
+        OOWP: Opponents' Opponents' Winning Percentage<br>
+        RPI: Rating Percentage Index (45% WP + 45% OWP + 10% OOWP)<br>
+        Updated on: October 20, 2025
+    </div>
+
+    <script>
+        function toggleOpponents(id) {
+            const row = document.getElementById(id);
+            if (!row) return;
+            const isVisible = row.style.display === 'table-row';
+            row.style.display = isVisible ? 'none' : 'table-row';
+            row.setAttribute('aria-hidden', isVisible ? 'true' : 'false');
+
+            // update the corresponding team link's aria-expanded
+            // team link is previous sibling row's second cell first child
+            const prev = row.previousElementSibling;
+            if (prev) {
+                const teamLink = prev.querySelector('.team-name');
+                if (teamLink) teamLink.setAttribute('aria-expanded', !isVisible);
+            }
+        }
+
+        // Optional: allow toggle via Enter/Space when focused (keyboard accessibility)
+        document.addEventListener('keydown', function(e){
+            if ((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.classList.contains('team-name')) {
+                e.preventDefault();
+                // try to infer id from onclick attribute
+                const onclick = document.activeElement.getAttribute('onclick') || '';
+                const match = onclick.match(/toggleOpponents\('([^']+)'\)/);
+                if (match) toggleOpponents(match[1]);
+            }
+        });
+
+        // Make team-name focusable for keyboard users
+        document.querySelectorAll('.team-name').forEach(el => el.setAttribute('tabindex', '0'));
+    </script>
+</body>
+</html>
