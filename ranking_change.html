@@ -1,34 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basketball Standings</title>
     <style>
-        body { font-family: sans-serif; margin: 10px; }
+        body { font-family: sans-serif; }
         .table-container { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; font-size:2.5em; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
         th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
-        th, td { padding: 6px 3px; border: 1px solid #ddd; }
-        .header { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .header h1 { margin: 0; font-size: 1.2rem; }
+        th, td { padding: 6.2px 4px; border: 1px solid #ddd; }
+        .header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .header h1 { margin: 0; font-size: 1.25rem; }
         tr:nth-child(even) { background-color: #f9f9f9; }
         .numeric { text-align: center; }
         .text { text-align: left; }
-        .team-cell { display: flex; justify-content: space-between; align-items: center; }
-        .team-name { flex-grow: 1; }
-        .rank-change { margin-left: 2px; font-size: 0.85em; }
-        .rank-up { color: green; }
-        .rank-down { color: red; }
         a { text-decoration: underline; cursor: pointer; color: inherit; }
-        .legend { font-size: 0.7em; padding: 5px; }
-        ul { margin: 0; padding-left: 15px; }
-        @media (max-width: 600px) {
-            table { font-size: 0.8em; }
-            th, td { padding: 3px 2px; }
-            .header h1 { font-size: 1rem; }
-            .legend { font-size: 0.65em; }
-        }
+        .legend { font-size: 0.75em; padding: 5px; }
+        ul { margin: 0; padding-left: 20px; }
     </style>
     <script>
         function toggle(id) {
@@ -38,10 +27,9 @@
     </script>
 </head>
 <body>
-    <div class="header">
+     <div class="header">
         <h1>Basketball Standings</h1>
-    </div>
-    <div class="table-container">
+    </div><div class="table-container">
         <table>
             <thead>
                 <tr>
@@ -55,10 +43,9 @@
                     <th class="numeric">RPI</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody>                <tr>
                     <td class="text">1</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Farmington')">Farmington</a><span class="rank-change"></span></div></td>
+                    <td class="text"><a onclick="toggle('details-Farmington')">Farmington</a></td>
                     <td class="numeric">5</td>
                     <td class="numeric">0</td>
                     <td class="numeric">1.000</td>
@@ -81,10 +68,9 @@
 <li>11/11&nbsp;&nbsp;@ Bountiful<sup style='font-size: 0.7em;'>17</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">2</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Central-Davis')">Central Davis</a><span class="rank-change rank-up">↑6</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Central-Davis')">Central Davis</a><span style="float: right; color: green; letter-spacing: -0.5px;">↑6</span></td>
                     <td class="numeric">5</td>
                     <td class="numeric">0</td>
                     <td class="numeric">1.000</td>
@@ -107,10 +93,9 @@
 <li>11/11&nbsp;&nbsp;vs Shoreline<sup style='font-size: 0.7em;'>5</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">3</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Mueller-Park')">Mueller Park</a><span class="rank-change rank-up">↑6</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Mueller-Park')">Mueller Park</a><span style="float: right; color: green; letter-spacing: -0.5px;">↑6</span></td>
                     <td class="numeric">4</td>
                     <td class="numeric">1</td>
                     <td class="numeric">0.800</td>
@@ -133,10 +118,9 @@
 <li>11/11&nbsp;&nbsp;@ Millcreek<sup style='font-size: 0.7em;'>10</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">4</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Centennial')">Centennial</a><span class="rank-change rank-down">↓1</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Centennial')">Centennial</a><span style="float: right; color: red; letter-spacing: -0.5px;">↓1</span></td>
                     <td class="numeric">4</td>
                     <td class="numeric">1</td>
                     <td class="numeric">0.800</td>
@@ -159,10 +143,9 @@
 <li>11/11&nbsp;&nbsp;@ Kaysville<sup style='font-size: 0.7em;'>8</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">5</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Shoreline')">Shoreline</a><span class="rank-change rank-up">↑1</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Shoreline')">Shoreline</a><span style="float: right; color: green; letter-spacing: -0.5px;">↑1</span></td>
                     <td class="numeric">4</td>
                     <td class="numeric">1</td>
                     <td class="numeric">0.800</td>
@@ -185,10 +168,9 @@
 <li>11/11&nbsp;&nbsp;@ Central Davis<sup style='font-size: 0.7em;'>2</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">6</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Fairfield')">Fairfield</a><span class="rank-change rank-down">↓4</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Fairfield')">Fairfield</a><span style="float: right; color: red; letter-spacing: -0.5px;">↓4</span></td>
                     <td class="numeric">3</td>
                     <td class="numeric">2</td>
                     <td class="numeric">0.600</td>
@@ -211,10 +193,9 @@
 <li>11/11&nbsp;&nbsp;@ Legacy<sup style='font-size: 0.7em;'>11</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">7</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Sunset')">Sunset</a><span class="rank-change rank-down">↓3</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Sunset')">Sunset</a><span style="float: right; color: red; letter-spacing: -0.5px;">↓3</span></td>
                     <td class="numeric">3</td>
                     <td class="numeric">2</td>
                     <td class="numeric">0.600</td>
@@ -237,10 +218,9 @@
 <li>11/11&nbsp;&nbsp;vs Syracuse<sup style='font-size: 0.7em;'>13</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">8</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Kaysville')">Kaysville</a><span class="rank-change rank-down">↓1</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Kaysville')">Kaysville</a><span style="float: right; color: red; letter-spacing: -0.5px;">↓1</span></td>
                     <td class="numeric">4</td>
                     <td class="numeric">1</td>
                     <td class="numeric">0.800</td>
@@ -263,10 +243,9 @@
 <li>11/11&nbsp;&nbsp;vs Centennial<sup style='font-size: 0.7em;'>4</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">9</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Horizon')">Horizon</a><span class="rank-change rank-down">↓4</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Horizon')">Horizon</a><span style="float: right; color: red; letter-spacing: -0.5px;">↓4</span></td>
                     <td class="numeric">3</td>
                     <td class="numeric">2</td>
                     <td class="numeric">0.600</td>
@@ -289,10 +268,9 @@
 <li>11/11&nbsp;&nbsp;vs West Point<sup style='font-size: 0.7em;'>14</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">10</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Millcreek')">Millcreek</a><span class="rank-change rank-up">↑4</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Millcreek')">Millcreek</a><span style="float: right; color: green; letter-spacing: -0.5px;">↑4</span></td>
                     <td class="numeric">2</td>
                     <td class="numeric">3</td>
                     <td class="numeric">0.400</td>
@@ -315,10 +293,9 @@
 <li>11/11&nbsp;&nbsp;vs Mueller Park<sup style='font-size: 0.7em;'>3</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">11</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Legacy')">Legacy</a><span class="rank-change rank-up">↑1</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Legacy')">Legacy</a><span style="float: right; color: green; letter-spacing: -0.5px;">↑1</span></td>
                     <td class="numeric">3</td>
                     <td class="numeric">2</td>
                     <td class="numeric">0.600</td>
@@ -341,10 +318,9 @@
 <li>11/11&nbsp;&nbsp;vs Fairfield<sup style='font-size: 0.7em;'>6</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">12</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-North-Layton')">North Layton</a><span class="rank-change rank-down">↓1</span></div></td>
+                    <td class="text"><a onclick="toggle('details-North-Layton')">North Layton</a><span style="float: right; color: red; letter-spacing: -0.5px;">↓1</span></td>
                     <td class="numeric">1</td>
                     <td class="numeric">4</td>
                     <td class="numeric">0.200</td>
@@ -367,10 +343,9 @@
 <li>11/11&nbsp;&nbsp;vs North Davis<sup style='font-size: 0.7em;'>15</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">13</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Syracuse')">Syracuse</a><span class="rank-change"></span></div></td>
+                    <td class="text"><a onclick="toggle('details-Syracuse')">Syracuse</a></td>
                     <td class="numeric">2</td>
                     <td class="numeric">3</td>
                     <td class="numeric">0.400</td>
@@ -393,10 +368,9 @@
 <li>11/11&nbsp;&nbsp;@ Sunset<sup style='font-size: 0.7em;'>7</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">14</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-West-Point')">West Point</a><span class="rank-change rank-down">↓4</span></div></td>
+                    <td class="text"><a onclick="toggle('details-West-Point')">West Point</a><span style="float: right; color: red; letter-spacing: -0.5px;">↓4</span></td>
                     <td class="numeric">2</td>
                     <td class="numeric">3</td>
                     <td class="numeric">0.400</td>
@@ -419,10 +393,9 @@
 <li>11/11&nbsp;&nbsp;@ Horizon<sup style='font-size: 0.7em;'>9</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">15</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-North-Davis')">North Davis</a><span class="rank-change"></span></div></td>
+                    <td class="text"><a onclick="toggle('details-North-Davis')">North Davis</a></td>
                     <td class="numeric">0</td>
                     <td class="numeric">5</td>
                     <td class="numeric">0.000</td>
@@ -445,10 +418,9 @@
 <li>11/11&nbsp;&nbsp;@ North Layton<sup style='font-size: 0.7em;'>12</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">16</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-South-Davis')">South Davis</a><span class="rank-change rank-up">↑2</span></div></td>
+                    <td class="text"><a onclick="toggle('details-South-Davis')">South Davis</a><span style="float: right; color: green; letter-spacing: -0.5px;">↑2</span></td>
                     <td class="numeric">0</td>
                     <td class="numeric">5</td>
                     <td class="numeric">0.000</td>
@@ -471,10 +443,9 @@
 <li>11/11&nbsp;&nbsp;vs Centerville<sup style='font-size: 0.7em;'>18</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">17</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Bountiful')">Bountiful</a><span class="rank-change rank-down">↓1</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Bountiful')">Bountiful</a><span style="float: right; color: red; letter-spacing: -0.5px;">↓1</span></td>
                     <td class="numeric">0</td>
                     <td class="numeric">5</td>
                     <td class="numeric">0.000</td>
@@ -490,17 +461,16 @@
 <li>10/21&nbsp;&nbsp;vs Central Davis<sup style='font-size: 0.7em;'>2</sup>&nbsp;&nbsp;L&nbsp;&nbsp;23-69</li>
 <li>10/23&nbsp;&nbsp;vs North Layton<sup style='font-size: 0.7em;'>12</sup>&nbsp;&nbsp;L&nbsp;&nbsp;30-70</li>
 <li>10/28&nbsp;&nbsp;@ Kaysville<sup style='font-size: 0.7em;'>8</sup></li>
-<li>10/30&nbsp;&nbsp;@ Centerville<sup style='font-size: 0.7em;'>17</sup></li>
+<li>10/30&nbsp;&nbsp;@ Centerville<sup style='font-size: 0.7em;'>18</sup></li>
 <li>11/03&nbsp;&nbsp;vs Mueller Park<sup style='font-size: 0.7em;'>3</sup></li>
 <li>11/04&nbsp;&nbsp;@ Millcreek<sup style='font-size: 0.7em;'>10</sup></li>
 <li>11/06&nbsp;&nbsp;@ South Davis<sup style='font-size: 0.7em;'>16</sup></li>
 <li>11/11&nbsp;&nbsp;vs Farmington<sup style='font-size: 0.7em;'>1</sup></li>
                         </ul>
                     </td>
-                </tr>
-                <tr>
+                </tr>                <tr>
                     <td class="text">18</td>
-                    <td class="text"><div class="team-cell"><a class="team-name" onclick="toggle('details-Centerville')">Centerville</a><span class="rank-change rank-down">↓1</span></div></td>
+                    <td class="text"><a onclick="toggle('details-Centerville')">Centerville</a><span style="float: right; color: red; letter-spacing: -0.5px;">↓1</span></td>
                     <td class="numeric">0</td>
                     <td class="numeric">5</td>
                     <td class="numeric">0.000</td>
@@ -523,8 +493,7 @@
 <li>11/11&nbsp;&nbsp;@ South Davis<sup style='font-size: 0.7em;'>16</sup></li>
                         </ul>
                     </td>
-                </tr>
-            </tbody>
+                </tr>            </tbody>
         </table>
     </div>
     <div class="legend">
@@ -532,12 +501,7 @@
         WP: Winning Percentage<br>
         OWP: Opponents' Winning Percentage<br>
         OOWP: Opponents' Opponents' Winning Percentage<br>
-        RPI: Rating Percentage Index (45% WP + 45% OWP + 10% OOWP)<br>
-        ↑↓: Ranking Change Since Last Game
+        RPI: Rating Percentage Index (45% WP + 45% OWP + 10% OOWP)
     </div>
 </body>
 </html>
-
-
-
-
