@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Standings</title>
+    <style>
+        body { font-family: sans-serif; }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+        th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
+        th, td { padding: 6.2px 4px; border: 1px solid #ddd; }
+        .header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .header h1 { margin: 0; font-size: 1.25rem; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .numeric { text-align: center; }
+        .text { text-align: left; }
+        a { text-decoration: underline; cursor: pointer; color: inherit; }
+        .legend { font-size: 0.75em; padding: 5px; }
+        ul { margin: 0; padding-left: 20px; }
+    </style>
+    <script>
+        function toggle(id) {
+            var element = document.getElementById(id);
+            element.style.display = (element.style.display === "table-row") ? "none" : "table-row";
+        }
+    </script>
+</head>
+<body>
+     <div class="header">
+        <h1>Basketball Standings</h1>
+    </div><div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="text">#</th>
+                    <th class="text">Team</th>
+                    <th class="numeric">W</th>
+                    <th class="numeric">L</th>
+                    <th class="numeric">WP</th>
+                    <th class="numeric">OWP</th>
+                    <th class="numeric">OOWP</th>
+                    <th class="numeric">RPI</th>
+                </tr>
+            </thead>
+            <tbody>                <tr>
+                    <td class="text">1</td>
+                    <td class="text"><a onclick="toggle('details-Farmington')">Farmington</a></td>
+                    <td class="numeric">5</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">0.440</td>
+                    <td class="numeric">0.592</td>
+                    <td class="numeric">0.707</td>
+                </tr>
+                <tr id="details-Farmington" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;@ North Layton<sup style='font-size: 0.7em;'>12</sup>&nbsp;&nbsp;W&nbsp;&nbsp;62-35</li>
+<li>10/09&nbsp;&nbsp;vs Centennial<sup style='font-size: 0.7em;'>4</sup>&nbsp;&nbsp;W&nbsp;&nbsp;73-54</li>
+<li>10/14&nbsp;&nbsp;@ Fairfield<sup style='font-size: 0.7em;'>6</sup>&nbsp;&nbsp;W&nbsp;&nbsp;56-47</li>
+<li>10/21&nbsp;&nbsp;vs Horizon<sup style='font-size: 0.7em;'>9</sup>&nbsp;&nbsp;W&nbsp;&nbsp;63-46</li>
+<li>10/23&nbsp;&nbsp;vs North Davis<sup style='font-size: 0.7em;'>15</sup>&nbsp;&nbsp;W&nbsp;&nbsp;64-21</li>
+<li>10/28&nbsp;&nbsp;@ Shoreline<sup style='font-size: 0.7em;'>5</sup></li>
+<li>10/30&nbsp;&nbsp;@ Millcreek<sup style='font-size: 0.7em;'>10</sup></li>
+<li>11/03&nbsp;&nbsp;vs Centerville<sup style='font-size: 0.7em;'>18</sup></li>
+<li>11/04&nbsp;&nbsp;vs South Davis<sup style='font-size: 0.7em;'>16</sup></li>
+<li>11/06&nbsp;&nbsp;@ Mueller Park<sup style='font-size: 0.7em;'>3</sup></li>
+<li>11/11&nbsp;&nbsp;@ Bountiful<sup style='font-size: 0.7em;'>17</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">2</td>
+                    <td class="text"><a onclick="toggle('details-Central-Davis')">Central Davis</a>&nbsp;<span style="color:green">↑6</span></td>
+                    <td class="numeric">5</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">0.240</td>
+                    <td class="numeric">0.624</td>
+                    <td class="numeric">0.620</td>
+                </tr>
+                <tr id="details-Central-Davis" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;@ Centerville<sup style='font-size: 0.7em;'>18</sup>&nbsp;&nbsp;W&nbsp;&nbsp;81-51</li>
+<li>10/09&nbsp;&nbsp;vs Millcreek<sup style='font-size: 0.7em;'>10</sup>&nbsp;&nbsp;W&nbsp;&nbsp;50-33</li>
+<li>10/14&nbsp;&nbsp;vs North Layton<sup style='font-size: 0.7em;'>12</sup>&nbsp;&nbsp;W&nbsp;&nbsp;55-20</li>
+<li>10/21&nbsp;&nbsp;@ Bountiful<sup style='font-size: 0.7em;'>17</sup>&nbsp;&nbsp;W&nbsp;&nbsp;69-23</li>
+<li>10/23&nbsp;&nbsp;@ Sunset<sup style='font-size: 0.7em;'>7</sup>&nbsp;&nbsp;W&nbsp;&nbsp;48-41</li>
+<li>10/28&nbsp;&nbsp;vs Horizon<sup style='font-size: 0.7em;'>9</sup></li>
+<li>10/30&nbsp;&nbsp;@ Centennial<sup style='font-size: 0.7em;'>4</sup></li>
+<li>11/03&nbsp;&nbsp;@ Fairfield<sup style='font-size: 0.7em;'>6</sup></li>
+<li>11/04&nbsp;&nbsp;@ Legacy<sup style='font-size: 0.7em;'>11</sup></li>
+<li>11/06&nbsp;&nbsp;vs Kaysville<sup style='font-size: 0.7em;'>8</sup></li>
+<li>11/11&nbsp;&nbsp;vs Shoreline<sup style='font-size: 0.7em;'>5</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">3</td>
+                    <td class="text"><a onclick="toggle('details-Mueller-Park')">Mueller Park</a>&nbsp;<span style="color:green">↑6</span></td>
+                    <td class="numeric">4</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.800</td>
+                    <td class="numeric">0.440</td>
+                    <td class="numeric">0.544</td>
+                    <td class="numeric">0.612</td>
+                </tr>
+                <tr id="details-Mueller-Park" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;@ North Davis<sup style='font-size: 0.7em;'>15</sup>&nbsp;&nbsp;W&nbsp;&nbsp;65-31</li>
+<li>10/09&nbsp;&nbsp;vs North Layton<sup style='font-size: 0.7em;'>12</sup>&nbsp;&nbsp;W&nbsp;&nbsp;59-52</li>
+<li>10/14&nbsp;&nbsp;@ Legacy<sup style='font-size: 0.7em;'>11</sup>&nbsp;&nbsp;W&nbsp;&nbsp;42-40</li>
+<li>10/21&nbsp;&nbsp;vs Fairfield<sup style='font-size: 0.7em;'>6</sup>&nbsp;&nbsp;L&nbsp;&nbsp;39-51</li>
+<li>10/23&nbsp;&nbsp;vs Kaysville<sup style='font-size: 0.7em;'>8</sup>&nbsp;&nbsp;W&nbsp;&nbsp;56-42</li>
+<li>10/28&nbsp;&nbsp;@ Syracuse<sup style='font-size: 0.7em;'>13</sup></li>
+<li>10/30&nbsp;&nbsp;vs South Davis<sup style='font-size: 0.7em;'>16</sup></li>
+<li>11/03&nbsp;&nbsp;@ Bountiful<sup style='font-size: 0.7em;'>17</sup></li>
+<li>11/04&nbsp;&nbsp;@ Centerville<sup style='font-size: 0.7em;'>18</sup></li>
+<li>11/06&nbsp;&nbsp;vs Farmington<sup style='font-size: 0.7em;'>1</sup></li>
+<li>11/11&nbsp;&nbsp;@ Millcreek<sup style='font-size: 0.7em;'>10</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">4</td>
+                    <td class="text"><a onclick="toggle('details-Centennial')">Centennial</a>&nbsp;<span style="color:red">↓1</span></td>
+                    <td class="numeric">4</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.800</td>
+                    <td class="numeric">0.400</td>
+                    <td class="numeric">0.576</td>
+                    <td class="numeric">0.598</td>
+                </tr>
+                <tr id="details-Centennial" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;vs Sunset<sup style='font-size: 0.7em;'>7</sup>&nbsp;&nbsp;W&nbsp;&nbsp;56-42</li>
+<li>10/09&nbsp;&nbsp;@ Farmington<sup style='font-size: 0.7em;'>1</sup>&nbsp;&nbsp;L&nbsp;&nbsp;54-73</li>
+<li>10/14&nbsp;&nbsp;@ North Davis<sup style='font-size: 0.7em;'>15</sup>&nbsp;&nbsp;W&nbsp;&nbsp;48-18</li>
+<li>10/21&nbsp;&nbsp;vs Syracuse<sup style='font-size: 0.7em;'>13</sup>&nbsp;&nbsp;W&nbsp;&nbsp;65-53</li>
+<li>10/23&nbsp;&nbsp;@ South Davis<sup style='font-size: 0.7em;'>16</sup>&nbsp;&nbsp;W&nbsp;&nbsp;57-24</li>
+<li>10/28&nbsp;&nbsp;vs Centerville<sup style='font-size: 0.7em;'>18</sup></li>
+<li>10/30&nbsp;&nbsp;vs Central Davis<sup style='font-size: 0.7em;'>2</sup></li>
+<li>11/03&nbsp;&nbsp;@ Legacy<sup style='font-size: 0.7em;'>11</sup></li>
+<li>11/04&nbsp;&nbsp;vs Shoreline<sup style='font-size: 0.7em;'>5</sup></li>
+<li>11/06&nbsp;&nbsp;vs Fairfield<sup style='font-size: 0.7em;'>6</sup></li>
+<li>11/11&nbsp;&nbsp;@ Kaysville<sup style='font-size: 0.7em;'>8</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">5</td>
+                    <td class="text"><a onclick="toggle('details-Shoreline')">Shoreline</a>&nbsp;<span style="color:green">↑1</span></td>
+                    <td class="numeric">4</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.800</td>
+                    <td class="numeric">0.400</td>
+                    <td class="numeric">0.536</td>
+                    <td class="numeric">0.594</td>
+                </tr>
+                <tr id="details-Shoreline" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;@ Millcreek<sup style='font-size: 0.7em;'>10</sup>&nbsp;&nbsp;W&nbsp;&nbsp;66-38</li>
+<li>10/09&nbsp;&nbsp;@ Sunset<sup style='font-size: 0.7em;'>7</sup>&nbsp;&nbsp;L&nbsp;&nbsp;46-51</li>
+<li>10/14&nbsp;&nbsp;vs Bountiful<sup style='font-size: 0.7em;'>17</sup>&nbsp;&nbsp;W&nbsp;&nbsp;100-9</li>
+<li>10/21&nbsp;&nbsp;vs West Point<sup style='font-size: 0.7em;'>14</sup>&nbsp;&nbsp;W&nbsp;&nbsp;67-33</li>
+<li>10/23&nbsp;&nbsp;@ Horizon<sup style='font-size: 0.7em;'>9</sup>&nbsp;&nbsp;W&nbsp;&nbsp;53-47</li>
+<li>10/28&nbsp;&nbsp;vs Farmington<sup style='font-size: 0.7em;'>1</sup></li>
+<li>10/30&nbsp;&nbsp;vs Fairfield<sup style='font-size: 0.7em;'>6</sup></li>
+<li>11/03&nbsp;&nbsp;vs Kaysville<sup style='font-size: 0.7em;'>8</sup></li>
+<li>11/04&nbsp;&nbsp;@ Centennial<sup style='font-size: 0.7em;'>4</sup></li>
+<li>11/06&nbsp;&nbsp;vs Legacy<sup style='font-size: 0.7em;'>11</sup></li>
+<li>11/11&nbsp;&nbsp;@ Central Davis<sup style='font-size: 0.7em;'>2</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">6</td>
+                    <td class="text"><a onclick="toggle('details-Fairfield')">Fairfield</a>&nbsp;<span style="color:red">↓4</span></td>
+                    <td class="numeric">3</td>
+                    <td class="numeric">2</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.464</td>
+                    <td class="numeric">0.586</td>
+                </tr>
+                <tr id="details-Fairfield" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;@ West Point<sup style='font-size: 0.7em;'>14</sup>&nbsp;&nbsp;W&nbsp;&nbsp;55-40</li>
+<li>10/09&nbsp;&nbsp;vs Syracuse<sup style='font-size: 0.7em;'>13</sup>&nbsp;&nbsp;W&nbsp;&nbsp;66-47</li>
+<li>10/14&nbsp;&nbsp;vs Farmington<sup style='font-size: 0.7em;'>1</sup>&nbsp;&nbsp;L&nbsp;&nbsp;47-56</li>
+<li>10/21&nbsp;&nbsp;@ Mueller Park<sup style='font-size: 0.7em;'>3</sup>&nbsp;&nbsp;W&nbsp;&nbsp;51-39</li>
+<li>10/23&nbsp;&nbsp;vs Millcreek<sup style='font-size: 0.7em;'>10</sup>&nbsp;&nbsp;L&nbsp;&nbsp;62-66</li>
+<li>10/28&nbsp;&nbsp;@ North Layton<sup style='font-size: 0.7em;'>12</sup></li>
+<li>10/30&nbsp;&nbsp;@ Shoreline<sup style='font-size: 0.7em;'>5</sup></li>
+<li>11/03&nbsp;&nbsp;vs Central Davis<sup style='font-size: 0.7em;'>2</sup></li>
+<li>11/04&nbsp;&nbsp;vs Kaysville<sup style='font-size: 0.7em;'>8</sup></li>
+<li>11/06&nbsp;&nbsp;@ Centennial<sup style='font-size: 0.7em;'>4</sup></li>
+<li>11/11&nbsp;&nbsp;@ Legacy<sup style='font-size: 0.7em;'>11</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">7</td>
+                    <td class="text"><a onclick="toggle('details-Sunset')">Sunset</a>&nbsp;<span style="color:red">↓3</span></td>
+                    <td class="numeric">3</td>
+                    <td class="numeric">2</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.448</td>
+                    <td class="numeric">0.585</td>
+                </tr>
+                <tr id="details-Sunset" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;@ Centennial<sup style='font-size: 0.7em;'>4</sup>&nbsp;&nbsp;L&nbsp;&nbsp;42-56</li>
+<li>10/09&nbsp;&nbsp;vs Shoreline<sup style='font-size: 0.7em;'>5</sup>&nbsp;&nbsp;W&nbsp;&nbsp;51-46</li>
+<li>10/14&nbsp;&nbsp;@ Millcreek<sup style='font-size: 0.7em;'>10</sup>&nbsp;&nbsp;W&nbsp;&nbsp;50-37</li>
+<li>10/21&nbsp;&nbsp;vs Centerville<sup style='font-size: 0.7em;'>18</sup>&nbsp;&nbsp;W&nbsp;&nbsp;64-42</li>
+<li>10/23&nbsp;&nbsp;vs Central Davis<sup style='font-size: 0.7em;'>2</sup>&nbsp;&nbsp;L&nbsp;&nbsp;41-48</li>
+<li>10/28&nbsp;&nbsp;@ South Davis<sup style='font-size: 0.7em;'>16</sup></li>
+<li>10/30&nbsp;&nbsp;@ North Davis<sup style='font-size: 0.7em;'>15</sup></li>
+<li>11/03&nbsp;&nbsp;vs North Layton<sup style='font-size: 0.7em;'>12</sup></li>
+<li>11/04&nbsp;&nbsp;@ West Point<sup style='font-size: 0.7em;'>14</sup></li>
+<li>11/06&nbsp;&nbsp;@ Horizon<sup style='font-size: 0.7em;'>9</sup></li>
+<li>11/11&nbsp;&nbsp;vs Syracuse<sup style='font-size: 0.7em;'>13</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">8</td>
+                    <td class="text"><a onclick="toggle('details-Kaysville')">Kaysville</a>&nbsp;<span style="color:red">↓1</span></td>
+                    <td class="numeric">4</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.800</td>
+                    <td class="numeric">0.280</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.546</td>
+                </tr>
+                <tr id="details-Kaysville" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;vs South Davis<sup style='font-size: 0.7em;'>16</sup>&nbsp;&nbsp;W&nbsp;&nbsp;57-39</li>
+<li>10/09&nbsp;&nbsp;vs North Davis<sup style='font-size: 0.7em;'>15</sup>&nbsp;&nbsp;W&nbsp;&nbsp;56-18</li>
+<li>10/14&nbsp;&nbsp;@ Syracuse<sup style='font-size: 0.7em;'>13</sup>&nbsp;&nbsp;W&nbsp;&nbsp;47-45</li>
+<li>10/21&nbsp;&nbsp;@ North Layton<sup style='font-size: 0.7em;'>12</sup>&nbsp;&nbsp;W&nbsp;&nbsp;65-42</li>
+<li>10/23&nbsp;&nbsp;@ Mueller Park<sup style='font-size: 0.7em;'>3</sup>&nbsp;&nbsp;L&nbsp;&nbsp;42-56</li>
+<li>10/28&nbsp;&nbsp;vs Bountiful<sup style='font-size: 0.7em;'>17</sup></li>
+<li>10/30&nbsp;&nbsp;vs Legacy<sup style='font-size: 0.7em;'>11</sup></li>
+<li>11/03&nbsp;&nbsp;@ Shoreline<sup style='font-size: 0.7em;'>5</sup></li>
+<li>11/04&nbsp;&nbsp;@ Fairfield<sup style='font-size: 0.7em;'>6</sup></li>
+<li>11/06&nbsp;&nbsp;@ Central Davis<sup style='font-size: 0.7em;'>2</sup></li>
+<li>11/11&nbsp;&nbsp;vs Centennial<sup style='font-size: 0.7em;'>4</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">9</td>
+                    <td class="text"><a onclick="toggle('details-Horizon')">Horizon</a>&nbsp;<span style="color:red">↓4</span></td>
+                    <td class="numeric">3</td>
+                    <td class="numeric">2</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.480</td>
+                    <td class="numeric">0.488</td>
+                    <td class="numeric">0.535</td>
+                </tr>
+                <tr id="details-Horizon" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;vs Legacy<sup style='font-size: 0.7em;'>11</sup>&nbsp;&nbsp;W&nbsp;&nbsp;42-38</li>
+<li>10/09&nbsp;&nbsp;@ Bountiful<sup style='font-size: 0.7em;'>17</sup>&nbsp;&nbsp;W&nbsp;&nbsp;66-25</li>
+<li>10/14&nbsp;&nbsp;@ South Davis<sup style='font-size: 0.7em;'>16</sup>&nbsp;&nbsp;W&nbsp;&nbsp;68-63</li>
+<li>10/21&nbsp;&nbsp;@ Farmington<sup style='font-size: 0.7em;'>1</sup>&nbsp;&nbsp;L&nbsp;&nbsp;46-63</li>
+<li>10/23&nbsp;&nbsp;vs Shoreline<sup style='font-size: 0.7em;'>5</sup>&nbsp;&nbsp;L&nbsp;&nbsp;47-53</li>
+<li>10/28&nbsp;&nbsp;@ Central Davis<sup style='font-size: 0.7em;'>2</sup></li>
+<li>10/30&nbsp;&nbsp;@ Syracuse<sup style='font-size: 0.7em;'>13</sup></li>
+<li>11/03&nbsp;&nbsp;vs North Davis<sup style='font-size: 0.7em;'>15</sup></li>
+<li>11/04&nbsp;&nbsp;@ North Layton<sup style='font-size: 0.7em;'>12</sup></li>
+<li>11/06&nbsp;&nbsp;vs Sunset<sup style='font-size: 0.7em;'>7</sup></li>
+<li>11/11&nbsp;&nbsp;vs West Point<sup style='font-size: 0.7em;'>14</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">10</td>
+                    <td class="text"><a onclick="toggle('details-Millcreek')">Millcreek</a>&nbsp;<span style="color:green">↑4</span></td>
+                    <td class="numeric">2</td>
+                    <td class="numeric">3</td>
+                    <td class="numeric">0.400</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.520</td>
+                    <td class="numeric">0.502</td>
+                </tr>
+                <tr id="details-Millcreek" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;vs Shoreline<sup style='font-size: 0.7em;'>5</sup>&nbsp;&nbsp;L&nbsp;&nbsp;38-66</li>
+<li>10/09&nbsp;&nbsp;@ Central Davis<sup style='font-size: 0.7em;'>2</sup>&nbsp;&nbsp;L&nbsp;&nbsp;33-50</li>
+<li>10/14&nbsp;&nbsp;vs Sunset<sup style='font-size: 0.7em;'>7</sup>&nbsp;&nbsp;L&nbsp;&nbsp;37-50</li>
+<li>10/21&nbsp;&nbsp;@ North Davis<sup style='font-size: 0.7em;'>15</sup>&nbsp;&nbsp;W&nbsp;&nbsp;59-40</li>
+<li>10/23&nbsp;&nbsp;@ Fairfield<sup style='font-size: 0.7em;'>6</sup>&nbsp;&nbsp;W&nbsp;&nbsp;66-62</li>
+<li>10/28&nbsp;&nbsp;vs West Point<sup style='font-size: 0.7em;'>14</sup></li>
+<li>10/30&nbsp;&nbsp;vs Farmington<sup style='font-size: 0.7em;'>1</sup></li>
+<li>11/03&nbsp;&nbsp;@ South Davis<sup style='font-size: 0.7em;'>16</sup></li>
+<li>11/04&nbsp;&nbsp;vs Bountiful<sup style='font-size: 0.7em;'>17</sup></li>
+<li>11/06&nbsp;&nbsp;@ Centerville<sup style='font-size: 0.7em;'>18</sup></li>
+<li>11/11&nbsp;&nbsp;vs Mueller Park<sup style='font-size: 0.7em;'>3</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">11</td>
+                    <td class="text"><a onclick="toggle('details-Legacy')">Legacy</a>&nbsp;<span style="color:green">↑1</span></td>
+                    <td class="numeric">3</td>
+                    <td class="numeric">2</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.360</td>
+                    <td class="numeric">0.512</td>
+                    <td class="numeric">0.483</td>
+                </tr>
+                <tr id="details-Legacy" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;@ Horizon<sup style='font-size: 0.7em;'>9</sup>&nbsp;&nbsp;L&nbsp;&nbsp;38-42</li>
+<li>10/09&nbsp;&nbsp;vs Centerville<sup style='font-size: 0.7em;'>18</sup>&nbsp;&nbsp;W&nbsp;&nbsp;75-50</li>
+<li>10/14&nbsp;&nbsp;vs Mueller Park<sup style='font-size: 0.7em;'>3</sup>&nbsp;&nbsp;L&nbsp;&nbsp;40-42</li>
+<li>10/21&nbsp;&nbsp;@ South Davis<sup style='font-size: 0.7em;'>16</sup>&nbsp;&nbsp;W&nbsp;&nbsp;50-38</li>
+<li>10/23&nbsp;&nbsp;@ West Point<sup style='font-size: 0.7em;'>14</sup>&nbsp;&nbsp;W&nbsp;&nbsp;59-55</li>
+<li>10/28&nbsp;&nbsp;vs North Davis<sup style='font-size: 0.7em;'>15</sup></li>
+<li>10/30&nbsp;&nbsp;@ Kaysville<sup style='font-size: 0.7em;'>8</sup></li>
+<li>11/03&nbsp;&nbsp;vs Centennial<sup style='font-size: 0.7em;'>4</sup></li>
+<li>11/04&nbsp;&nbsp;vs Central Davis<sup style='font-size: 0.7em;'>2</sup></li>
+<li>11/06&nbsp;&nbsp;@ Shoreline<sup style='font-size: 0.7em;'>5</sup></li>
+<li>11/11&nbsp;&nbsp;vs Fairfield<sup style='font-size: 0.7em;'>6</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">12</td>
+                    <td class="text"><a onclick="toggle('details-North-Layton')">North Layton</a>&nbsp;<span style="color:red">↓1</span></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">4</td>
+                    <td class="numeric">0.200</td>
+                    <td class="numeric">0.720</td>
+                    <td class="numeric">0.400</td>
+                    <td class="numeric">0.454</td>
+                </tr>
+                <tr id="details-North-Layton" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;vs Farmington<sup style='font-size: 0.7em;'>1</sup>&nbsp;&nbsp;L&nbsp;&nbsp;35-62</li>
+<li>10/09&nbsp;&nbsp;@ Mueller Park<sup style='font-size: 0.7em;'>3</sup>&nbsp;&nbsp;L&nbsp;&nbsp;52-59</li>
+<li>10/14&nbsp;&nbsp;@ Central Davis<sup style='font-size: 0.7em;'>2</sup>&nbsp;&nbsp;L&nbsp;&nbsp;20-55</li>
+<li>10/21&nbsp;&nbsp;vs Kaysville<sup style='font-size: 0.7em;'>8</sup>&nbsp;&nbsp;L&nbsp;&nbsp;42-65</li>
+<li>10/23&nbsp;&nbsp;@ Bountiful<sup style='font-size: 0.7em;'>17</sup>&nbsp;&nbsp;W&nbsp;&nbsp;70-30</li>
+<li>10/28&nbsp;&nbsp;vs Fairfield<sup style='font-size: 0.7em;'>6</sup></li>
+<li>10/30&nbsp;&nbsp;vs West Point<sup style='font-size: 0.7em;'>14</sup></li>
+<li>11/03&nbsp;&nbsp;@ Sunset<sup style='font-size: 0.7em;'>7</sup></li>
+<li>11/04&nbsp;&nbsp;vs Horizon<sup style='font-size: 0.7em;'>9</sup></li>
+<li>11/06&nbsp;&nbsp;@ Syracuse<sup style='font-size: 0.7em;'>13</sup></li>
+<li>11/11&nbsp;&nbsp;vs North Davis<sup style='font-size: 0.7em;'>15</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">13</td>
+                    <td class="text"><a onclick="toggle('details-Syracuse')">Syracuse</a></td>
+                    <td class="numeric">2</td>
+                    <td class="numeric">3</td>
+                    <td class="numeric">0.400</td>
+                    <td class="numeric">0.440</td>
+                    <td class="numeric">0.496</td>
+                    <td class="numeric">0.428</td>
+                </tr>
+                <tr id="details-Syracuse" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;vs Bountiful<sup style='font-size: 0.7em;'>17</sup>&nbsp;&nbsp;W&nbsp;&nbsp;65-18</li>
+<li>10/09&nbsp;&nbsp;@ Fairfield<sup style='font-size: 0.7em;'>6</sup>&nbsp;&nbsp;L&nbsp;&nbsp;47-66</li>
+<li>10/14&nbsp;&nbsp;vs Kaysville<sup style='font-size: 0.7em;'>8</sup>&nbsp;&nbsp;L&nbsp;&nbsp;45-47</li>
+<li>10/21&nbsp;&nbsp;@ Centennial<sup style='font-size: 0.7em;'>4</sup>&nbsp;&nbsp;L&nbsp;&nbsp;53-65</li>
+<li>10/23&nbsp;&nbsp;@ Centerville<sup style='font-size: 0.7em;'>18</sup>&nbsp;&nbsp;W&nbsp;&nbsp;48-42</li>
+<li>10/28&nbsp;&nbsp;vs Mueller Park<sup style='font-size: 0.7em;'>3</sup></li>
+<li>10/30&nbsp;&nbsp;vs Horizon<sup style='font-size: 0.7em;'>9</sup></li>
+<li>11/03&nbsp;&nbsp;@ West Point<sup style='font-size: 0.7em;'>14</sup></li>
+<li>11/04&nbsp;&nbsp;vs North Davis<sup style='font-size: 0.7em;'>15</sup></li>
+<li>11/06&nbsp;&nbsp;vs North Layton<sup style='font-size: 0.7em;'>12</sup></li>
+<li>11/11&nbsp;&nbsp;@ Sunset<sup style='font-size: 0.7em;'>7</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">14</td>
+                    <td class="text"><a onclick="toggle('details-West-Point')">West Point</a>&nbsp;<span style="color:red">↓4</span></td>
+                    <td class="numeric">2</td>
+                    <td class="numeric">3</td>
+                    <td class="numeric">0.400</td>
+                    <td class="numeric">0.400</td>
+                    <td class="numeric">0.520</td>
+                    <td class="numeric">0.412</td>
+                </tr>
+                <tr id="details-West-Point" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;vs Fairfield<sup style='font-size: 0.7em;'>6</sup>&nbsp;&nbsp;L&nbsp;&nbsp;40-55</li>
+<li>10/09&nbsp;&nbsp;vs South Davis<sup style='font-size: 0.7em;'>16</sup>&nbsp;&nbsp;W&nbsp;&nbsp;58-46</li>
+<li>10/14&nbsp;&nbsp;@ Centerville<sup style='font-size: 0.7em;'>18</sup>&nbsp;&nbsp;W&nbsp;&nbsp;57-53</li>
+<li>10/21&nbsp;&nbsp;@ Shoreline<sup style='font-size: 0.7em;'>5</sup>&nbsp;&nbsp;L&nbsp;&nbsp;33-67</li>
+<li>10/23&nbsp;&nbsp;vs Legacy<sup style='font-size: 0.7em;'>11</sup>&nbsp;&nbsp;L&nbsp;&nbsp;55-59</li>
+<li>10/28&nbsp;&nbsp;@ Millcreek<sup style='font-size: 0.7em;'>10</sup></li>
+<li>10/30&nbsp;&nbsp;@ North Layton<sup style='font-size: 0.7em;'>12</sup></li>
+<li>11/03&nbsp;&nbsp;vs Syracuse<sup style='font-size: 0.7em;'>13</sup></li>
+<li>11/04&nbsp;&nbsp;vs Sunset<sup style='font-size: 0.7em;'>7</sup></li>
+<li>11/06&nbsp;&nbsp;@ North Davis<sup style='font-size: 0.7em;'>15</sup></li>
+<li>11/11&nbsp;&nbsp;@ Horizon<sup style='font-size: 0.7em;'>9</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">15</td>
+                    <td class="text"><a onclick="toggle('details-North-Davis')">North Davis</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">5</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">0.760</td>
+                    <td class="numeric">0.432</td>
+                    <td class="numeric">0.385</td>
+                </tr>
+                <tr id="details-North-Davis" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;vs Mueller Park<sup style='font-size: 0.7em;'>3</sup>&nbsp;&nbsp;L&nbsp;&nbsp;31-65</li>
+<li>10/09&nbsp;&nbsp;@ Kaysville<sup style='font-size: 0.7em;'>8</sup>&nbsp;&nbsp;L&nbsp;&nbsp;18-56</li>
+<li>10/14&nbsp;&nbsp;vs Centennial<sup style='font-size: 0.7em;'>4</sup>&nbsp;&nbsp;L&nbsp;&nbsp;18-48</li>
+<li>10/21&nbsp;&nbsp;vs Millcreek<sup style='font-size: 0.7em;'>10</sup>&nbsp;&nbsp;L&nbsp;&nbsp;40-59</li>
+<li>10/23&nbsp;&nbsp;@ Farmington<sup style='font-size: 0.7em;'>1</sup>&nbsp;&nbsp;L&nbsp;&nbsp;21-64</li>
+<li>10/28&nbsp;&nbsp;@ Legacy<sup style='font-size: 0.7em;'>11</sup></li>
+<li>10/30&nbsp;&nbsp;vs Sunset<sup style='font-size: 0.7em;'>7</sup></li>
+<li>11/03&nbsp;&nbsp;@ Horizon<sup style='font-size: 0.7em;'>9</sup></li>
+<li>11/04&nbsp;&nbsp;@ Syracuse<sup style='font-size: 0.7em;'>13</sup></li>
+<li>11/06&nbsp;&nbsp;vs West Point<sup style='font-size: 0.7em;'>14</sup></li>
+<li>11/11&nbsp;&nbsp;@ North Layton<sup style='font-size: 0.7em;'>12</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">16</td>
+                    <td class="text"><a onclick="toggle('details-South-Davis')">South Davis</a>&nbsp;<span style="color:green">↑2</span></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">5</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">0.640</td>
+                    <td class="numeric">0.384</td>
+                    <td class="numeric">0.326</td>
+                </tr>
+                <tr id="details-South-Davis" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;@ Kaysville<sup style='font-size: 0.7em;'>8</sup>&nbsp;&nbsp;L&nbsp;&nbsp;39-57</li>
+<li>10/09&nbsp;&nbsp;@ West Point<sup style='font-size: 0.7em;'>14</sup>&nbsp;&nbsp;L&nbsp;&nbsp;46-58</li>
+<li>10/14&nbsp;&nbsp;vs Horizon<sup style='font-size: 0.7em;'>9</sup>&nbsp;&nbsp;L&nbsp;&nbsp;63-68</li>
+<li>10/21&nbsp;&nbsp;vs Legacy<sup style='font-size: 0.7em;'>11</sup>&nbsp;&nbsp;L&nbsp;&nbsp;38-50</li>
+<li>10/23&nbsp;&nbsp;vs Centennial<sup style='font-size: 0.7em;'>4</sup>&nbsp;&nbsp;L&nbsp;&nbsp;24-57</li>
+<li>10/28&nbsp;&nbsp;vs Sunset<sup style='font-size: 0.7em;'>7</sup></li>
+<li>10/30&nbsp;&nbsp;@ Mueller Park<sup style='font-size: 0.7em;'>3</sup></li>
+<li>11/03&nbsp;&nbsp;vs Millcreek<sup style='font-size: 0.7em;'>10</sup></li>
+<li>11/04&nbsp;&nbsp;@ Farmington<sup style='font-size: 0.7em;'>1</sup></li>
+<li>11/06&nbsp;&nbsp;vs Bountiful<sup style='font-size: 0.7em;'>17</sup></li>
+<li>11/11&nbsp;&nbsp;vs Centerville<sup style='font-size: 0.7em;'>18</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">17</td>
+                    <td class="text"><a onclick="toggle('details-Bountiful')">Bountiful</a>&nbsp;<span style="color:red">↓1</span></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">5</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.456</td>
+                    <td class="numeric">0.316</td>
+                </tr>
+                <tr id="details-Bountiful" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;@ Syracuse<sup style='font-size: 0.7em;'>13</sup>&nbsp;&nbsp;L&nbsp;&nbsp;18-65</li>
+<li>10/09&nbsp;&nbsp;vs Horizon<sup style='font-size: 0.7em;'>9</sup>&nbsp;&nbsp;L&nbsp;&nbsp;25-66</li>
+<li>10/14&nbsp;&nbsp;@ Shoreline<sup style='font-size: 0.7em;'>5</sup>&nbsp;&nbsp;L&nbsp;&nbsp;9-100</li>
+<li>10/21&nbsp;&nbsp;vs Central Davis<sup style='font-size: 0.7em;'>2</sup>&nbsp;&nbsp;L&nbsp;&nbsp;23-69</li>
+<li>10/23&nbsp;&nbsp;vs North Layton<sup style='font-size: 0.7em;'>12</sup>&nbsp;&nbsp;L&nbsp;&nbsp;30-70</li>
+<li>10/28&nbsp;&nbsp;@ Kaysville<sup style='font-size: 0.7em;'>8</sup></li>
+<li>10/30&nbsp;&nbsp;@ Centerville<sup style='font-size: 0.7em;'>18</sup></li>
+<li>11/03&nbsp;&nbsp;vs Mueller Park<sup style='font-size: 0.7em;'>3</sup></li>
+<li>11/04&nbsp;&nbsp;@ Millcreek<sup style='font-size: 0.7em;'>10</sup></li>
+<li>11/06&nbsp;&nbsp;@ South Davis<sup style='font-size: 0.7em;'>16</sup></li>
+<li>11/11&nbsp;&nbsp;vs Farmington<sup style='font-size: 0.7em;'>1</sup></li>
+                        </ul>
+                    </td>
+                </tr>                <tr>
+                    <td class="text">18</td>
+                    <td class="text"><a onclick="toggle('details-Centerville')">Centerville</a>&nbsp;<span style="color:red">↓1</span></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">5</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">0.600</td>
+                    <td class="numeric">0.408</td>
+                    <td class="numeric">0.311</td>
+                </tr>
+                <tr id="details-Centerville" style="display: none;">
+                    <td colspan="8">
+                        <ul><li>10/07&nbsp;&nbsp;vs Central Davis<sup style='font-size: 0.7em;'>2</sup>&nbsp;&nbsp;L&nbsp;&nbsp;51-81</li>
+<li>10/09&nbsp;&nbsp;@ Legacy<sup style='font-size: 0.7em;'>11</sup>&nbsp;&nbsp;L&nbsp;&nbsp;50-75</li>
+<li>10/14&nbsp;&nbsp;vs West Point<sup style='font-size: 0.7em;'>14</sup>&nbsp;&nbsp;L&nbsp;&nbsp;53-57</li>
+<li>10/21&nbsp;&nbsp;@ Sunset<sup style='font-size: 0.7em;'>7</sup>&nbsp;&nbsp;L&nbsp;&nbsp;42-64</li>
+<li>10/23&nbsp;&nbsp;vs Syracuse<sup style='font-size: 0.7em;'>13</sup>&nbsp;&nbsp;L&nbsp;&nbsp;42-48</li>
+<li>10/28&nbsp;&nbsp;@ Centennial<sup style='font-size: 0.7em;'>4</sup></li>
+<li>10/30&nbsp;&nbsp;vs Bountiful<sup style='font-size: 0.7em;'>17</sup></li>
+<li>11/03&nbsp;&nbsp;@ Farmington<sup style='font-size: 0.7em;'>1</sup></li>
+<li>11/04&nbsp;&nbsp;vs Mueller Park<sup style='font-size: 0.7em;'>3</sup></li>
+<li>11/06&nbsp;&nbsp;vs Millcreek<sup style='font-size: 0.7em;'>10</sup></li>
+<li>11/11&nbsp;&nbsp;@ South Davis<sup style='font-size: 0.7em;'>16</sup></li>
+                        </ul>
+                    </td>
+                </tr>            </tbody>
+        </table>
+    </div>
+    <div class="legend">
+        Updated on: October 24, 2025<br>
+        WP: Winning Percentage<br>
+        OWP: Opponents' Winning Percentage<br>
+        OOWP: Opponents' Opponents' Winning Percentage<br>
+        RPI: Rating Percentage Index (45% WP + 45% OWP + 10% OOWP)<br>
+        ↑↓: Ranking change since last game
+    </div>
+</body>
+</html>
