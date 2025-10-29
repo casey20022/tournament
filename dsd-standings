@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>District Standings</title>
+<style>
+body {
+text-align: center;
+}
+a {
+font-family: sans-serif;
+}
+</style>
+</head>
+<body>
+<img src="https://5il.co/2zrtb" alt="District Standings">
+<p><a href="https://casey20022.github.io/tournament/standings+opponents-dsd.html">District Standings with Opponents</a></p>
+</body>
+</html>
