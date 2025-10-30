@@ -12,7 +12,7 @@
   width: 20px;
   height: 2px;
   margin: 4px;
-  background-color: #d6d6d6;
+  background-color: #fff;
 }
 
 .mobile-menu {
@@ -20,7 +20,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #e8e8e8;
+  background-color: #fff;
   width: 180px;
   height: 100vh;
   box-shadow: -2px 0 5px rgba(0,0,0,0.2);
