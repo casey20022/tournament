@@ -5,6 +5,7 @@
   right: 15px;
   cursor: pointer;
   z-index: 1001;
+  margin-bottom: 20px; 
 }
 
 .hamburger span {
