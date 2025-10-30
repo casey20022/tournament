@@ -1,0 +1,42 @@
+
+.hamburger {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 4px;
+  background-color: #333;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  width: 180px;
+  height: 100vh;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  padding: 50px 15px;
+  z-index: 1000;
+  font-family: sans-serif;
+}
+
+.mobile-menu a {
+  display: block;
+  margin: 12px 0;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.mobile-menu.active {
+  display: block;
+}
