@@ -4,9 +4,8 @@
 <html lang="en">
 
 <head>
-
+    <link rel='stylesheet' href='https://casey20022.github.io/tournament/menu.css'>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Basketball Standings</title>
@@ -21,11 +20,11 @@
 
         th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
 
-        th, td { padding: 6.3px 4px; border: 1px solid #ddd; }
+        th, td { padding: 6.17px 4px; border: 1px solid #ddd; }
 
         .header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 
-        .header h1 { margin: 0; font-size: 1.1rem; }
+        .header h1 { margin: 0; font-size: 1.1rem; margin-bottom: 5px; }
 
         tr:nth-child(even) { background-color: #f9f9f9; }
 
@@ -58,16 +57,20 @@
 </head>
 
 <body>
+    	<div class="hamburger" id="hamburger">
+  	<span></span>
+  	<span></span>
+  	<span></span>
+	</div>
+	<div class="mobile-menu" id="mobileMenu">
+  	<a href="https://casey20022.github.io/tournament/standings+opponents.html">Home</a>
+  	<a href="https://casey20022.github.io/tournament/standings+opponents.html-past">Past Game Standings</a>
+  	<a href="https://5il.co/317fx">Tournament Bracket</a>
+	</div>
 
     <div class="header">
 
 <h1>Basketball Standings</h1>
-
-<div class="links">
-
-<a href=https://5il.co/317fx>Bracket</a>
-
-</div>
 
 </div>
 
@@ -883,116 +886,19 @@
 
     <div class="legend">
 
-        Updated on: October 29, 2025<br>
+        Updated on: October 30, 2025<br>
 
         WP: Winning Percentage<br>
 
-        OWP: Opponents' Winning Percentage (includes past and future opponents)<br>
+        OWP: Opponents' Winning Percentage (past and future games)<br>
 
         OOWP: Opponents' Opponents' Winning Percentage<br>
 
         RPI: Rating Percentage Index (45% WP + 45% OWP + 10% OOWP)
 
     </div>
-
-<style>
-    /* The overlay for the splash page, covering the entire screen */
-    .splash-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000; /* Ensure it's on top of other content */
-    }
-
-    /* The actual content box for the message */
-    .splash-content {
-        background-color: #fff;
-        padding: 40px;
-        border-radius: 8px;
-        max-width: 500px;
-        text-align: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        position: relative;
-        font-family: Arial, sans-serif;
-        color: #333;
-        line-height: 1.5;
-    }
-
-    /* The title within the splash content */
-    .splash-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    /* The close button at the top-right */
-    .splash-close {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 24px;
-        font-weight: bold;
-        color: #888;
-        cursor: pointer;
-    }
-    .splash-close:hover {
-        color: #333;
-    }
-
-    /* The confirmation button */
-    .splash-button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        margin-top: 20px;
-    }
-    .splash-button:hover {
-        background-color: #0056b3;
-    }
-</style>
-
-<div id="splashPage" class="splash-overlay" style="display: none;">
-    <div class="splash-content">
-        <span class="splash-close" onclick="closeSplash()">&times;</span>
-        <div class="splash-title">Important Information</div>
-        <p>These rankings are done the same way the district does them. They look at future games, not just past ones, which gives a fuller picture, but can sometimes make the results seem a little odd if you're only focused on previous results.</p>
-        <button class="splash-button" onclick="closeSplash()">Got it!</button>
-    </div>
-</div>
-
-<script>
-    // Define a key for localStorage to track if the user has seen the splash page
-    const localStorageKey = 'hasSeenSplash';
-
-    // Function to close the splash page
-    function closeSplash() {
-        document.getElementById('splashPage').style.display = 'none';
-        // Set an item in localStorage to indicate the user has seen the splash page
-        localStorage.setItem(localStorageKey, 'true');
-    }
-
-    // Check localStorage on page load
-    window.onload = function() {
-        // If the localStorage key is not set, show the splash page
-        if (localStorage.getItem(localStorageKey) !== 'true') {
-            document.getElementById('splashPage').style.display = 'flex';
-        }
-    };
-</script>
-
-    
+	<script src='https://casey20022.github.io/tournament/menu.js'></script>
 </body>
 
 </html>
-
 
