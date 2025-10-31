@@ -1,25 +1,27 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  	<link rel='stylesheet' href='https://casey20022.github.io/tournament/menu.css'>
+    <link rel='stylesheet' href='https://casey20022.github.io/tournament/menu.css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Scores</title>
     <style>
+        .header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .header h1 { margin: 0; font-size: 1.1rem; margin-bottom: 5px; }body {
+            font-family: sans-serif;
         body {
             font-family: sans-serif;
         }
         table {
             border-collapse: collapse;
             margin: auto;
-			width: 100%;
         }
         th, td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
         }
-	thead th {
+thead th {
             position: sticky;
             top: 0;
             background-color: #333; /* Dark gray background */
@@ -32,18 +34,21 @@
     </style>
 </head>
 <body>
-	<div class="hamburger" id="hamburger">
-  	<span></span>
-  	<span></span>
-  	<span></span>
-	</div>
-	<div class="mobile-menu" id="mobileMenu">
-  	<a href="https://casey20022.github.io/tournament/standings+opponents.html">Home</a>
-	<a href="https://casey20022.github.io/tournament/about.html">About</a>
-  	<a href="https://casey20022.github.io/tournament/standings+opponents-past.html">Past Game Standings</a>
-	<a href="https://casey20022.github.io/tournament/scores.html">Scores</a>
-  	<a href="https://5il.co/317fx">Tournament Bracket</a>
-	</div>
+<div class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://casey20022.github.io/tournament/standings+opponents.html">Home</a>
+<a href="https://casey20022.github.io/tournament/about.html">About</a>
+  <a href="https://casey20022.github.io/tournament/standings+opponents-past.html">Past Game Standings</a>
+<a href="https://casey20022.github.io/tournament/scores.html">Scores</a>
+  <a href="https://5il.co/317fx">Tournament Bracket</a>
+</div>
+    <div class="header">
+<h1>Scores</h1>
+</div>
     <table>
         <thead>
             <tr>
@@ -451,8 +456,6 @@
             </tr>        </tbody>
     </table>
   <p><small>Date updated: $(Get-Date -Format "MMMM d, yyyy")<br> Winning team is bolded.<br>The first team listed is the home team.</small></p>
-
-	<script src='https://casey20022.github.io/tournament/menu.js'></script>
+<script src='https://casey20022.github.io/tournament/menu.js'></script>
 </body>
 </html>
-
