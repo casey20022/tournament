@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel='stylesheet' href='https://casey20022.github.io/tournament/menu.css'>
+  	<link rel='stylesheet' href='https://casey20022.github.io/tournament/menu.css'>
     <meta charset="UTF-8">
     <title>Scores</title>
     <style>
@@ -17,7 +17,7 @@
             padding: 8px;
             text-align: left;
         }
-thead th {
+	thead th {
             position: sticky;
             top: 0;
             background-color: #333; /* Dark gray background */
@@ -30,16 +30,18 @@ thead th {
     </style>
 </head>
 <body>
-<div class="hamburger" id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="https://casey20022.github.io/tournament/standings+opponents.html">Home</a>
-  <a href="#standings">Past Game Standings</a>
-  <a href="https://5il.co/317fx">Tournament Bracket</a>
-</div>
+	<div class="hamburger" id="hamburger">
+  	<span></span>
+  	<span></span>
+  	<span></span>
+	</div>
+	<div class="mobile-menu" id="mobileMenu">
+  	<a href="https://casey20022.github.io/tournament/standings+opponents.html">Home</a>
+	<a href="https://casey20022.github.io/tournament/about.html">About</a>
+  	<a href="https://casey20022.github.io/tournament/standings+opponents-past.html">Past Game Standings</a>
+	<a href="https://casey20022.github.io/tournament/scores.html">Scores</a>
+  	<a href="https://5il.co/317fx">Tournament Bracket</a>
+	</div>
     <table>
         <thead>
             <tr>
@@ -446,8 +448,8 @@ thead th {
                 <td></td>
             </tr>        </tbody>
     </table>
-  <p><small>Date updated: October 31, 2025<br> Winning team is bolded.<br>The first team listed is the home team.</small></p>
-<script src='https://casey20022.github.io/tournament/menu.js'></script>
+  <p><small>Date updated: $(Get-Date -Format "MMMM d, yyyy")<br> Winning team is bolded.<br>The first team listed is the home team.</small></p>
+
+	<script src='https://casey20022.github.io/tournament/menu.js'></script>
 </body>
 </html>
-
