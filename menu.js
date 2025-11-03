@@ -13,6 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(data => {
       mobileMenu.innerHTML = data;  // Insert the menu HTML
+
+      // Add click listeners to each menu link to close the menu
+      const menuLinks = mobileMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+        });
+      });
     })
     .catch(error => {
       console.error('Error loading menu:', error);
