@@ -454,11 +454,25 @@
                 <td></td>
             </tr>        </tbody>
     </table>
-  <p><small>Date updated: October 31, 2025<br> Winning team is bolded.<br>The first team listed is the home team.</small></p>
+  <p><small>Date updated: <span id="updated-date">October 31, 2025</span><br> Winning team is bolded.<br>The first team listed is the home team.</small></p>
 
 	<script src='https://casey20022.github.io/tournament/menu.js'></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const dateElement = document.getElementById('updated-date');
+    if (dateElement) {
+      const lastModified = new Date(document.lastModified);
+      dateElement.textContent = lastModified.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+  });
+</script>
 </body>
 </html>
+
 
 
 
