@@ -41,3 +41,16 @@
 .mobile-menu.active {
   display: block;
 }
+
+.mobile-menu {
+  display: none;  /* Hidden by default */
+  /* Your other styles, e.g., position, background, etc. */
+}
+
+.mobile-menu.active {
+  display: block;  /* Shown when toggled */
+}
+
+.hamburger.active {
+  /* Styles for active hamburger, e.g., transform spans into X */
+}
