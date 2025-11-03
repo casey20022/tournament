@@ -42,3 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+// ... (your existing code remains the same)
+
+// Add this block anywhere in the file (outside or inside DOMContentLoaded)
+window.addEventListener('pageshow', function(event) {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  // Reset menu state on page show, especially if from cache (back button)
+  if (hamburger && mobileMenu) {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+  }
+});
