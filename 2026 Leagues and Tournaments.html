@@ -1,0 +1,472 @@
+
+<html>
+<head>
+<style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
+    h1 { text-align: center; margin-bottom: 20px; }
+    
+    table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 12px; }
+    
+    /* STICKY HEADER MAGIC */
+    thead th {
+        position: sticky; top: 0; z-index: 100;
+        background: #333; /* Solid background prevents see-through */
+        color: white;
+        padding: 0; margin: 0;
+        border-bottom: 3px solid black;
+    }
+    
+    /* Specific Header Styling */
+    .col-info-header {
+        padding: 10px; text-align: left; width: 350px;
+        z-index: 101; /* Stays above graph header if wrapping occurs */
+    }
+    
+    .timeline-header-container {
+        position: relative; height: 35px; width: 100%; overflow: hidden;
+    }
+    
+    .month-label { 
+        position: absolute; 
+        top: 8px; 
+        padding-left: 8px; 
+        font-weight: bold; 
+        font-size: 13px; 
+        border-left: 1px solid #777;
+        text-transform: uppercase;
+        height: 20px;
+    }
+    
+    /* Rows */
+    td { padding: 4px 10px; border-bottom: 1px solid #eee; vertical-align: middle; height: 30px;}
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    
+    .col-info { width: 350px; border-right: 2px solid #ccc; white-space: nowrap; background: inherit;}
+    .name { font-weight: bold; font-size: 13px; display: block; }
+    .meta { color: #666; font-size: 11px; }
+    
+    .col-graph { position: relative; padding: 0 !important; overflow: hidden; background: inherit;}
+    
+    .timeline-container { position: relative; height: 100%; }
+    
+    .grid-line {
+        position: absolute; top: 0; bottom: 0; width: 1px; background: #e0e0e0; z-index: 0;
+    }
+    .month-line { background: #bbb; width: 2px; }
+    
+    .bar {
+        position: absolute; top: 6px; height: 18px; 
+        border-radius: 4px; z-index: 2;
+        box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+</style>
+</head>
+<body>
+    <h1>2026 Basketball Schedule</h1>
+    <table>
+        <thead>
+            <tr>
+                <th class='col-info-header'>Event Details</th>
+                <th class='col-graph-header'>
+                    <div class='timeline-header-container' style='width:1224px'>
+                        <div class='month-label' style='left:0px'>March</div><div class='month-label' style='left:248px'>April</div><div class='month-label' style='left:488px'>May</div><div class='month-label' style='left:736px'>June</div><div class='month-label' style='left:976px'>July</div>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#D32F2F'>Salt Lake County Bantam March League</span>
+            <span class='meta'>Mar 09-28 | Salt Lake</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:64px; width:160px; background-color:#D32F2F'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#E64A19'>Weber County Comp Basketball</span>
+            <span class='meta'>Mar 17-Jun 06 | Harrisville</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:128px; width:656px; background-color:#E64A19'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>March Madness</span>
+            <span class='meta'>Mar 19-21 | Lehi</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:144px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>2026 Mountain Madness</span>
+            <span class='meta'>Mar 26-29 | West Jordan</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:200px; width:32px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#008080'>Northern Utah Spring Fling League</span>
+            <span class='meta'>Apr 07-23 | Weber/Davis</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:296px; width:136px; background-color:#008080'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#388E3C'>2026 Salt Lake Spring Super League</span>
+            <span class='meta'>Apr 11-May 19 | Sandy</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:328px; width:312px; background-color:#388E3C'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#7B1FA2'>Battlegrounds Spring 2026 League</span>
+            <span class='meta'>Apr 11-May 30 | Farmington</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:328px; width:400px; background-color:#7B1FA2'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Utah Club Invitational</span>
+            <span class='meta'>Apr 17-18 | Am. Fork</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:376px; width:16px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#008080'>Highland/Olympus League</span>
+            <span class='meta'>Apr 21-May 08 | Highland</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:408px; width:144px; background-color:#008080'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Spring Jam</span>
+            <span class='meta'>Apr 23-25 | Lehi</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:424px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Battlegrounds Spring Fling</span>
+            <span class='meta'>Apr 23-25 | Farmington</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:424px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Salt Lake Slam - Mountain West</span>
+            <span class='meta'>Apr 24-25 | Draper</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:432px; width:16px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Utah Spring Classic</span>
+            <span class='meta'>Apr 24-25 | W. Jordan</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:432px; width:16px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Salt Lake Spring Classic</span>
+            <span class='meta'>Apr 24-25 | Salt Lake</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:432px; width:16px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Mountain West Spring Tip Off</span>
+            <span class='meta'>Apr 30-May 02 | Lehi</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:480px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Salt Lake Mothers Day Classic</span>
+            <span class='meta'>May 08-09 | Salt Lake</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:544px; width:16px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#008080'>Farmington Basketball Camp</span>
+            <span class='meta'>May 11-14 | Farmington</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:568px; width:32px; background-color:#008080'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>NETS ON FIRE 2026 CLASSIC</span>
+            <span class='meta'>May 15-16 | St. George</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:600px; width:16px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#008080'>Northern Utah Shootout</span>
+            <span class='meta'>May 21-23 | Roy</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:648px; width:24px; background-color:#008080'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Battlegrounds Memorial Day</span>
+            <span class='meta'>May 22-25 | Farmington</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:656px; width:32px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Utah Hoop Summit</span>
+            <span class='meta'>May 28-30 | Farmington</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:704px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Summer Kick Off</span>
+            <span class='meta'>May 28-30 | Lehi</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:704px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#008080'>Utah State Tournament</span>
+            <span class='meta'>Jun 01-02 | Logan</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:736px; width:16px; background-color:#008080'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Great Western Summer Classic</span>
+            <span class='meta'>Jun 03-06 | Draper</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:752px; width:32px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#008080'>Utah Tech Tournament</span>
+            <span class='meta'>Jun 08-11 | St. George</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:792px; width:32px; background-color:#008080'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>2026 Big Mountain Jam</span>
+            <span class='meta'>Jun 11-13 | Sandy</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:816px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>2026 Rocky Mountain Showcase</span>
+            <span class='meta'>Jun 18-20 | Sandy</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:872px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>2026 Great Salt Lake Classic</span>
+            <span class='meta'>Jun 25-27 | Sandy</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:928px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Battlegrounds Stars & Stripes</span>
+            <span class='meta'>Jul 09-11 | Farmington</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:1040px; width:24px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class='col-info'>
+            <span class='name' style='color:#4285F4'>Utah Summer Finale</span>
+            <span class='meta'>Jul 24-25 | Salt Lake</span>
+        </td>
+        <td class='col-graph'>
+            <div class='timeline-container' style='width:1224px'>
+                <div class='grid-line month-line' style='left:0px'></div><div class='grid-line' style='left:56px'></div><div class='grid-line' style='left:112px'></div><div class='grid-line' style='left:168px'></div><div class='grid-line' style='left:224px'></div><div class='grid-line month-line' style='left:248px'></div><div class='grid-line' style='left:280px'></div><div class='grid-line' style='left:336px'></div><div class='grid-line' style='left:392px'></div><div class='grid-line' style='left:448px'></div><div class='grid-line month-line' style='left:488px'></div><div class='grid-line' style='left:504px'></div><div class='grid-line' style='left:560px'></div><div class='grid-line' style='left:616px'></div><div class='grid-line' style='left:672px'></div><div class='grid-line' style='left:728px'></div><div class='grid-line month-line' style='left:736px'></div><div class='grid-line' style='left:784px'></div><div class='grid-line' style='left:840px'></div><div class='grid-line' style='left:896px'></div><div class='grid-line' style='left:952px'></div><div class='grid-line month-line' style='left:976px'></div><div class='grid-line' style='left:1008px'></div><div class='grid-line' style='left:1064px'></div><div class='grid-line' style='left:1120px'></div><div class='grid-line' style='left:1176px'></div>
+                <div class='bar' style='left:1160px; width:16px; background-color:#4285F4'></div>
+            </div>
+        </td>
+    </tr>
+    
+        </tbody>
+    </table>
+</body>
+</html>
