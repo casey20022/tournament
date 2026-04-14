@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Boys 8th Rankings</title>
+    <style>
+        :root {
+            --ios-bg: #F2F2F7;
+            --ios-card: #FFFFFF;
+            --ios-text: #000000;
+            --ios-secondary: #8E8E93;
+            --ios-border: #C6C6C8;
+            --ios-green: #34C759;
+            --ios-red: #FF3B30;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--ios-bg);
+            color: var(--ios-text);
+            margin: 0; padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        header { padding: 20px 16px 10px 16px; }
+        h1 { font-size: 22px; font-weight: 700; margin: 0; }
+        .container { padding: 0 16px 40px 16px; }
+        .table-card { background: var(--ios-card); border-radius: 10px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { color: var(--ios-secondary); font-size: 10px; text-transform: uppercase; text-align: left; padding: 12px 8px; border-bottom: 0.5px solid var(--ios-border); }
+        td { padding: 14px 8px; border-bottom: 0.5px solid var(--ios-border); }
+        .rk { width: 25px; color: var(--ios-secondary); text-align: center; }
+        .team { font-weight: 600; }
+        .wl { width: 35px; text-align: center; }
+        .num { width: 35px; text-align: center; font-variant-numeric: tabular-nums; }
+        .diff { width: 45px; text-align: right; padding-right: 12px; font-weight: 600; }
+        .pos { color: var(--ios-green); }
+        .neg { color: var(--ios-red); }
+    </style>
+</head>
+<body>
+    <header><h1>Boys 8th Rankings</h1></header>
+    <div class="container">
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr><th class="rk">RK</th><th class="team">TEAM</th><th class="wl">W-L</th><th class="num">PF</th><th class="num">PA</th><th class="diff">+/-</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="rk">1</td><td class="team">Centennial 8th</td><td class="wl">2-0</td><td class="num">101</td><td class="num">77</td><td class="diff pos">+24</td></tr>
+                    <tr><td class="rk">2</td><td class="team">Farmington 8th</td><td class="wl">2-0</td><td class="num">124</td><td class="num">101</td><td class="diff pos">+23</td></tr>
+                    <tr><td class="rk">3</td><td class="team">Shoreline 8th</td><td class="wl">1-1</td><td class="num">108</td><td class="num">85</td><td class="diff pos">+23</td></tr>
+                    <tr><td class="rk">4</td><td class="team">Centerville Blue</td><td class="wl">1-0</td><td class="num">51</td><td class="num">29</td><td class="diff pos">+22</td></tr>
+                    <tr><td class="rk">5</td><td class="team">Cent. Thunder</td><td class="wl">1-0</td><td class="num">56</td><td class="num">32</td><td class="diff pos">+24</td></tr>
+                    <tr><td class="rk">6</td><td class="team">Legacy Blue</td><td class="wl">1-0</td><td class="num">46</td><td class="num">39</td><td class="diff pos">+7</td></tr>
+                    <tr><td class="rk">7</td><td class="team">Legacy Red</td><td class="wl">1-0</td><td class="num">54</td><td class="num">47</td><td class="diff pos">+7</td></tr>
+                    <tr><td class="rk">8</td><td class="team">South Davis</td><td class="wl">1-1</td><td class="num">93</td><td class="num">93</td><td class="diff">0</td></tr>
+                    <tr><td class="rk">9</td><td class="team">Horizon White</td><td class="wl">1-1</td><td class="num">107</td><td class="num">93</td><td class="diff pos">+14</td></tr>
+                    <tr><td class="rk">10</td><td class="team">Syracuse 8th</td><td class="wl">0-2</td><td class="num">76</td><td class="num">105</td><td class="diff neg">-29</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
