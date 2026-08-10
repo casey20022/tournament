@@ -1,110 +1,44 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
 
 <head>
-
+    <link rel='stylesheet' href='https://casey20022.github.io/tournament/menu.css'>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Official Standings</title>
+    <title>DSD Jr High Basketball Standings</title>
 
     <style>
 
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 12px;
-        }
+        body { font-family: sans-serif; }
 
-        .top-links {
-            position: absolute;
-            top: 12px;
-            right: 14px;
-            font-size: 0.8em;
-            font-weight: normal;
-            z-index: 2;
-        }
+        .table-container { overflow-x: auto; }
 
-        .top-links a {
-            color: inherit;
-            text-decoration: underline;
-            cursor: pointer;
-        }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
 
-        .top-links a:hover {
-            opacity: 0.8;
-        }
+        th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
 
-        .top-links span {
-            margin: 0 6px;
-        }
+        th, td { padding: 6.17px 4px; border: 1px solid #ddd; }
 
-        .table-container {
-            overflow-x: auto;
-        }
+        .header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95em;
-        }
+        .header h1 { margin: 0; font-size: 1.1rem; margin-bottom: 5px; }
 
-        th {
-            background-color: #f2f2f2;
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
 
-        th, td {
-            padding: 6.17px 4px;
-            border: 1px solid #ddd;
-        }
+        .numeric { text-align: center; }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 5px;
-        }
+        .text { text-align: left; }
 
-        .header h1 {
-            margin: 0;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
+        a { text-decoration: underline; cursor: pointer; color: inherit; }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+        .legend { font-size: 0.75em; padding: 5px; }
 
-        .numeric {
-            text-align: center;
-        }
+        ul { margin: 0; padding-left: 20px; }
 
-        .text {
-            text-align: left;
-        }
-
-        a {
-            text-decoration: underline;
-            cursor: pointer;
-            color: inherit;
-        }
-
-        .legend {
-            font-size: 0.75em;
-            padding: 5px;
-        }
-
-        ul {
-            margin: 0;
-            padding-left: 20px;
-        }
+        .links { font-size: 0.9em; }
 
     </style>
 
@@ -115,6 +49,7 @@
             var element = document.getElementById(id);
 
             element.style.display = (element.style.display === "table-row") ? "none" : "table-row";
+
         }
 
     </script>
@@ -122,18 +57,20 @@
 </head>
 
 <body>
-
-    <div class="top-links">
-        <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:8192b443-57e9-474c-a97f-6884878b5e4c" target="_blank" rel="noopener noreferrer">Schedule</a>
-        <span>|</span>
-        <a href="https://5il.co/317fx" target="_blank" rel="noopener noreferrer">Bracket</a>
-    </div>
+    	<div class="hamburger" id="hamburger">
+  	<span></span>
+  	<span></span>
+  	<span></span>
+	</div>
+	<div class="mobile-menu" id="mobileMenu">
+ 	<!-- Menu items will be loaded here via JS -->
+	</div>
 
     <div class="header">
 
-        <h1>Official Standings</h1>
+<h1>DSD Jr High Basketball Standings</h1>
 
-    </div>
+</div>
 
     <div class="table-container">
 
@@ -177,11 +114,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -220,11 +157,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -263,11 +200,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -306,11 +243,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -349,11 +286,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -392,11 +329,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -435,11 +372,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -478,11 +415,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -521,11 +458,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -564,11 +501,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -607,11 +544,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -650,11 +587,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -693,11 +630,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -736,11 +673,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -779,11 +716,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -822,11 +759,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -865,11 +802,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -908,11 +845,11 @@
 
                     <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
-                    <td class="numeric"></td>
+                    <td class="numeric">0.000</td>
 
                 </tr>
 
@@ -958,7 +895,7 @@
         RPI: Rating Percentage Index (45% WP + 45% OWP + 10% OOWP)
 
     </div>
-
+	<script src='https://casey20022.github.io/tournament/menu.js'></script>
 </body>
 
 </html>
