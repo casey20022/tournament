@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://casey20022.github.io/tournament/menu.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://casey20022.github.io/tournament/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="https://casey20022.github.io/tournament/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="https://casey20022.github.io/tournament/favicon.ico">
+    <title>Point Differential Standings</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 12px; }
+        h1 { font-size: 1.2rem; }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+        th, td { padding: 7px 5px; border: 1px solid #ddd; }
+        th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .numeric { text-align: center; }
+        .text { text-align: left; }
+        .team-link { color: inherit; cursor: pointer; text-decoration: underline; }
+        .positive { color: green; font-weight: bold; }
+        .negative { color: #b00020; font-weight: bold; }
+        .zero { font-weight: bold; }
+        .details td { background-color: #fafafa; }
+        .legend { font-size: 0.8em; padding: 10px 5px; }
+        ul { margin: 0; padding-left: 20px; }
+        sup { font-size: 0.7em; }
+    </style>
+    <script>
+        function toggleDetails(id) {
+            var row = document.getElementById(id);
+            row.style.display = row.style.display === "none" ? "table-row" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+    <div class="mobile-menu" id="mobileMenu"></div>
+    <h1>Point Differential Standings</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="numeric">#</th>
+                    <th class="text">Team</th>
+                    <th class="numeric">W</th>
+                    <th class="numeric">L</th>
+                    <th class="numeric">WP</th>
+                    <th class="numeric">PF</th>
+                    <th class="numeric">PA</th>
+                    <th class="numeric">PD</th>
+                </tr>
+            </thead>
+            <tbody>                <tr>
+                    <td class="numeric">1</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-1')">Centennial</a></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">81</td>
+                    <td class="numeric">24</td>
+                    <td class="numeric positive">+57</td>
+                </tr>
+                <tr id="details-team-1" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs Bountiful<sup>18</sup>&nbsp;&nbsp;W&nbsp;&nbsp;81-24</li>
+<li>10/22&nbsp;&nbsp;vs North Layton<sup>7</sup></li>
+<li>10/27&nbsp;&nbsp;@ Millcreek<sup>14</sup></li>
+<li>10/29&nbsp;&nbsp;vs Mueller Park<sup>16</sup></li>
+<li>11/03&nbsp;&nbsp;@ Horizon<sup>6</sup></li>
+<li>11/05&nbsp;&nbsp;@ West Point<sup>17</sup></li>
+<li>11/10&nbsp;&nbsp;@ Central Davis<sup>10</sup></li>
+<li>11/12&nbsp;&nbsp;vs Legacy<sup>13</sup></li>
+<li>11/17&nbsp;&nbsp;@ Shoreline<sup>3</sup></li>
+<li>11/19&nbsp;&nbsp;@ Fairfield<sup>4</sup></li>
+<li>11/24&nbsp;&nbsp;vs Kaysville<sup>2</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">2</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-2')">Kaysville</a></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">65</td>
+                    <td class="numeric">35</td>
+                    <td class="numeric positive">+30</td>
+                </tr>
+                <tr id="details-team-2" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs West Point<sup>17</sup>&nbsp;&nbsp;W&nbsp;&nbsp;65-35</li>
+<li>10/22&nbsp;&nbsp;@ Sunset<sup>15</sup></li>
+<li>10/27&nbsp;&nbsp;@ Farmington<sup>9</sup></li>
+<li>10/29&nbsp;&nbsp;vs Millcreek<sup>14</sup></li>
+<li>11/03&nbsp;&nbsp;vs Centerville<sup>8</sup></li>
+<li>11/05&nbsp;&nbsp;@ Horizon<sup>6</sup></li>
+<li>11/10&nbsp;&nbsp;@ Legacy<sup>13</sup></li>
+<li>11/12&nbsp;&nbsp;vs Shoreline<sup>3</sup></li>
+<li>11/17&nbsp;&nbsp;vs Fairfield<sup>4</sup></li>
+<li>11/19&nbsp;&nbsp;vs Central Davis<sup>10</sup></li>
+<li>11/24&nbsp;&nbsp;@ Centennial<sup>1</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">3</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-3')">Shoreline</a></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">60</td>
+                    <td class="numeric">31</td>
+                    <td class="numeric positive">+29</td>
+                </tr>
+                <tr id="details-team-3" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;@ Mueller Park<sup>16</sup>&nbsp;&nbsp;W&nbsp;&nbsp;60-31</li>
+<li>10/22&nbsp;&nbsp;vs South Davis<sup>12</sup></li>
+<li>10/27&nbsp;&nbsp;vs Syracuse<sup>5</sup></li>
+<li>10/29&nbsp;&nbsp;@ North Davis<sup>11</sup></li>
+<li>11/03&nbsp;&nbsp;vs North Layton<sup>7</sup></li>
+<li>11/05&nbsp;&nbsp;@ Centerville<sup>8</sup></li>
+<li>11/10&nbsp;&nbsp;@ Fairfield<sup>4</sup></li>
+<li>11/12&nbsp;&nbsp;@ Kaysville<sup>2</sup></li>
+<li>11/17&nbsp;&nbsp;vs Centennial<sup>1</sup></li>
+<li>11/19&nbsp;&nbsp;@ Legacy<sup>13</sup></li>
+<li>11/24&nbsp;&nbsp;vs Central Davis<sup>10</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">4</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-4')">Fairfield</a></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">58</td>
+                    <td class="numeric">31</td>
+                    <td class="numeric positive">+27</td>
+                </tr>
+                <tr id="details-team-4" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;@ Sunset<sup>15</sup>&nbsp;&nbsp;W&nbsp;&nbsp;58-31</li>
+<li>10/22&nbsp;&nbsp;vs Centerville<sup>8</sup></li>
+<li>10/27&nbsp;&nbsp;vs Horizon<sup>6</sup></li>
+<li>10/29&nbsp;&nbsp;@ South Davis<sup>12</sup></li>
+<li>11/03&nbsp;&nbsp;@ North Davis<sup>11</sup></li>
+<li>11/05&nbsp;&nbsp;@ Bountiful<sup>18</sup></li>
+<li>11/10&nbsp;&nbsp;vs Shoreline<sup>3</sup></li>
+<li>11/12&nbsp;&nbsp;@ Central Davis<sup>10</sup></li>
+<li>11/17&nbsp;&nbsp;@ Kaysville<sup>2</sup></li>
+<li>11/19&nbsp;&nbsp;vs Centennial<sup>1</sup></li>
+<li>11/24&nbsp;&nbsp;vs Legacy<sup>13</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">5</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-5')">Syracuse</a></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">54</td>
+                    <td class="numeric">43</td>
+                    <td class="numeric positive">+11</td>
+                </tr>
+                <tr id="details-team-5" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs Legacy<sup>13</sup>&nbsp;&nbsp;W&nbsp;&nbsp;54-43</li>
+<li>10/22&nbsp;&nbsp;vs Farmington<sup>9</sup></li>
+<li>10/27&nbsp;&nbsp;@ Shoreline<sup>3</sup></li>
+<li>10/29&nbsp;&nbsp;@ Central Davis<sup>10</sup></li>
+<li>11/03&nbsp;&nbsp;@ Millcreek<sup>14</sup></li>
+<li>11/05&nbsp;&nbsp;vs South Davis<sup>12</sup></li>
+<li>11/10&nbsp;&nbsp;@ Horizon<sup>6</sup></li>
+<li>11/12&nbsp;&nbsp;vs West Point<sup>17</sup></li>
+<li>11/17&nbsp;&nbsp;@ North Davis<sup>11</sup></li>
+<li>11/19&nbsp;&nbsp;@ North Layton<sup>7</sup></li>
+<li>11/24&nbsp;&nbsp;vs Sunset<sup>15</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">6</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-6')">Horizon</a></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">52</td>
+                    <td class="numeric">41</td>
+                    <td class="numeric positive">+11</td>
+                </tr>
+                <tr id="details-team-6" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;@ Millcreek<sup>14</sup>&nbsp;&nbsp;W&nbsp;&nbsp;52-41</li>
+<li>10/22&nbsp;&nbsp;vs Mueller Park<sup>16</sup></li>
+<li>10/27&nbsp;&nbsp;@ Fairfield<sup>4</sup></li>
+<li>10/29&nbsp;&nbsp;@ Centerville<sup>8</sup></li>
+<li>11/03&nbsp;&nbsp;vs Centennial<sup>1</sup></li>
+<li>11/05&nbsp;&nbsp;vs Kaysville<sup>2</sup></li>
+<li>11/10&nbsp;&nbsp;vs Syracuse<sup>5</sup></li>
+<li>11/12&nbsp;&nbsp;@ North Davis<sup>11</sup></li>
+<li>11/17&nbsp;&nbsp;vs North Layton<sup>7</sup></li>
+<li>11/19&nbsp;&nbsp;@ Sunset<sup>15</sup></li>
+<li>11/24&nbsp;&nbsp;@ West Point<sup>17</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">7</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-7')">North Layton</a></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">66</td>
+                    <td class="numeric">57</td>
+                    <td class="numeric positive">+9</td>
+                </tr>
+                <tr id="details-team-7" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;@ South Davis<sup>12</sup>&nbsp;&nbsp;W&nbsp;&nbsp;66-57</li>
+<li>10/22&nbsp;&nbsp;@ Centennial<sup>1</sup></li>
+<li>10/27&nbsp;&nbsp;vs Centerville<sup>8</sup></li>
+<li>10/29&nbsp;&nbsp;vs Legacy<sup>13</sup></li>
+<li>11/03&nbsp;&nbsp;@ Shoreline<sup>3</sup></li>
+<li>11/05&nbsp;&nbsp;vs Millcreek<sup>14</sup></li>
+<li>11/10&nbsp;&nbsp;@ West Point<sup>17</sup></li>
+<li>11/12&nbsp;&nbsp;vs Sunset<sup>15</sup></li>
+<li>11/17&nbsp;&nbsp;@ Horizon<sup>6</sup></li>
+<li>11/19&nbsp;&nbsp;vs Syracuse<sup>5</sup></li>
+<li>11/24&nbsp;&nbsp;@ North Davis<sup>11</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">8</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-8')">Centerville</a></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">57</td>
+                    <td class="numeric">51</td>
+                    <td class="numeric positive">+6</td>
+                </tr>
+                <tr id="details-team-8" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs North Davis<sup>11</sup>&nbsp;&nbsp;W&nbsp;&nbsp;57-51</li>
+<li>10/22&nbsp;&nbsp;@ Fairfield<sup>4</sup></li>
+<li>10/27&nbsp;&nbsp;@ North Layton<sup>7</sup></li>
+<li>10/29&nbsp;&nbsp;vs Horizon<sup>6</sup></li>
+<li>11/03&nbsp;&nbsp;@ Kaysville<sup>2</sup></li>
+<li>11/05&nbsp;&nbsp;vs Shoreline<sup>3</sup></li>
+<li>11/10&nbsp;&nbsp;@ Bountiful<sup>18</sup></li>
+<li>11/12&nbsp;&nbsp;vs Farmington<sup>9</sup></li>
+<li>11/17&nbsp;&nbsp;@ Mueller Park<sup>16</sup></li>
+<li>11/19&nbsp;&nbsp;@ Millcreek<sup>14</sup></li>
+<li>11/24&nbsp;&nbsp;vs South Davis<sup>12</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">9</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-9')">Farmington</a></td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1.000</td>
+                    <td class="numeric">52</td>
+                    <td class="numeric">49</td>
+                    <td class="numeric positive">+3</td>
+                </tr>
+                <tr id="details-team-9" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;@ Central Davis<sup>10</sup>&nbsp;&nbsp;W&nbsp;&nbsp;52-49</li>
+<li>10/22&nbsp;&nbsp;@ Syracuse<sup>5</sup></li>
+<li>10/27&nbsp;&nbsp;vs Kaysville<sup>2</sup></li>
+<li>10/29&nbsp;&nbsp;vs West Point<sup>17</sup></li>
+<li>11/03&nbsp;&nbsp;vs Sunset<sup>15</sup></li>
+<li>11/05&nbsp;&nbsp;@ Legacy<sup>13</sup></li>
+<li>11/10&nbsp;&nbsp;vs Millcreek<sup>14</sup></li>
+<li>11/12&nbsp;&nbsp;@ Centerville<sup>8</sup></li>
+<li>11/17&nbsp;&nbsp;@ South Davis<sup>12</sup></li>
+<li>11/19&nbsp;&nbsp;@ Mueller Park<sup>16</sup></li>
+<li>11/24&nbsp;&nbsp;vs Bountiful<sup>18</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">10</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-10')">Central Davis</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">49</td>
+                    <td class="numeric">52</td>
+                    <td class="numeric negative">-3</td>
+                </tr>
+                <tr id="details-team-10" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs Farmington<sup>9</sup>&nbsp;&nbsp;L&nbsp;&nbsp;49-52</li>
+<li>10/22&nbsp;&nbsp;@ West Point<sup>17</sup></li>
+<li>10/27&nbsp;&nbsp;@ Mueller Park<sup>16</sup></li>
+<li>10/29&nbsp;&nbsp;vs Syracuse<sup>5</sup></li>
+<li>11/03&nbsp;&nbsp;@ South Davis<sup>12</sup></li>
+<li>11/05&nbsp;&nbsp;vs North Davis<sup>11</sup></li>
+<li>11/10&nbsp;&nbsp;vs Centennial<sup>1</sup></li>
+<li>11/12&nbsp;&nbsp;vs Fairfield<sup>4</sup></li>
+<li>11/17&nbsp;&nbsp;vs Legacy<sup>13</sup></li>
+<li>11/19&nbsp;&nbsp;@ Kaysville<sup>2</sup></li>
+<li>11/24&nbsp;&nbsp;@ Shoreline<sup>3</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">11</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-11')">North Davis</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">51</td>
+                    <td class="numeric">57</td>
+                    <td class="numeric negative">-6</td>
+                </tr>
+                <tr id="details-team-11" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;@ Centerville<sup>8</sup>&nbsp;&nbsp;L&nbsp;&nbsp;51-57</li>
+<li>10/22&nbsp;&nbsp;@ Bountiful<sup>18</sup></li>
+<li>10/27&nbsp;&nbsp;vs South Davis<sup>12</sup></li>
+<li>10/29&nbsp;&nbsp;vs Shoreline<sup>3</sup></li>
+<li>11/03&nbsp;&nbsp;vs Fairfield<sup>4</sup></li>
+<li>11/05&nbsp;&nbsp;@ Central Davis<sup>10</sup></li>
+<li>11/10&nbsp;&nbsp;@ Sunset<sup>15</sup></li>
+<li>11/12&nbsp;&nbsp;vs Horizon<sup>6</sup></li>
+<li>11/17&nbsp;&nbsp;vs Syracuse<sup>5</sup></li>
+<li>11/19&nbsp;&nbsp;@ West Point<sup>17</sup></li>
+<li>11/24&nbsp;&nbsp;vs North Layton<sup>7</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">12</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-12')">South Davis</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">57</td>
+                    <td class="numeric">66</td>
+                    <td class="numeric negative">-9</td>
+                </tr>
+                <tr id="details-team-12" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs North Layton<sup>7</sup>&nbsp;&nbsp;L&nbsp;&nbsp;57-66</li>
+<li>10/22&nbsp;&nbsp;@ Shoreline<sup>3</sup></li>
+<li>10/27&nbsp;&nbsp;@ North Davis<sup>11</sup></li>
+<li>10/29&nbsp;&nbsp;vs Fairfield<sup>4</sup></li>
+<li>11/03&nbsp;&nbsp;vs Central Davis<sup>10</sup></li>
+<li>11/05&nbsp;&nbsp;@ Syracuse<sup>5</sup></li>
+<li>11/10&nbsp;&nbsp;vs Mueller Park<sup>16</sup></li>
+<li>11/12&nbsp;&nbsp;@ Millcreek<sup>14</sup></li>
+<li>11/17&nbsp;&nbsp;vs Farmington<sup>9</sup></li>
+<li>11/19&nbsp;&nbsp;@ Bountiful<sup>18</sup></li>
+<li>11/24&nbsp;&nbsp;@ Centerville<sup>8</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">13</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-13')">Legacy</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">43</td>
+                    <td class="numeric">54</td>
+                    <td class="numeric negative">-11</td>
+                </tr>
+                <tr id="details-team-13" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;@ Syracuse<sup>5</sup>&nbsp;&nbsp;L&nbsp;&nbsp;43-54</li>
+<li>10/22&nbsp;&nbsp;vs Millcreek<sup>14</sup></li>
+<li>10/27&nbsp;&nbsp;vs Sunset<sup>15</sup></li>
+<li>10/29&nbsp;&nbsp;@ North Layton<sup>7</sup></li>
+<li>11/03&nbsp;&nbsp;@ Bountiful<sup>18</sup></li>
+<li>11/05&nbsp;&nbsp;vs Farmington<sup>9</sup></li>
+<li>11/10&nbsp;&nbsp;vs Kaysville<sup>2</sup></li>
+<li>11/12&nbsp;&nbsp;@ Centennial<sup>1</sup></li>
+<li>11/17&nbsp;&nbsp;@ Central Davis<sup>10</sup></li>
+<li>11/19&nbsp;&nbsp;vs Shoreline<sup>3</sup></li>
+<li>11/24&nbsp;&nbsp;@ Fairfield<sup>4</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">14</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-14')">Millcreek</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">41</td>
+                    <td class="numeric">52</td>
+                    <td class="numeric negative">-11</td>
+                </tr>
+                <tr id="details-team-14" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs Horizon<sup>6</sup>&nbsp;&nbsp;L&nbsp;&nbsp;41-52</li>
+<li>10/22&nbsp;&nbsp;@ Legacy<sup>13</sup></li>
+<li>10/27&nbsp;&nbsp;vs Centennial<sup>1</sup></li>
+<li>10/29&nbsp;&nbsp;@ Kaysville<sup>2</sup></li>
+<li>11/03&nbsp;&nbsp;vs Syracuse<sup>5</sup></li>
+<li>11/05&nbsp;&nbsp;@ North Layton<sup>7</sup></li>
+<li>11/10&nbsp;&nbsp;@ Farmington<sup>9</sup></li>
+<li>11/12&nbsp;&nbsp;vs South Davis<sup>12</sup></li>
+<li>11/17&nbsp;&nbsp;@ Bountiful<sup>18</sup></li>
+<li>11/19&nbsp;&nbsp;vs Centerville<sup>8</sup></li>
+<li>11/24&nbsp;&nbsp;@ Mueller Park<sup>16</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">15</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-15')">Sunset</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">31</td>
+                    <td class="numeric">58</td>
+                    <td class="numeric negative">-27</td>
+                </tr>
+                <tr id="details-team-15" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs Fairfield<sup>4</sup>&nbsp;&nbsp;L&nbsp;&nbsp;31-58</li>
+<li>10/22&nbsp;&nbsp;vs Kaysville<sup>2</sup></li>
+<li>10/27&nbsp;&nbsp;@ Legacy<sup>13</sup></li>
+<li>10/29&nbsp;&nbsp;@ Bountiful<sup>18</sup></li>
+<li>11/03&nbsp;&nbsp;@ Farmington<sup>9</sup></li>
+<li>11/05&nbsp;&nbsp;vs Mueller Park<sup>16</sup></li>
+<li>11/10&nbsp;&nbsp;vs North Davis<sup>11</sup></li>
+<li>11/12&nbsp;&nbsp;@ North Layton<sup>7</sup></li>
+<li>11/17&nbsp;&nbsp;vs West Point<sup>17</sup></li>
+<li>11/19&nbsp;&nbsp;vs Horizon<sup>6</sup></li>
+<li>11/24&nbsp;&nbsp;@ Syracuse<sup>5</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">16</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-16')">Mueller Park</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">31</td>
+                    <td class="numeric">60</td>
+                    <td class="numeric negative">-29</td>
+                </tr>
+                <tr id="details-team-16" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs Shoreline<sup>3</sup>&nbsp;&nbsp;L&nbsp;&nbsp;31-60</li>
+<li>10/22&nbsp;&nbsp;@ Horizon<sup>6</sup></li>
+<li>10/27&nbsp;&nbsp;vs Central Davis<sup>10</sup></li>
+<li>10/29&nbsp;&nbsp;@ Centennial<sup>1</sup></li>
+<li>11/03&nbsp;&nbsp;vs West Point<sup>17</sup></li>
+<li>11/05&nbsp;&nbsp;@ Sunset<sup>15</sup></li>
+<li>11/10&nbsp;&nbsp;@ South Davis<sup>12</sup></li>
+<li>11/12&nbsp;&nbsp;vs Bountiful<sup>18</sup></li>
+<li>11/17&nbsp;&nbsp;vs Centerville<sup>8</sup></li>
+<li>11/19&nbsp;&nbsp;vs Farmington<sup>9</sup></li>
+<li>11/24&nbsp;&nbsp;vs Millcreek<sup>14</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">17</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-17')">West Point</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">35</td>
+                    <td class="numeric">65</td>
+                    <td class="numeric negative">-30</td>
+                </tr>
+                <tr id="details-team-17" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;@ Kaysville<sup>2</sup>&nbsp;&nbsp;L&nbsp;&nbsp;35-65</li>
+<li>10/22&nbsp;&nbsp;vs Central Davis<sup>10</sup></li>
+<li>10/27&nbsp;&nbsp;vs Bountiful<sup>18</sup></li>
+<li>10/29&nbsp;&nbsp;@ Farmington<sup>9</sup></li>
+<li>11/03&nbsp;&nbsp;@ Mueller Park<sup>16</sup></li>
+<li>11/05&nbsp;&nbsp;vs Centennial<sup>1</sup></li>
+<li>11/10&nbsp;&nbsp;vs North Layton<sup>7</sup></li>
+<li>11/12&nbsp;&nbsp;@ Syracuse<sup>5</sup></li>
+<li>11/17&nbsp;&nbsp;@ Sunset<sup>15</sup></li>
+<li>11/19&nbsp;&nbsp;vs North Davis<sup>11</sup></li>
+<li>11/24&nbsp;&nbsp;vs Horizon<sup>6</sup></li>
+                    </ul></td>
+                </tr>                <tr>
+                    <td class="numeric">18</td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-18')">Bountiful</a></td>
+                    <td class="numeric">0</td>
+                    <td class="numeric">1</td>
+                    <td class="numeric">0.000</td>
+                    <td class="numeric">24</td>
+                    <td class="numeric">81</td>
+                    <td class="numeric negative">-57</td>
+                </tr>
+                <tr id="details-team-18" class="details" style="display: none;">
+                    <td colspan="8"><ul><li>10/20&nbsp;&nbsp;@ Centennial<sup>1</sup>&nbsp;&nbsp;L&nbsp;&nbsp;24-81</li>
+<li>10/22&nbsp;&nbsp;vs North Davis<sup>11</sup></li>
+<li>10/27&nbsp;&nbsp;@ West Point<sup>17</sup></li>
+<li>10/29&nbsp;&nbsp;vs Sunset<sup>15</sup></li>
+<li>11/03&nbsp;&nbsp;vs Legacy<sup>13</sup></li>
+<li>11/05&nbsp;&nbsp;vs Fairfield<sup>4</sup></li>
+<li>11/10&nbsp;&nbsp;vs Centerville<sup>8</sup></li>
+<li>11/12&nbsp;&nbsp;@ Mueller Park<sup>16</sup></li>
+<li>11/17&nbsp;&nbsp;vs Millcreek<sup>14</sup></li>
+<li>11/19&nbsp;&nbsp;vs South Davis<sup>12</sup></li>
+<li>11/24&nbsp;&nbsp;@ Farmington<sup>9</sup></li>
+                    </ul></td>
+                </tr>            </tbody>
+        </table>
+    </div>
+    <div class="legend">
+        Updated on: October 21, 2026<br>
+        PF: Points For<br>
+        PA: Points Against<br>
+        PD: Point Differential; Points For minus Points Against<br>
+        Rankings: Point Differential, Winning Percentage, Points For, Team Name
+    </div>
+    <script src="https://casey20022.github.io/tournament/menu.js"></script>
+</body>
+</html>
