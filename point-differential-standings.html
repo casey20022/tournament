@@ -10,7 +10,85 @@
     <title>Point Differential Standings</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 12px; }
-        h1 { font-size: 1.1rem;margin-bottom: 5px; }
+        h1 { font-size: 1.1rem; margin: 0; }
+
+.title-area {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-button {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #777;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #555;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.info-button:hover,
+.info-button:focus-visible {
+    background-color: #f2f2f2;
+    border-color: #333;
+    color: #222;
+    outline: none;
+}
+
+.info-popup {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 340px;
+    max-width: calc(100vw - 24px);
+    box-sizing: border-box;
+    padding: 12px 14px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    color: #333;
+    font-size: 0.85rem;
+    font-weight: normal;
+    line-height: 1.4;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.info-popup.show {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .info-popup {
+        position: static;
+        width: 100%;
+        max-width: none;
+        margin-top: 8px;
+        font-size: 1.1rem;
+        line-height: 1.45;
+    }
+}
         .table-container { overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
         th, td { padding: 6.17px 4px; border: 1px solid #ddd; }
@@ -27,20 +105,102 @@
         ul { margin: 0; padding-left: 20px; }
         sup { font-size: 0.7em; }
     </style>
-    <script>
-        function toggleDetails(id) {
-            var row = document.getElementById(id);
-            row.style.display = row.style.display === "none" ? "table-row" : "none";
+<script>
+    function toggleDetails(id) {
+        var row = document.getElementById(id);
+        row.style.display = row.style.display === "none" ? "table-row" : "none";
+    }
+
+    function openCloseInfo(event) {
+        event.stopPropagation();
+
+        var popup = document.getElementById("infoPopup");
+        var button = document.getElementById("infoButton");
+
+        var isOpen = popup.classList.contains("show");
+
+        if (isOpen) {
+            popup.classList.remove("show");
+            button.setAttribute("aria-expanded", "false");
+        } else {
+            popup.classList.add("show");
+            button.setAttribute("aria-expanded", "true");
         }
-    </script>
+    }
+
+    function closeInfo(event) {
+        event.stopPropagation();
+
+        var popup = document.getElementById("infoPopup");
+        var button = document.getElementById("infoButton");
+
+        popup.classList.remove("show");
+        button.setAttribute("aria-expanded", "false");
+    }
+
+    document.addEventListener("click", function(event) {
+        var titleArea = document.getElementById("titleArea");
+        var popup = document.getElementById("infoPopup");
+        var button = document.getElementById("infoButton");
+
+        if (
+            titleArea &&
+            popup &&
+            button &&
+            popup.classList.contains("show") &&
+            !titleArea.contains(event.target)
+        ) {
+            popup.classList.remove("show");
+            button.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            var popup = document.getElementById("infoPopup");
+            var button = document.getElementById("infoButton");
+
+            if (popup && button) {
+                popup.classList.remove("show");
+                button.setAttribute("aria-expanded", "false");
+            }
+        }
+    });
+</script>
 </head>
 <body>
     <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
     </div>
     <div class="mobile-menu" id="mobileMenu"></div>
-    <h1>Point Differential Standings</h1>
-    <div class="table-container">
+<div class="title-area" id="titleArea">
+
+    <div class="title-row">
+        <h1>Point Differential Standings</h1>
+
+        <button
+            class="info-button"
+            id="infoButton"
+            type="button"
+            aria-label="About Point Differential Standings"
+            aria-expanded="false"
+            aria-controls="infoPopup"
+            onclick="openCloseInfo(event)"
+        >?</button>
+    </div>
+
+    <div
+        class="info-popup"
+        id="infoPopup"
+        role="note"
+        onclick="closeInfo(event)"
+    >
+        This unofficial view ranks teams by point differential to show their performance relative to their opponents. For official rankings based on RPI, refer to the main Standings page.
+    </div>
+
+</div>
+
+<div class="table-container">
         <table>
             <thead>
                 <tr>
@@ -138,13 +298,13 @@
 <li>10/22&nbsp;&nbsp;@ Syracuse<sup>16</sup>&nbsp;&nbsp;W&nbsp;&nbsp;72-44</li>
 <li>10/27&nbsp;&nbsp;vs Kaysville<sup>6</sup>&nbsp;&nbsp;W&nbsp;&nbsp;68-52</li>
 <li>10/29&nbsp;&nbsp;vs West Point<sup>9</sup></li>
+<li>11/03&nbsp;&nbsp;vs Sunset<sup>13</sup></li>
 <li>11/05&nbsp;&nbsp;@ Legacy<sup>8</sup></li>
 <li>11/10&nbsp;&nbsp;vs Millcreek<sup>17</sup></li>
 <li>11/12&nbsp;&nbsp;@ Centerville<sup>12</sup></li>
 <li>11/17&nbsp;&nbsp;@ South Davis<sup>11</sup></li>
 <li>11/19&nbsp;&nbsp;@ Mueller Park<sup>14</sup></li>
 <li>11/24&nbsp;&nbsp;vs Bountiful<sup>18</sup></li>
-<li>&nbsp;&nbsp;vs Sunset<sup>13</sup></li>
                     </ul></td>
                 </tr>                <tr>
                     <td class="numeric">5</td>
@@ -345,13 +505,13 @@
 <li>10/22&nbsp;&nbsp;vs Kaysville<sup>6</sup>&nbsp;&nbsp;L&nbsp;&nbsp;63-64</li>
 <li>10/27&nbsp;&nbsp;@ Legacy<sup>8</sup>&nbsp;&nbsp;L&nbsp;&nbsp;48-51</li>
 <li>10/29&nbsp;&nbsp;@ Bountiful<sup>18</sup></li>
+<li>11/03&nbsp;&nbsp;@ Farmington<sup>4</sup></li>
 <li>11/05&nbsp;&nbsp;vs Mueller Park<sup>14</sup></li>
 <li>11/10&nbsp;&nbsp;vs North Davis<sup>15</sup></li>
 <li>11/12&nbsp;&nbsp;@ North Layton<sup>10</sup></li>
 <li>11/17&nbsp;&nbsp;vs West Point<sup>9</sup></li>
 <li>11/19&nbsp;&nbsp;vs Horizon<sup>5</sup></li>
 <li>11/24&nbsp;&nbsp;@ Syracuse<sup>16</sup></li>
-<li>&nbsp;&nbsp;@ Farmington<sup>4</sup></li>
                     </ul></td>
                 </tr>                <tr>
                     <td class="numeric">14</td>
