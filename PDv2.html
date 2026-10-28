@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://casey20022.github.io/tournament/menu.css">
-
-    <link rel="apple-touch-icon" sizes="180x180"
-          href="https://casey20022.github.io/tournament/apple-touch-icon.png">
-
-    <link rel="icon" type="image/png" sizes="180x180"
-          href="https://casey20022.github.io/tournament/apple-touch-icon.png">
-
-    <link rel="icon" type="image/x-icon"
-          href="https://casey20022.github.io/tournament/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://casey20022.github.io/tournament/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="https://casey20022.github.io/tournament/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="https://casey20022.github.io/tournament/favicon.ico">
 
     <title>Point Differential Standings</title>
 
@@ -28,37 +22,40 @@
             margin: 0;
         }
 
-        /* Title and information button */
-        .title-row {
-            display: flex;
-            align-items: center;
-            gap: 7px;
+        /* =========================================
+           TITLE / INFO BUTTON
+           ========================================= */
+
+        .title-area {
+            position: relative;
             margin-bottom: 5px;
         }
 
-        .info-wrapper {
-            position: relative;
-            display: inline-flex;
+        .title-row {
+            display: flex;
             align-items: center;
+            gap: 5px;
         }
 
         .info-button {
-            width: 24px;
-            height: 24px;
-            min-width: 24px;
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
             padding: 0;
-            border: 1.5px solid #666;
+            margin: 0;
+            border: 1px solid #777;
             border-radius: 50%;
             background-color: #fff;
             color: #555;
             font-family: Arial, sans-serif;
-            font-size: 15px;
+            font-size: 12px;
             font-weight: bold;
-            line-height: 1;
+            line-height: 16px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            box-sizing: border-box;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
         }
@@ -71,12 +68,13 @@
             outline: none;
         }
 
+        /* Desktop popup */
         .info-popup {
             display: none;
             position: absolute;
-            top: 32px;
-            right: 0;
-            width: 300px;
+            top: 30px;
+            left: 0;
+            width: 340px;
             max-width: calc(100vw - 24px);
             box-sizing: border-box;
             padding: 12px 14px;
@@ -95,19 +93,21 @@
             display: block;
         }
 
-        /* Small pointer beneath the ? icon */
-        .info-popup::before {
-            content: "";
-            position: absolute;
-            top: -7px;
-            right: 6px;
-            width: 12px;
-            height: 12px;
-            background: #fff;
-            border-left: 1px solid #ccc;
-            border-top: 1px solid #ccc;
-            transform: rotate(45deg);
+        /* Mobile: popup becomes a normal panel below title */
+        @media (max-width: 600px) {
+            .info-popup {
+                position: static;
+                width: 100%;
+                max-width: none;
+                margin-top: 8px;
+                font-size: 0.9rem;
+                line-height: 1.45;
+            }
         }
+
+        /* =========================================
+           TABLE
+           ========================================= */
 
         .table-container {
             overflow-x: auto;
@@ -182,31 +182,6 @@
         sup {
             font-size: 0.7em;
         }
-
-        /* Mobile optimization */
-        @media (max-width: 600px) {
-            .info-button {
-                width: 28px;
-                height: 28px;
-                min-width: 28px;
-                font-size: 16px;
-            }
-
-            .info-popup {
-                position: fixed;
-                top: auto;
-                left: 12px;
-                right: 12px;
-                width: auto;
-                max-width: none;
-                margin-top: 6px;
-                font-size: 0.9rem;
-            }
-
-            .info-popup::before {
-                display: none;
-            }
-        }
     </style>
 
     <script>
@@ -231,11 +206,16 @@
         }
 
         document.addEventListener("click", function(event) {
+            var titleArea = document.querySelector(".title-area");
             var popup = document.getElementById("infoPopup");
-            var wrapper = document.querySelector(".info-wrapper");
             var button = document.getElementById("infoButton");
 
-            if (popup && wrapper && !wrapper.contains(event.target)) {
+            if (
+                titleArea &&
+                popup &&
+                button &&
+                !titleArea.contains(event.target)
+            ) {
                 popup.classList.remove("show");
                 button.setAttribute("aria-expanded", "false");
             }
@@ -249,6 +229,7 @@
                 if (popup && button) {
                     popup.classList.remove("show");
                     button.setAttribute("aria-expanded", "false");
+                    button.focus();
                 }
             }
         });
@@ -265,11 +246,12 @@
 
     <div class="mobile-menu" id="mobileMenu"></div>
 
-    <!-- Page title with information button -->
-    <div class="title-row">
-        <h1>Point Differential Standings</h1>
+    <!-- Title and Point Differential explanation -->
+    <div class="title-area">
 
-        <div class="info-wrapper">
+        <div class="title-row">
+            <h1>Point Differential Standings</h1>
+
             <button
                 class="info-button"
                 id="infoButton"
@@ -279,19 +261,19 @@
                 aria-controls="infoPopup"
                 onclick="toggleInfo(event)"
             >?</button>
-
-            <div
-                class="info-popup"
-                id="infoPopup"
-                role="tooltip"
-            >
-                This unofficial view ranks teams by point differential to show their performance relative to their opponents. For official rankings based on RPI, refer to the main Standings page.
-            </div>
         </div>
+
+        <div
+            class="info-popup"
+            id="infoPopup"
+            role="note"
+        >
+            This unofficial view ranks teams by point differential to show their performance relative to their opponents. For official rankings based on RPI, refer to the main Standings page.
+        </div>
+
     </div>
 
     <div class="table-container">
-
         <table>
 
             <thead>
@@ -312,9 +294,7 @@
                 <!-- 1 Centennial -->
                 <tr>
                     <td class="numeric">1</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-1')">Centennial</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-1')">Centennial</a></td>
                     <td class="numeric">3</td>
                     <td class="numeric">0</td>
                     <td class="numeric">1.000</td>
@@ -322,7 +302,6 @@
                     <td class="numeric">125</td>
                     <td class="numeric positive">+122</td>
                 </tr>
-
                 <tr id="details-team-1" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -344,9 +323,7 @@
                 <!-- 2 Shoreline -->
                 <tr>
                     <td class="numeric">2</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-2')">Shoreline</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-2')">Shoreline</a></td>
                     <td class="numeric">3</td>
                     <td class="numeric">0</td>
                     <td class="numeric">1.000</td>
@@ -354,7 +331,6 @@
                     <td class="numeric">96</td>
                     <td class="numeric positive">+107</td>
                 </tr>
-
                 <tr id="details-team-2" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -376,9 +352,7 @@
                 <!-- 3 Fairfield -->
                 <tr>
                     <td class="numeric">3</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-3')">Fairfield</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-3')">Fairfield</a></td>
                     <td class="numeric">2</td>
                     <td class="numeric">1</td>
                     <td class="numeric">0.667</td>
@@ -386,7 +360,6 @@
                     <td class="numeric">102</td>
                     <td class="numeric positive">+56</td>
                 </tr>
-
                 <tr id="details-team-3" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -408,9 +381,7 @@
                 <!-- 4 Farmington -->
                 <tr>
                     <td class="numeric">4</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-4')">Farmington</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-4')">Farmington</a></td>
                     <td class="numeric">3</td>
                     <td class="numeric">0</td>
                     <td class="numeric">1.000</td>
@@ -418,7 +389,6 @@
                     <td class="numeric">145</td>
                     <td class="numeric positive">+47</td>
                 </tr>
-
                 <tr id="details-team-4" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -440,9 +410,7 @@
                 <!-- 5 Horizon -->
                 <tr>
                     <td class="numeric">5</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-5')">Horizon</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-5')">Horizon</a></td>
                     <td class="numeric">3</td>
                     <td class="numeric">0</td>
                     <td class="numeric">1.000</td>
@@ -450,7 +418,6 @@
                     <td class="numeric">123</td>
                     <td class="numeric positive">+22</td>
                 </tr>
-
                 <tr id="details-team-5" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -472,9 +439,7 @@
                 <!-- 6 Kaysville -->
                 <tr>
                     <td class="numeric">6</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-6')">Kaysville</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-6')">Kaysville</a></td>
                     <td class="numeric">2</td>
                     <td class="numeric">1</td>
                     <td class="numeric">0.667</td>
@@ -482,7 +447,6 @@
                     <td class="numeric">166</td>
                     <td class="numeric positive">+15</td>
                 </tr>
-
                 <tr id="details-team-6" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -504,9 +468,7 @@
                 <!-- 7 Central Davis -->
                 <tr>
                     <td class="numeric">7</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-7')">Central Davis</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-7')">Central Davis</a></td>
                     <td class="numeric">2</td>
                     <td class="numeric">1</td>
                     <td class="numeric">0.667</td>
@@ -514,7 +476,6 @@
                     <td class="numeric">126</td>
                     <td class="numeric positive">+12</td>
                 </tr>
-
                 <tr id="details-team-7" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -536,9 +497,7 @@
                 <!-- 8 Legacy -->
                 <tr>
                     <td class="numeric">8</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-8')">Legacy</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-8')">Legacy</a></td>
                     <td class="numeric">2</td>
                     <td class="numeric">1</td>
                     <td class="numeric">0.667</td>
@@ -546,7 +505,6 @@
                     <td class="numeric">142</td>
                     <td class="numeric positive">+6</td>
                 </tr>
-
                 <tr id="details-team-8" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -568,9 +526,7 @@
                 <!-- 9 West Point -->
                 <tr>
                     <td class="numeric">9</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-9')">West Point</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-9')">West Point</a></td>
                     <td class="numeric">1</td>
                     <td class="numeric">2</td>
                     <td class="numeric">0.333</td>
@@ -578,7 +534,6 @@
                     <td class="numeric">131</td>
                     <td class="numeric negative">-3</td>
                 </tr>
-
                 <tr id="details-team-9" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -600,9 +555,7 @@
                 <!-- 10 North Layton -->
                 <tr>
                     <td class="numeric">10</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-10')">North Layton</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-10')">North Layton</a></td>
                     <td class="numeric">2</td>
                     <td class="numeric">1</td>
                     <td class="numeric">0.667</td>
@@ -610,7 +563,6 @@
                     <td class="numeric">193</td>
                     <td class="numeric negative">-16</td>
                 </tr>
-
                 <tr id="details-team-10" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -632,9 +584,7 @@
                 <!-- 11 South Davis -->
                 <tr>
                     <td class="numeric">11</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-11')">South Davis</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-11')">South Davis</a></td>
                     <td class="numeric">1</td>
                     <td class="numeric">2</td>
                     <td class="numeric">0.333</td>
@@ -642,7 +592,6 @@
                     <td class="numeric">181</td>
                     <td class="numeric negative">-16</td>
                 </tr>
-
                 <tr id="details-team-11" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -664,9 +613,7 @@
                 <!-- 12 Centerville -->
                 <tr>
                     <td class="numeric">12</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-12')">Centerville</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-12')">Centerville</a></td>
                     <td class="numeric">1</td>
                     <td class="numeric">2</td>
                     <td class="numeric">0.333</td>
@@ -674,7 +621,6 @@
                     <td class="numeric">168</td>
                     <td class="numeric negative">-31</td>
                 </tr>
-
                 <tr id="details-team-12" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -696,9 +642,7 @@
                 <!-- 13 Sunset -->
                 <tr>
                     <td class="numeric">13</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-13')">Sunset</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-13')">Sunset</a></td>
                     <td class="numeric">0</td>
                     <td class="numeric">3</td>
                     <td class="numeric">0.000</td>
@@ -706,7 +650,6 @@
                     <td class="numeric">173</td>
                     <td class="numeric negative">-31</td>
                 </tr>
-
                 <tr id="details-team-13" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -728,9 +671,7 @@
                 <!-- 14 Mueller Park -->
                 <tr>
                     <td class="numeric">14</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-14')">Mueller Park</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-14')">Mueller Park</a></td>
                     <td class="numeric">0</td>
                     <td class="numeric">3</td>
                     <td class="numeric">0.000</td>
@@ -738,7 +679,6 @@
                     <td class="numeric">146</td>
                     <td class="numeric negative">-39</td>
                 </tr>
-
                 <tr id="details-team-14" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -760,9 +700,7 @@
                 <!-- 15 North Davis -->
                 <tr>
                     <td class="numeric">15</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-15')">North Davis</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-15')">North Davis</a></td>
                     <td class="numeric">0</td>
                     <td class="numeric">3</td>
                     <td class="numeric">0.000</td>
@@ -770,7 +708,6 @@
                     <td class="numeric">185</td>
                     <td class="numeric negative">-46</td>
                 </tr>
-
                 <tr id="details-team-15" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -792,9 +729,7 @@
                 <!-- 16 Syracuse -->
                 <tr>
                     <td class="numeric">16</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-16')">Syracuse</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-16')">Syracuse</a></td>
                     <td class="numeric">1</td>
                     <td class="numeric">2</td>
                     <td class="numeric">0.333</td>
@@ -802,7 +737,6 @@
                     <td class="numeric">187</td>
                     <td class="numeric negative">-56</td>
                 </tr>
-
                 <tr id="details-team-16" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -824,9 +758,7 @@
                 <!-- 17 Millcreek -->
                 <tr>
                     <td class="numeric">17</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-17')">Millcreek</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-17')">Millcreek</a></td>
                     <td class="numeric">0</td>
                     <td class="numeric">3</td>
                     <td class="numeric">0.000</td>
@@ -834,7 +766,6 @@
                     <td class="numeric">186</td>
                     <td class="numeric negative">-62</td>
                 </tr>
-
                 <tr id="details-team-17" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -856,9 +787,7 @@
                 <!-- 18 Bountiful -->
                 <tr>
                     <td class="numeric">18</td>
-                    <td class="text">
-                        <a class="team-link" onclick="toggleDetails('details-team-18')">Bountiful</a>
-                    </td>
+                    <td class="text"><a class="team-link" onclick="toggleDetails('details-team-18')">Bountiful</a></td>
                     <td class="numeric">1</td>
                     <td class="numeric">2</td>
                     <td class="numeric">0.333</td>
@@ -866,7 +795,6 @@
                     <td class="numeric">176</td>
                     <td class="numeric negative">-87</td>
                 </tr>
-
                 <tr id="details-team-18" class="details" style="display: none;">
                     <td colspan="8">
                         <ul>
@@ -887,7 +815,6 @@
 
             </tbody>
         </table>
-
     </div>
 
     <div class="legend">
