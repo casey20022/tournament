@@ -14,7 +14,7 @@
 
 .title-area {
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .title-row {
@@ -93,6 +93,31 @@
         table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
         th, td { padding: 6.17px 4px; border: 1px solid #ddd; }
         th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
+        th.sortable {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+th.sortable:hover {
+    background-color: #e5e5e5;
+}
+
+th.sortable::after {
+    content: " \2195";
+    color: #999;
+    font-size: 0.8em;
+}
+
+th.sortable.sort-asc::after {
+    content: " \25B2";
+    color: #333;
+}
+
+th.sortable.sort-desc::after {
+    content: " \25BC";
+    color: #333;
+}
         tr:nth-child(even) { background-color: #f9f9f9; }
         .numeric { text-align: center; }
         .text { text-align: left; }
@@ -101,7 +126,7 @@
         .negative { color: #b00020; font-weight: bold; }
         .zero { font-weight: bold; }
         .details td { background-color: #fafafa; }
-        .legend { font-size: 0.8em; padding: 10px 5px; }
+        .legend { font-size: 0.8em; padding:5px; }
         ul { margin: 0; padding-left: 20px; }
         sup { font-size: 0.7em; }
     </style>
@@ -166,6 +191,93 @@
             }
         }
     });
+    function sortTable(columnIndex, type, header) {
+    var table = header.closest("table");
+    var tbody = table.querySelector("tbody");
+    var rows = Array.from(tbody.children);
+
+    // Build groups consisting of:
+    // main team row + its corresponding detail row
+    var groups = [];
+
+    for (var i = 0; i < rows.length; i++) {
+        var row = rows[i];
+
+        // Skip detail rows because they are attached
+        // to the preceding team row.
+        if (row.classList.contains("details")) {
+            continue;
+        }
+
+        var detailRow = null;
+
+        if (
+            i + 1 < rows.length &&
+            rows[i + 1].classList.contains("details")
+        ) {
+            detailRow = rows[i + 1];
+        }
+
+        groups.push({
+            main: row,
+            detail: detailRow
+        });
+    }
+
+    // Determine sort direction.
+    // First click = ascending.
+    // Clicking the same column again reverses it.
+    var ascending = !header.classList.contains("sort-asc");
+
+    // Remove sort indicators from all headers.
+    table.querySelectorAll("th.sortable").forEach(function(th) {
+        th.classList.remove("sort-asc", "sort-desc");
+    });
+
+    header.classList.add(
+        ascending ? "sort-asc" : "sort-desc"
+    );
+
+    groups.sort(function(a, b) {
+        var aCell = a.main.cells[columnIndex];
+        var bCell = b.main.cells[columnIndex];
+
+        var aValue = aCell.textContent.trim();
+        var bValue = bCell.textContent.trim();
+
+        if (type === "number") {
+            // Handles normal numbers as well as +122 and -87.
+            var aNumber = parseFloat(
+                aValue.replace(/[^0-9.\-]/g, "")
+            );
+
+            var bNumber = parseFloat(
+                bValue.replace(/[^0-9.\-]/g, "")
+            );
+
+            if (isNaN(aNumber)) aNumber = 0;
+            if (isNaN(bNumber)) bNumber = 0;
+
+            return ascending
+                ? aNumber - bNumber
+                : bNumber - aNumber;
+        }
+
+        // Alphabetical sorting for Team.
+        return ascending
+            ? aValue.localeCompare(bValue)
+            : bValue.localeCompare(aValue);
+    });
+
+    // Reinsert each team row followed by its detail row.
+    groups.forEach(function(group) {
+        tbody.appendChild(group.main);
+
+        if (group.detail) {
+            tbody.appendChild(group.detail);
+        }
+    });
+}
 </script>
 </head>
 <body>
@@ -203,16 +315,17 @@
 <div class="table-container">
         <table>
             <thead>
-                <tr>
-                    <th class="numeric">#</th>
-                    <th class="text">Team</th>
-                    <th class="numeric">W</th>
-                    <th class="numeric">L</th>
-                    <th class="numeric">WP</th>
-                    <th class="numeric">PF</th>
-                    <th class="numeric">PA</th>
-                    <th class="numeric">PD</th>
-                </tr>
+<tr>
+    <th class="numeric sortable" onclick="sortTable(0, 'number', this)">#</th>
+    <th class="text sortable" onclick="sortTable(1, 'text', this)">Team</th>
+    <th class="numeric sortable" onclick="sortTable(2, 'number', this)">W</th>
+    <th class="numeric sortable" onclick="sortTable(3, 'number', this)">L</th>
+    <th class="numeric sortable" onclick="sortTable(4, 'number', this)">WP</th>
+    <th class="numeric sortable" onclick="sortTable(5, 'number', this)">PF</th>
+    <th class="numeric sortable" onclick="sortTable(6, 'number', this)">PA</th>
+    <th class="numeric sortable" onclick="sortTable(7, 'number', this)">PD</th>
+</tr>
+
             </thead>
             <tbody>                <tr>
                     <td class="numeric">1</td>
@@ -224,6 +337,7 @@
                     <td class="numeric">125</td>
                     <td class="numeric positive">+122</td>
                 </tr>
+                
                 <tr id="details-team-1" class="details" style="display: none;">
                     <td colspan="8"><ul><li>10/20&nbsp;&nbsp;vs Bountiful<sup>18</sup>&nbsp;&nbsp;W&nbsp;&nbsp;81-26</li>
 <li>10/22&nbsp;&nbsp;vs North Layton<sup>10</sup>&nbsp;&nbsp;W&nbsp;&nbsp;86-56</li>
